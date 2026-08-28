@@ -1,4 +1,10 @@
-site_name: Plantilla para Documentación
+site_name: José Carlos - Proyectos 4
+nav:
+  - Portada: index.md
+  - About me: about.md
+  - Semanas:
+      - Semana 1 - SCAMPER: semanas/semana-01.md
+  - Proyecto final: proyecto-final.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
