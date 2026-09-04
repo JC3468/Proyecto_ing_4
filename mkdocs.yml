@@ -4,6 +4,7 @@ nav:
   - About me: about.md
   - Semanas:
       - Semana 1 - SCAMPER: semanas/semana-01.md
+      - Semana 2: semanas/semana2.md
   - Proyecto final: proyecto-final.md
 markdown_extensions:
   - pymdownx.highlight:
