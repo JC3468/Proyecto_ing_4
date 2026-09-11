@@ -5,6 +5,8 @@ nav:
   - Semanas:
       - Semana 1 - SCAMPER: semanas/semana-01.md
       - Semana 2: semanas/semana2.md
+      - Semana 2-1: semanas/semana2-1.md
+      - Semana 3: semanas/semana3.md
   - Proyecto final: proyecto-final.md
 markdown_extensions:
   - pymdownx.highlight:
