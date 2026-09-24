@@ -88,3 +88,13 @@ Al arrancar esta investigación probamos el concepto original con una definició
 Hoy, con evidencia de tres análisis independientes (auditoría de ecosistema, comparación de insights con datos de ANUIES y del mercado, y validación de deseabilidad), descubrimos que el dolor real y verificable no está en gamers genéricos que *quieren* aprender C++ por curiosidad — está específicamente en estudiantes de ingeniería que *ya tienen* que integrarlo con hardware real para no reprobar, que además resultan ser jugadores activos de simuladores, y que ya gastan dinero y tiempo real resolviendo ese problema a ciegas.
 
 Eso no cambia el producto central — el videojuego de fábrica de drones con C++ real sigue siendo el corazón del concepto — lo hace más preciso: acota el segmento a estudiantes de ingeniería, identifica la causa exacta del aburrimiento (falta de diagnóstico cuando el código falla en hardware), y agrega una expansión concreta que el concepto original no tenía: una estación de pruebas física (ESP32 + sensores + actuadores) con una app que traduce errores de código a comportamiento físico — el diferenciador que ningún competidor mapeado, ni de juegos (Shenzhen I/O, TIS-100) ni de hardware (Arduino Education, Elegoo), ofrece hoy.
+
+---
+
+## Reflexión
+
+Fue una semana frustrante. Tuvimos que repetir el proceso casi desde cero varias veces, y cada vez que por fin se aterrizaba una idea sólida y se pasaba por SCAMPER con la IA, la propuesta se volvía tan rebuscada que perdía su lógica. Aprendí que la IA es útil, pero hay que guiarla y saber identificar cuándo ya perdió el rumbo.
+
+Lo que más me gustó fue el filtro DVF (deseabilidad, viabilidad y factibilidad): es directo y te dice sin rodeos si una idea se sostiene o es débil.
+
+También entendí por qué no cualquiera logra emprender. Es muy difícil tener una idea que sea innovadora, tenga un mercado real y se pueda construir, y es muy fácil enamorarse del propio diseño. Me llevo la importancia de ser riguroso antes de casarme con una solución.

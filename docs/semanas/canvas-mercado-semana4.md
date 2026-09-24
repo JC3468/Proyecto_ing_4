@@ -146,3 +146,15 @@ La descripción inicial del concepto ("un videojuego que enseña C++ al requerir
 ## Precio y modelo de ingresos
 
 **Recomendación:** Venta única, **199–299 MXN**, con posible expansión futura tipo DLC (módulos avanzados de C++, temas de sistemas embebidos). 3 de 4 entrevistados se ubicaron en el rango 100–400 MXN y hablaron del producto como "comprar un juego", no como un servicio recurrente — una suscripción mensual añade fricción sin sustento en la evidencia recabada. El análisis de viabilidad del Bloque 4 sugiere que este modelo por sí solo es marginal para sostener al equipo — el DLC y/o preventas son la vía más consistente con lo que dicen los usuarios.
+
+---
+
+## Reflexión
+
+Esta semana los números le ganaron al entusiasmo. Al calcular el SOM, GPIO Génesis llega a unos $275,000 MXN al año, y eso no alcanza ni para la nómina básica de un equipo de cuatro. Ver ese resultado fue duro, pero prefiero saberlo ahora que después de meses de desarrollo. También aprendí a desconfiar de los números de la IA: al calcular el TAM llegó a 229,000 personas y luego lo "redondeó de forma conservadora" a 760,000, más del triple, sin una fórmula que lo sostuviera. No lo detectamos a la primera, y es justo la trampa del TAM aspiracional.
+
+Lo que más me movió fue el mapa competitivo. Yo pensaba que nuestros rivales eran Shenzhen I/O o CodeCombat, y resultó que el más peligroso es gratis: GitHub y YouTube. Entendí que el verdadero competidor casi nunca es quien hace lo mismo que tú, sino lo que el usuario ya hace hoy para resolver su problema. En el lienzo de océano azul eso se notó: en "C++ real" empatamos con lo gratuito, así que la diferencia tiene que venir del portafolio exportable y del feedback visual, no del lenguaje.
+
+Escribir la propuesta de valor también me costó. Mi primera versión describía cómo funciona el juego, no lo que gana el estudiante, y eso es confundir una característica con valor. Con la pirámide de Bain vimos que hoy estamos en el nivel funcional, y que la ansiedad por conseguir empleo que salió en las entrevistas es lo que nos puede subir al emocional.
+
+Por último, las entrevistas me recordaron ser honesto con lo que falta: las cuatro personas evaluaron un concepto de granja, no la fábrica de drones, así que ese tema sigue sin validarse. Me llevo como regla que, antes de programar o comprar componentes para un producto, tengo que saber quién lo va a pagar y cuánto.

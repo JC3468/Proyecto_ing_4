@@ -129,3 +129,13 @@ Tomamos **IA sin Pantalla** y **Pasaporte de Saberes** y las combinamos en un so
     La conversación completa —incluyendo el encuadre inicial del problema, las tres preguntas HMW, la ideación SCAMPER completa y el remix final— está disponible en el chat compartido:
 
     [Ver conversación en ChatGPT](https://chatgpt.com/share/6a8e2af4-1e60-83e8-aca1-1ecacd8a9226)
+
+---
+
+## Reflexión
+
+Esta semana aprendí que sacarle provecho a la IA depende de cómo le hablas. No basta con hacer preguntas sueltas: hay que darle un rol y un contexto detallado sobre quién soy, qué hago y qué restricciones tiene el diseño. Entre más preciso es el contexto, más útil es la respuesta.
+
+Del IDEO Business Blueprint me quedo con su dinámica de pensamiento divergente y convergente: primero se abren muchas posibilidades, luego se filtran las más viables y se vuelve a abrir para iterar. Es una forma muy clara de estructurar un negocio alrededor de un proyecto tecnológico.
+
+SCAMPER me pareció de lo más útil de la semana. Obligarte a preguntar qué puedes sustituir, combinar o eliminar te saca del bloqueo creativo y te hace ver mejoras que de otra forma pasarían desapercibidas.
