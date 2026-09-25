@@ -1,0 +1,2262 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../canvas-mercado-semana4/">
+      
+      
+        <link rel="next" href="../../proyecto-final/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Semana 5 - PDS y arquitectura - José Carlos - Proyectos 4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-5-diseno-de-producto-pds-y-arquitectura-del-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="José Carlos - Proyectos 4" class="md-header__button md-logo" aria-label="José Carlos - Proyectos 4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            José Carlos - Proyectos 4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semana 5 - PDS y arquitectura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="José Carlos - Proyectos 4" class="md-nav__button md-logo" aria-label="José Carlos - Proyectos 4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    José Carlos - Proyectos 4
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semanas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semanas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 1 - SCAMPER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporte-oportunidad-semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3 - Propiedad intelectual y marca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas-mercado-semana4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 - PDS y arquitectura
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 - PDS y arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-punto-de-partida-un-producto-100-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Punto de partida: un producto 100% digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-decision-de-arquitectura-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Decisión de arquitectura de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-del-sistema-prompt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura del sistema (Prompt 1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura del sistema (Prompt 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-como-adaptamos-el-prompt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Cómo adaptamos el Prompt 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-auditoria-de-lo-que-dijo-la-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Auditoría de lo que dijo la IA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-diagrama-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Diagrama de bloques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-protocolos-por-que-este-y-no-otro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Protocolos: por qué este y no otro
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-defensa-de-la-arquitectura-5-minutos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Defensa de la arquitectura (5 minutos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pds-product-design-specification-prompt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. PDS — Product Design Specification (Prompt 2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. PDS — Product Design Specification (Prompt 2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pds-preliminar-primer-borrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 PDS preliminar (primer borrador)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pds-v10-entregable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 PDS v1.0 (entregable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bom-preliminar-servicios-y-costos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. BOM preliminar: servicios y costos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. BOM preliminar: servicios y costos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-first-iteration-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 First-iteration (software)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-servicios-criticos-los-componentes-de-un-producto-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Servicios críticos (los "componentes" de un producto digital)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-viabilidad-de-la-primera-version-y-lo-que-dejamos-fuera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Viabilidad de la primera versión y lo que dejamos fuera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-lo-que-debemos-poder-responder-al-salir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Lo que debemos poder responder al salir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyecto-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ideas descartadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ideas descartadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-punto-de-partida-un-producto-100-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Punto de partida: un producto 100% digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-decision-de-arquitectura-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Decisión de arquitectura de IA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-del-sistema-prompt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura del sistema (Prompt 1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura del sistema (Prompt 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-como-adaptamos-el-prompt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Cómo adaptamos el Prompt 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-auditoria-de-lo-que-dijo-la-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Auditoría de lo que dijo la IA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-diagrama-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Diagrama de bloques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-protocolos-por-que-este-y-no-otro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Protocolos: por qué este y no otro
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-defensa-de-la-arquitectura-5-minutos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Defensa de la arquitectura (5 minutos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pds-product-design-specification-prompt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. PDS — Product Design Specification (Prompt 2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. PDS — Product Design Specification (Prompt 2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pds-preliminar-primer-borrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 PDS preliminar (primer borrador)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pds-v10-entregable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 PDS v1.0 (entregable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bom-preliminar-servicios-y-costos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. BOM preliminar: servicios y costos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. BOM preliminar: servicios y costos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-first-iteration-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 First-iteration (software)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-servicios-criticos-los-componentes-de-un-producto-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Servicios críticos (los "componentes" de un producto digital)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-viabilidad-de-la-primera-version-y-lo-que-dejamos-fuera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Viabilidad de la primera versión y lo que dejamos fuera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-lo-que-debemos-poder-responder-al-salir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Lo que debemos poder responder al salir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="semana-5-diseno-de-producto-pds-y-arquitectura-del-sistema">Semana 5 — Diseño de producto: PDS y arquitectura del sistema</h1>
+<p><strong>Equipo:</strong> José Carlos y Yael<br />
+<strong>Concepto:</strong> GPIO Génesis — videojuego de simulación de una fábrica de drones donde se programa en C++ real, con un copiloto de IA que explica los errores en términos de lo que pasa en la fábrica<br />
+<strong>Tipo de producto:</strong> 100% digital (sin hardware)<br />
+<strong>Fecha:</strong> 24 de septiembre de 2026</p>
+<div class="admonition abstract">
+<p class="admonition-title">De qué trata esta semana</p>
+<p>Hasta la semana 4 decidimos <strong>qué</strong> construir y <strong>para quién</strong>. Esta semana decidimos <strong>cómo</strong>: dónde corre la IA, qué hace cada componente, cómo se comunican y qué requisitos verificables tiene que cumplir el producto. No se trata de implementar nada todavía, sino de <strong>justificar cada decisión</strong> antes de escribir código o comprar componentes.</p>
+<p>Entregables de esta página: decisión de arquitectura de IA (sección 1), arquitectura y diagrama de bloques con el Prompt 1 (sección 2), guion de la defensa (sección 3), PDS revisado con el Prompt 2 (sección 4), BOM preliminar con los servicios críticos (sección 5), viabilidad de la primera versión y lo que dejamos fuera (sección 6) y el checklist de salida (sección 7).</p>
+</div>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>Al terminar esta semana podemos:</p>
+<ul>
+<li>Traducir la propuesta de valor en un <strong>PDS</strong> con requerimientos funcionales, de desempeño, de interfaz y de restricción, cada uno con su <strong>criterio de verificación</strong>.</li>
+<li>Decidir <strong>dónde corre el modelo de IA</strong> (edge, cloud o híbrido) y defender la decisión con requerimientos del producto, no con gustos.</li>
+<li>Diseñar una arquitectura por capas donde <strong>cada flecha tiene un protocolo</strong> y cada caja una responsabilidad clara.</li>
+<li>Estimar el <strong>costo por unidad</strong> (y, en nuestro caso, el costo de IA por jugador) y ver si el precio que el segmento paga lo aguanta.</li>
+<li>Distinguir un <strong>prototipo de exploración</strong> de un <strong>first-iteration product</strong>.</li>
+</ul>
+<hr />
+<h2 id="0-punto-de-partida-un-producto-100-digital">0. Punto de partida: un producto 100% digital</h2>
+<p>El curso plantea tres componentes: artefacto físico inteligente, aplicación y página de venta. <strong>Decidimos que GPIO Génesis sea un producto enteramente digital</strong> y descartamos por completo la estación de pruebas física que habíamos planteado en las semanas 2 y 3. Las razones:</p>
+<ol>
+<li><strong>Tiempo y riesgo.</strong> Somos dos personas con 8 semanas efectivas. En la <a href="../reporte-oportunidad-semana2/">semana 2</a> la validación de deseabilidad ya marcaba <strong>alto riesgo técnico</strong> si intentábamos construir al mismo nivel el juego con compilador, una estación física, la app de diagnóstico y la web.</li>
+<li><strong>Otro cliente, otro precio.</strong> Al costear la estación salía en ≈ $965 MXN de materiales por unidad, así que su precio mínimo rondaría los $3,200 MXN. Eso no lo paga el estudiante individual, que está dispuesto a pagar 100–400 MXN por el juego (semana 4). Sería un producto B2B para laboratorios universitarios, un segmento que no hemos entrevistado.</li>
+<li><strong>Lo que el segmento validó es el juego.</strong> Lo que salió en las entrevistas fue aprender C++ real sin que se sienta como clase y con relevancia laboral. El hardware nunca apareció como necesidad.</li>
+<li><strong>Propiedad intelectual.</strong> La patente china CN121583173B (semana 3) protege diagnosticar el código comparando la ejecución virtual con la física. Sin estación, nuestro copiloto compara lo esperado con lo simulado y se aleja de ese reclamo.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Componente del curso</th>
+<th>Qué es en GPIO Génesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artefacto físico inteligente</td>
+<td><strong>No hay artefacto físico.</strong> El "microcontrolador" es virtual y la fábrica es simulada. Aun así, el código del jugador usa la misma API que Arduino-ESP32, así que puede llevarlo a una placa real propia si quiere: es C++ transferible, no un lenguaje de juguete</td>
+</tr>
+<tr>
+<td>Aplicación</td>
+<td><strong>Juego para PC</strong> con editor, compilador, simulador de la fábrica y <strong>copiloto IA</strong>. Es el corazón del producto</td>
+</tr>
+<tr>
+<td>Página de venta</td>
+<td>Sitio estático con video, descarga de la demo y lista de espera</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prototipo de exploración vs. first-iteration product en nuestro caso:</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Prototipo de exploración</th>
+<th>First-iteration product (semana 13)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qué es</td>
+<td>Un nivel de prueba que corre en nuestras computadoras con el editor de Godot abierto</td>
+<td>Un instalador de Windows que se descarga desde la página de venta</td>
+</tr>
+<tr>
+<td>Quién lo usa</td>
+<td>Nosotros</td>
+<td>Un estudiante de ingeniería que no nos conoce</td>
+</tr>
+<tr>
+<td>Qué contiene</td>
+<td>Lo que sea necesario para aprender si el compilador y el simulador funcionan</td>
+<td>Tutorial + 5 niveles, compilador incluido, copiloto IA, guardado y cuenta</td>
+</tr>
+<tr>
+<td>Criterio de éxito</td>
+<td>Aprendimos algo técnico</td>
+<td><strong>4 de 5 usuarios completan el tutorial y el nivel 1 sin que les expliquemos nada</strong> (RI-01 del PDS)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-decision-de-arquitectura-de-ia">1. Decisión de arquitectura de IA</h2>
+<p><strong>Decisión: HÍBRIDO, con la inteligencia principal en la nube (cloud-first).</strong></p>
+<ul>
+<li><strong>En la nube</strong> corre el copiloto: un modelo de lenguaje (Claude Haiku 4.5 vía API) que lee el código del jugador, los errores del compilador y la traza de la simulación, y explica en español qué está pasando en la fábrica y por qué.</li>
+<li><strong>En la PC del jugador (el "borde")</strong> corre todo lo que necesita responder en menos de un segundo o funcionar sin internet: el compilador, el microcontrolador virtual, el simulador, el validador del nivel y un <strong>diagnóstico local por reglas</strong> (~25 patrones de error frecuentes) que da una primera pista en ≤200 ms.</li>
+</ul>
+<p><strong>Justificación técnica (3 puntos):</strong></p>
+<ol>
+<li><strong>La tarea exige un modelo grande.</strong> Explicar por qué un programa C++ arbitrario no produce el comportamiento físico esperado, en español y sin dar la solución, necesita un LLM. No cabe en un ESP32 (~100 KB de parámetros con TensorFlow Lite Micro) y un modelo local de varios GB exigiría una GPU que la laptop típica del segmento no tiene garantizada. En la nube cuesta unos <strong>US$0.005 por consulta</strong> (ver BOM).</li>
+<li><strong>La latencia que necesita el usuario lo permite.</strong> Lo único que tiene que ser inmediato es compilar, simular y marcar el error, y eso corre local. La explicación del copiloto es ayuda para depurar, no un lazo de control: esperar 2–5 s es aceptable, y con <em>streaming</em> el texto empieza a aparecer en 1–2 s.</li>
+<li><strong>La conectividad es buena pero no perfecta, y los datos no son sensibles.</strong> El segmento estudia con internet (en el SAM filtramos 90% urbano con smartphone), pero la red del campus falla. Por eso la capa local garantiza que el juego <strong>nunca se vuelve un ladrillo</strong> sin señal. Lo que sale a la nube es código de ejercicios y la traza de la simulación; el nombre y el correo del jugador nunca llegan al modelo.</li>
+</ol>
+<p><strong>Las tres preguntas guía:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Respuesta para GPIO Génesis</th>
+<th>Qué implica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿El usuario tiene conectividad estable en el punto de uso?</td>
+<td>Casi siempre (casa, universidad), con caídas en el campus y en el transporte</td>
+<td>Cloud para el copiloto + capa local para no depender de la red</td>
+</tr>
+<tr>
+<td>¿La decisión necesita &lt;1 s o acepta 2–5 s?</td>
+<td>Compilar y simular: &lt;1 s (local). Explicar el error: acepta 2–5 s</td>
+<td>Separar las dos cosas es justo lo que hace el híbrido</td>
+</tr>
+<tr>
+<td>¿Los datos pueden salir del dispositivo?</td>
+<td>Sí: es código de ejercicios del juego. Los datos personales no salen hacia el LLM</td>
+<td>Aviso de privacidad y payload sin identificadores (RR-05)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Alternativas descartadas:</strong></p>
+<ul>
+<li><strong>Todo edge</strong> (un LLM local pequeño): sin costo por consulta, pero con explicaciones pobres en español técnico, un instalador de varios GB y requisitos de hardware que dejan fuera a parte del segmento.</li>
+<li><strong>Todo cloud</strong> (compilar y simular en servidores): el juego dejaría de funcionar sin internet, cada ejecución costaría dinero y correr código arbitrario de miles de jugadores en nuestros servidores es un problema de seguridad.</li>
+</ul>
+<hr />
+<h2 id="2-arquitectura-del-sistema-prompt-1">2. Arquitectura del sistema (Prompt 1)</h2>
+<h3 id="21-como-adaptamos-el-prompt-1">2.1 Cómo adaptamos el Prompt 1</h3>
+<p>El Prompt 1 del profesor está pensado para un artefacto con sensores en campo. Como nuestra first-iteration es software, lo adaptamos sin quitarle la estructura:</p>
+<table>
+<thead>
+<tr>
+<th>Parte del prompt</th>
+<th>Prompt del profesor</th>
+<th>Nuestro cambio</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tres componentes</td>
+<td>Artefacto físico + app + página de venta</td>
+<td>Juego para PC + copiloto IA + página de venta; producto 100% digital</td>
+<td>Es lo que realmente vamos a entregar en la semana 13</td>
+</tr>
+<tr>
+<td>Capacidades técnicas</td>
+<td>Hardware, software, IA, presupuesto</td>
+<td>Agregamos "Godot 4 (lo estamos aprendiendo)"</td>
+<td>Que la IA no suponga que ya dominamos un motor de videojuegos</td>
+</tr>
+<tr>
+<td>Paso 2 — Capa física</td>
+<td>Microcontrolador, sensores, alimentación</td>
+<td>"Capa cliente": motor del juego, compilador, MCU virtual y qué corre local</td>
+<td>En un producto digital el único "hardware" es la PC del jugador</td>
+</tr>
+<tr>
+<td>Paso 4 — Viabilidad</td>
+<td>BOM de 5–10 unidades y componentes críticos</td>
+<td>Costo de IA por jugador y <strong>servicios críticos</strong> (disponibilidad desde México, costo, plan B)</td>
+<td>Sin hardware, el "costo por unidad" es lo que cuesta cada jugador en la nube y los "componentes" son servicios de terceros</td>
+</tr>
+<tr>
+<td>Pregunta extra</td>
+<td>—</td>
+<td>"¿Qué pasa si la API sube 10×?"</td>
+<td>Es una de las preguntas de la defensa; mejor llegar con el número</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>Prompt 1 que usamos (Claude)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Actúa como arquitecto de sistemas embebidos y de software con experiencia en productos
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mecatrónicos con IA para mercados latinoamericanos. Especialidad: diseñar arquitecturas
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>que equilibren capacidad técnica, restricciones de manufactura y viabilidad económica para
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>equipos universitarios con presupuesto limitado. No propones la más sofisticada, sino la
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>más adecuada para el equipo y los requerimientos. Señalas las decisiones sin justificación.
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Somos un equipo de ingeniería en México (2 personas). El curso pide tres componentes:
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>artefacto físico inteligente, aplicación y página de venta. Por tiempo, nuestra primera
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>versión (8 semanas) es un producto 100% DIGITAL: un juego para PC con copiloto de IA +
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>página de venta. Descartamos el artefacto físico; no habrá hardware en el producto.
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Capacidades técnicas:
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>- Hardware: ESP32, Raspberry Pi, PCB 2 capas, impresión 3D, soldadura SMD
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>- Software: Python, C/C++, JavaScript/React, React Native. Godot 4 (lo estamos aprendiendo)
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>- IA: TensorFlow Lite, PyTorch, APIs de modelos (OpenAI, Anthropic, Google)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>- Presupuesto de materiales: máximo $3,000 MXN para el prototipo
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>Nuestro producto:
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>Nombre: GPIO Génesis
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>Descripción: videojuego de simulación de una fábrica de drones para estudiantes de
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>ingeniería de 18–25 años. El jugador escribe C++ real para automatizar la línea de
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>ensamblaje (pines, PWM, sensores) y un copiloto de IA le explica por qué su código no
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>produce el comportamiento físico esperado. Ataca el dolor de aprender C++ en clases
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>aburridas y sin diagnóstico cuando el código falla sobre hardware.
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>Propuesta de valor: "El único juego que convierte tu código C++ en portafolio real de
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>automatización, para estudiantes de ingeniería que aprenden sin que se sienta como tarea."
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>Requerimientos técnicos clave (PDS preliminar):
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>1. Compilar el C++ del jugador y ejecutarlo en un microcontrolador virtual, sin que el
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>   jugador instale nada extra.
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>2. Compilar y arrancar la simulación en menos de 3 s en una laptop sin GPU dedicada.
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>3. El copiloto explica el error en español, en términos físicos, sin dar la solución.
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>4. Sin internet el juego se puede jugar y da pistas básicas.
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>5. El costo de IA por jugador no puede comerse el precio de venta (199–299 MXN, pago único).
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>Nuestra decisión de arquitectura IA: Híbrido, principalmente cloud.
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>Justificación:
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>1. Explicar código arbitrario en lenguaje natural requiere un LLM que no cabe en el
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>   dispositivo del usuario.
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>2. La explicación acepta 2–5 s; lo que necesita &lt;1 s (compilar, simular) corre local.
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>3. La conectividad del segmento es buena pero no perfecta; los datos no son sensibles.
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>Con esta información entrega:
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>PASO 1 — VALIDACIÓN DE LA DECISIÓN IA
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>PASO 2 — ARQUITECTURA: capa cliente (PC del jugador, en lugar de capa física), capa de
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>datos (backend/cloud) y capa de presentación (vistas del juego y página de venta).
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>PASO 3 — FLUJO DE DATOS del caso de uso principal (el jugador falla un nivel y pide
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>ayuda), con componente responsable, protocolo, latencia estimada y qué pasa si falla.
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>PASO 4 — VIABILIDAD: costo de IA por jugador y qué pasa si la API sube 10×. En lugar de
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>componentes de hardware, evalúa los 3 servicios de terceros más críticos (disponibilidad
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>desde México, costo, riesgo y plan B) y el proceso de "manufactura" y distribución.
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>Usa el formato de salida del curso (ARQUITECTURA DEL SISTEMA ... VIABILIDAD).
+</span></code></pre></div>
+</details>
+<details class="note">
+<summary>Salida del Prompt 1 (resumida al formato del curso)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>════════════════════════════════════════════════════════
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ARQUITECTURA DEL SISTEMA
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Producto: GPIO Génesis · Decisión IA: Híbrido (cloud-first)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>════════════════════════════════════════════════════════
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>VALIDACIÓN DECISIÓN IA:
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Confirmada ✅ (con una condición)
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>La explicación en lenguaje natural de código arbitrario sí justifica un LLM en la nube,
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>y separar lo inmediato (compilar/simular, local) de lo que tolera segundos (explicar) es
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>correcto. Condición: el requerimiento 5 no está garantizado. Si cada jugador hace cientos
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>de consultas, la IA se come una parte relevante del precio; hace falta una cuota y que la
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>capa local resuelva los errores frecuentes. Sin eso la decisión es frágil ante un alza de
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>precio de la API.
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>────────────────────────────────────────────────────────
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>CAPA CLIENTE — PC del jugador (en un producto digital sustituye a la capa física)
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>Plataforma: Windows 10/11 64 bits, laptop sin GPU dedicada, 8 GB RAM
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Motor: Godot 4 — licencia MIT, sin regalías, integra C++ vía GDExtension, y su nodo
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  CodeEdit ya trae resaltado de sintaxis. Unity no aporta nada extra para un juego 2D/2.5D
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  y Unreal es demasiado pesado para una laptop del segmento y para 8 semanas.
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>Compilador: clang de wasi-sdk (Apache 2.0 + excepción LLVM) empaquetado en el instalador;
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>  compila el C++ del jugador a WebAssembly. No usar GCC enlazado (GPL, ver semana 3).
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>MCU virtual: runtime WAMR (Apache 2.0) que ejecuta el .wasm en sandbox. El programa del
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>  jugador solo ve un HAL «gpio.h» con la misma API que Arduino-ESP32 (pinMode,
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>  digitalWrite, analogWrite, analogRead, delay, millis, Serial). Así el código que
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>  escribe el jugador también compila en un ESP32 real: es C++ transferible a un empleo.
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>Simulador: física simplificada (motor DC de primer orden, banda, brazo, sensores) con tick
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>  lógico de 1 kHz y render a 60 fps.
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>Parte "edge" de la IA: diagnóstico por reglas (errores de clang + patrones de la traza:
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  pin sin configurar, PWM fuera de rango, delay que bloquea, loop sin salida) ≤200 ms.
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>  No es un modelo entrenado en la v1; los eventos guardados servirán para entrenar un
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>  clasificador después.
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>────────────────────────────────────────────────────────
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>CAPA DATOS — Backend/Cloud
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>Servicio de datos: Supabase (Auth + Postgres + Edge Functions)
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>Por qué este: el plan Free cubre el piloto (500 MB, 50,000 usuarios activos al mes,
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>  500,000 invocaciones), da login con GitHub (útil para el portafolio) y evita montar
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>  servidores. Ojo: el proyecto Free se pausa tras 1 semana sin actividad.
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>Modelo IA:
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>· Qué hace: explica por qué el código no logra el objetivo del nivel, en términos físicos
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>· Dónde corre: Cloud API, llamado SOLO desde una Edge Function (la API key nunca va en
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>  el juego)
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>· Input: código (~800 tokens), errores de clang, resumen de la traza (esperado vs.
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>  obtenido), objetivo del nivel, pistas ya dadas
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>· Output: JSON {lineas, causa_fisica, pista, concepto_cpp}; nunca la solución completa
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>· Modelo específico: Claude Haiku 4.5 (US$1 / US$5 por millón de tokens de entrada /
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>  salida) por costo y latencia; proveedor intercambiable detrás de la Edge Function
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>Protocolo cliente → backend: HTTPS REST (JSON) + SSE para la respuesta en streaming
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>  Latencia estimada: 150–300 ms de red + 0.5–1.5 s al primer token
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>────────────────────────────────────────────────────────
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>CAPA PRESENTACIÓN
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>Tipo: juego nativo de escritorio (Godot) — Por qué: necesita compilador y simulación
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>  locales; una PWA no puede empaquetar clang de forma práctica.
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>Vistas principales:
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>1. Fábrica — la línea de drones animada, estado de cada pin y "osciloscopio" simple
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>2. Editor + consola serial — escribir, compilar, ejecutar, ver Serial.print
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>3. Copiloto — explicación, línea marcada en el editor y botón "otra pista"
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>Actualización de datos: no hay polling; el cliente sincroniza el progreso al terminar
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>  cada nivel y el copiloto responde por SSE
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>Notificaciones: no aplican en la v1 (no hay eventos que ocurran sin el jugador presente)
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>Página de venta: sitio estático en GitHub Pages; lista de espera → Supabase (HTTPS REST);
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>  descarga de la demo en itch.io; Steam cuando haya tracción (US$100 por juego)
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>────────────────────────────────────────────────────────
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>FLUJO DATOS — Caso de uso principal: "falla el nivel y pide ayuda"
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>[Paso 1] Editor → compilador local: código .cpp, proceso local — ~1–3 s
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>[Paso 2] Compilador → MCU virtual: módulo .wasm en memoria — ~50 ms
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>[Paso 3] MCU virtual ↔ simulador: llamadas HAL / estado de pines — tick 1 ms, render 16 ms
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>[Paso 4] Simulador → validador: traza de pines y eventos — ~20–50 ms
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>[Paso 5] Validador → diagnóstico local → panel: desviación → pista local — ≤200 ms
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>[Paso 6] Panel → Edge Function: HTTPS POST, JSON ~5 KB — ~150–300 ms (+JWT, cuota, caché)
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>[Paso 7] Edge Function → Claude API: HTTPS Messages API — primer token ~0.5–1.5 s
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>[Paso 8] Claude → Edge Function → panel: SSE — respuesta completa ~3–6 s
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>Latencia total: pista local &lt;0.5 s después de la corrida; explicación del copiloto:
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>  primer texto ~1–2 s, completa ~4–7 s después de pedirla (estimado, hay que medirlo)
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>Funcionamiento sin conexión: SÍ — compilar, simular, validar, pista local y guardado.
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>  Solo se pierde la explicación del copiloto.
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>Si algo falla: timeout a los 10 s → pista local + "reintentar"; cuota agotada → pista
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a>  local; Supabase caído o pausado → se guarda local y se sincroniza después; bucle
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>  infinito del jugador → el runtime lo corta (como el watchdog de un ESP32) y lo reporta.
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>────────────────────────────────────────────────────────
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>VIABILIDAD — Software (v1)
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a>Costo por consulta: 3,000 tokens de entrada + 400 de salida ≈ US$0.005 (≈ $0.09 MXN)
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>Con 300 consultas por jugador: US$1.50 ≈ $26 MXN = 15% del ingreso neto de una copia
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>  de $249 (después del 30% de la tienda) ⚠️
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>Si la API sube 10×: ≈ 150% del ingreso neto → cada venta pierde dinero ❌
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a>Mitigación: cuota de consultas en la nube (≤200 por jugador mantiene la IA ≤10%),
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>  caché de explicaciones repetidas, capa local para los errores frecuentes y proveedor
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a>  intercambiable. Con eso un alza de precio degrada el copiloto, no el juego.
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a>
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a>VIABILIDAD — Servicios críticos (los "componentes" de un producto digital)
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a>
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a>Volumen objetivo de prueba de mercado: 20 jugadores en el piloto (semana 13)
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a>Servicio crítico 1: API del LLM (Claude Haiku 4.5)
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a>· Disponible desde México: ✅ — se paga con tarjeta, sin restricción de país
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a>· Costo: US$1 / US$5 por millón de tokens → ≈ US$30 para el piloto
+</span><span id="__span-1-111"><a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a>· Riesgo: alza de precio o caída del servicio
+</span><span id="__span-1-112"><a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a>· Plan B: cuota + caché + reglas locales; proveedor intercambiable en la Edge Function
+</span><span id="__span-1-113"><a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a>
+</span><span id="__span-1-114"><a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a>Servicio crítico 2: backend (Supabase)
+</span><span id="__span-1-115"><a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a>· Disponible desde México: ✅
+</span><span id="__span-1-116"><a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a>· Costo: Free en el piloto; Pro US$25/mes al lanzar
+</span><span id="__span-1-117"><a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a>· Riesgo: el plan Free pausa el proyecto tras 1 semana sin actividad
+</span><span id="__span-1-118"><a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a>· Plan B: guardado local primero y sincronización después; pasar a Pro al lanzar
+</span><span id="__span-1-119"><a id="__codelineno-1-119" name="__codelineno-1-119" href="#__codelineno-1-119"></a>
+</span><span id="__span-1-120"><a id="__codelineno-1-120" name="__codelineno-1-120" href="#__codelineno-1-120"></a>Servicio crítico 3: firma de código de Windows
+</span><span id="__span-1-121"><a id="__codelineno-1-121" name="__codelineno-1-121" href="#__codelineno-1-121"></a>· Disponible desde México: ⚠️ — Azure Artifact Signing (US$9.99/mes) sería lo más
+</span><span id="__span-1-122"><a id="__codelineno-1-122" name="__codelineno-1-122" href="#__codelineno-1-122"></a>  barato, pero hay que verificar si acepta cuentas de México
+</span><span id="__span-1-123"><a id="__codelineno-1-123" name="__codelineno-1-123" href="#__codelineno-1-123"></a>· Costo alternativo: certificado OV de una autoridad certificadora (~US$99/año)
+</span><span id="__span-1-124"><a id="__codelineno-1-124" name="__codelineno-1-124" href="#__codelineno-1-124"></a>· Riesgo: sin firma, Windows SmartScreen muestra una advertencia al instalar y el
+</span><span id="__span-1-125"><a id="__codelineno-1-125" name="__codelineno-1-125" href="#__codelineno-1-125"></a>  jugador puede abandonar (choca con "usarlo sin instrucciones del equipo")
+</span><span id="__span-1-126"><a id="__codelineno-1-126" name="__codelineno-1-126" href="#__codelineno-1-126"></a>· Plan B: en el piloto, guía visual en la página de descarga; al lanzar, distribuir
+</span><span id="__span-1-127"><a id="__codelineno-1-127" name="__codelineno-1-127" href="#__codelineno-1-127"></a>  por Steam
+</span><span id="__span-1-128"><a id="__codelineno-1-128" name="__codelineno-1-128" href="#__codelineno-1-128"></a>
+</span><span id="__span-1-129"><a id="__codelineno-1-129" name="__codelineno-1-129" href="#__codelineno-1-129"></a>Proceso de "manufactura": exportar el build de Godot + empaquetar clang/wasi-sdk en el
+</span><span id="__span-1-130"><a id="__codelineno-1-130" name="__codelineno-1-130" href="#__codelineno-1-130"></a>  instalador. Minutos por versión y costo cero; lo que hay que cuidar es el tamaño
+</span><span id="__span-1-131"><a id="__codelineno-1-131" name="__codelineno-1-131" href="#__codelineno-1-131"></a>  (≤500 MB) y probarlo en una Windows limpia.
+</span><span id="__span-1-132"><a id="__codelineno-1-132" name="__codelineno-1-132" href="#__codelineno-1-132"></a>Distribución: itch.io para el piloto (sin cuota) → Steam al lanzar (US$100, recuperable).
+</span><span id="__span-1-133"><a id="__codelineno-1-133" name="__codelineno-1-133" href="#__codelineno-1-133"></a>
+</span><span id="__span-1-134"><a id="__codelineno-1-134" name="__codelineno-1-134" href="#__codelineno-1-134"></a>Costo por unidad (una copia vendida): IA ≈ $26 MXN (300 consultas) + 30% de la tienda.
+</span><span id="__span-1-135"><a id="__codelineno-1-135" name="__codelineno-1-135" href="#__codelineno-1-135"></a>Precio $249 → ingreso neto $174.30 → margen después de IA ≈ $148 MXN por copia.
+</span><span id="__span-1-136"><a id="__codelineno-1-136" name="__codelineno-1-136" href="#__codelineno-1-136"></a>¿Segmento pagaría ese precio? ✅ — 3 de 4 entrevistados en 100–400 MXN (semana 4).
+</span><span id="__span-1-137"><a id="__codelineno-1-137" name="__codelineno-1-137" href="#__codelineno-1-137"></a>════════════════════════════════════════════════════════
+</span></code></pre></div>
+</details>
+<h3 id="22-auditoria-de-lo-que-dijo-la-ia">2.2 Auditoría de lo que dijo la IA</h3>
+<table>
+<thead>
+<tr>
+<th>Lo que dijo la IA</th>
+<th>¿Lo comprobamos?</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precio de Claude Haiku 4.5: US$1 / US$5 por millón de tokens</td>
+<td>Sí, en la página oficial de precios</td>
+<td>Correcto al 24-sep-2026</td>
+</tr>
+<tr>
+<td>Supabase Free: 500 MB, 50,000 MAU, 500,000 invocaciones, pausa tras 1 semana</td>
+<td>Sí, en supabase.com/pricing</td>
+<td>Correcto. La pausa es un riesgo real para el piloto</td>
+</tr>
+<tr>
+<td>Steam cobra US$100 por juego</td>
+<td>Sí, en la documentación de Steamworks</td>
+<td>Correcto, y es recuperable después de US$1,000 en ventas</td>
+</tr>
+<tr>
+<td>Firma de código: "verificar si Azure Artifact Signing acepta México"</td>
+<td>Sí, en la documentación de Microsoft</td>
+<td><strong>No lo acepta</strong>: para individuos solo EE. UU. y Canadá, y para organizaciones una lista de países sin México. Es nuestro "componente difícil de conseguir"</td>
+</tr>
+<tr>
+<td>Latencias (1–3 s compilar, 1–2 s primer texto)</td>
+<td><strong>No todavía</strong></td>
+<td>Son estimaciones. Hay que medirlas con el primer prototipo (semanas 6–7)</td>
+</tr>
+<tr>
+<td>"300 consultas por jugador"</td>
+<td><strong>No</strong></td>
+<td>Es un supuesto nuestro (15 por hora × 20 horas). Es la cifra que más mueve el costo y la vamos a medir en el piloto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-diagrama-de-bloques">2.3 Diagrama de bloques</h3>
+<p><a href="../../recursos/imgs/semana5/arquitectura-gpio-genesis.svg"><img alt="Arquitectura del sistema GPIO Génesis" src="../../recursos/imgs/semana5/arquitectura-gpio-genesis.svg" /></a></p>
+<p><small>Clic en la imagen para verla en tamaño completo.</small></p>
+<p><a href="../../recursos/archivos/semana5/arquitectura-gpio-genesis.drawio">📐 Diagrama editable en draw.io</a> (se abre en <a href="https://app.diagrams.net">diagrams.net</a> con <em>Archivo → Abrir desde → Dispositivo</em>).</p>
+<p>Cómo leerlo: cada caja tiene una sola responsabilidad, cada flecha lleva su protocolo, la <strong>capa de IA</strong> está marcada en amarillo (borde) y morado (nube), las dependencias externas tienen borde punteado y los números (1)–(10) siguen el caso de uso principal.</p>
+<h3 id="24-protocolos-por-que-este-y-no-otro">2.4 Protocolos: por qué este y no otro</h3>
+<table>
+<thead>
+<tr>
+<th>Conexión</th>
+<th>Protocolo</th>
+<th>Por qué este</th>
+<th>Por qué no la alternativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Juego → copiloto (Edge Function)</td>
+<td><strong>HTTPS REST</strong> (POST JSON)</td>
+<td>El jugador inicia la consulta y espera una respuesta; son pocas por hora (~5–15)</td>
+<td><strong>MQTT</strong> sirve para muchos dispositivos que publican telemetría pequeña y frecuente; aquí no hay flota ni broker que justificar</td>
+</tr>
+<tr>
+<td>Copiloto → juego</td>
+<td><strong>SSE</strong> (Server-Sent Events) sobre HTTPS</td>
+<td>El texto aparece mientras el modelo lo genera, así se siente rápido</td>
+<td><strong>WebSocket</strong> es bidireccional y mantiene la conexión abierta; no necesitamos que el servidor le hable al juego fuera de una consulta</td>
+</tr>
+<tr>
+<td>Edge Function → Claude API</td>
+<td><strong>HTTPS</strong> (Messages API con streaming)</td>
+<td>Es la interfaz del proveedor; queda en el servidor junto con la API key</td>
+<td>Llamar desde el juego expondría la key en el ejecutable</td>
+</tr>
+<tr>
+<td>Juego ↔ Supabase</td>
+<td><strong>HTTPS REST</strong> (PostgREST + JWT), login OAuth</td>
+<td>Sincroniza al terminar cada nivel, no en cada tick</td>
+<td>Sincronizar en tiempo real no aporta nada al jugador y gasta cuota</td>
+</tr>
+<tr>
+<td>Página de venta → Supabase</td>
+<td><strong>HTTPS REST</strong></td>
+<td>Un formulario de lista de espera</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Exportador → GitHub</td>
+<td><strong>HTTPS REST</strong> (GitHub API, OAuth)</td>
+<td>Crea el repo de portafolio del jugador</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-defensa-de-la-arquitectura-5-minutos">3. Defensa de la arquitectura (5 minutos)</h2>
+<p><strong>La decisión que defendemos:</strong> dónde corre la IA.</p>
+<p><strong>Minuto 1–2 · Decisión</strong></p>
+<blockquote>
+<p>"Elegimos una arquitectura <strong>híbrida con la IA principal en la nube</strong> porque nuestro requerimiento central (RF-04) es explicar en español por qué un código C++ cualquiera no mueve la fábrica como debería, y eso necesita un modelo de lenguaje grande. La alternativa era un modelo local en la PC del jugador, pero la descartamos porque exige varios GB y una GPU que la laptop típica de un estudiante no tiene, y las explicaciones salen mucho peores. Lo que sí tiene que ser inmediato (compilar, simular y marcar el error) corre local."</p>
+</blockquote>
+<p><strong>Minuto 3–4 · Consecuencia</strong></p>
+<blockquote>
+<p>"Esta decisión implica que en el cliente empaquetamos el compilador y el microcontrolador virtual (el instalador pesa más, pero el jugador no instala nada), que la comunicación con la nube es <strong>HTTPS + SSE</strong> a través de una Edge Function que guarda la API key y aplica cuotas, y que la app tiene un panel de copiloto con respuesta en streaming y un modo sin conexión. <strong>El riesgo principal es el costo y la dependencia de la API</strong>: con 300 consultas por jugador la IA ya se lleva el 15% del ingreso neto, y si el precio sube 10× cada venta pierde dinero. Lo mitigamos con una cuota de consultas en la nube, una caché de explicaciones repetidas, reglas locales para los errores frecuentes y un proveedor intercambiable detrás de la Edge Function. Si la API falla o sube de precio, el copiloto se degrada, pero el juego sigue funcionando."</p>
+</blockquote>
+<p><strong>Respuestas preparadas para las preguntas del profesor:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Nuestra respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuántos KB ocupa el modelo en el ESP32? ¿Cuánta RAM queda?</td>
+<td>No hay ESP32 físico: el producto es 100% digital. El microcontrolador es virtual y corre en la PC del jugador, y el modelo de IA está en la nube, así que no hay límite de RAM de un microcontrolador. Lo que sí medimos es la RAM de la PC mínima (8 GB).</td>
+</tr>
+<tr>
+<td>Si la API sube 10× el próximo año, ¿qué falla?</td>
+<td>El margen: la IA pasaría de ~15% a ~150% del ingreso neto por copia. Con la cuota (≤200 consultas por jugador) y la caché baja a ≤10%, y con 10× la bajamos más o pasamos a un modelo más barato. El juego no se rompe: la pista local sigue.</td>
+</tr>
+<tr>
+<td>¿Qué pasa en una zona sin señal?</td>
+<td>Se puede jugar completo: compilar, simular, validar, pistas locales y guardado. Solo se pierde la explicación del copiloto y el progreso se sincroniza después. No es un ladrillo.</td>
+</tr>
+<tr>
+<td>¿Por qué no MQTT en lugar de HTTP? ¿Cuántos mensajes por hora?</td>
+<td>~5–15 consultas por hora por jugador, iniciadas por él y esperando respuesta. Es request/response puro; MQTT agregaría un broker sin beneficio.</td>
+</tr>
+<tr>
+<td>¿Broker propio o de terceros? ¿Costo con 1,000 usuarios?</td>
+<td>No usamos broker. Con 1,000 jugadores: Supabase Pro US$25/mes y la IA ≈ US$1,500 en toda la campaña (≈ $26,250 MXN) frente a ≈ $174,300 MXN de ingreso neto; con la cuota baja a ≈ US$1,000.</td>
+</tr>
+<tr>
+<td>¿Ese sensor está en stock? ¿Días de entrega?</td>
+<td>No hay sensores. Nuestros "componentes" son servicios, y el más difícil de conseguir desde México es la <strong>firma de código de Windows</strong>: Azure Artifact Signing no acepta México. Plan B: certificado OV (~US$99/año) o distribuir por Steam; en el piloto, una guía en la página de descarga.</td>
+</tr>
+<tr>
+<td>¿La PCB la fabrican en el laboratorio o la mandan hacer?</td>
+<td>No hay PCB. Nuestra "manufactura" es exportar el build de Godot y armar el instalador: minutos por versión y costo cero. El cuello de botella es probarlo en una Windows limpia.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-pds-product-design-specification-prompt-2">4. PDS — Product Design Specification (Prompt 2)</h2>
+<h3 id="41-pds-preliminar-primer-borrador">4.1 PDS preliminar (primer borrador)</h3>
+<p>Antes de pasar el PDS por el Prompt 2, este era nuestro primer borrador. Lo dejamos aquí para que se vea qué corrigió la revisión:</p>
+<ul>
+<li><strong>Funcionales:</strong> 1) El juego debe compilar C++. 2) El copiloto debe explicar los errores. 3) El juego debe guardar el progreso.</li>
+<li><strong>Desempeño:</strong> 1) El juego debe correr fluido. 2) El copiloto debe responder rápido.</li>
+<li><strong>Interfaz:</strong> 1) La interfaz debe ser fácil de usar. 2) Debe estar en español.</li>
+<li><strong>Restricción:</strong> 1) Debe estar listo para la semana 13. 2) Debe ser barato de operar.</li>
+</ul>
+<details class="note">
+<summary>Prompt 2 que usamos (Claude)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Actúa como ingeniero de producto senior con experiencia en redactar Product Design
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Specifications de hardware + software en etapa de prototipo avanzado. Especialidad:
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>identificar requerimientos mal redactados, demasiado vagos para verificarse, demasiado
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>restrictivos para alcanzarse, o que faltan y harán falta en el desarrollo. No eres
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>condescendiente: señalas el problema y propones una corrección específica.
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Somos un equipo de ingeniería en México desarrollando:
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>GPIO Génesis — videojuego para PC donde el jugador programa en C++ real una fábrica de
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>drones; un copiloto de IA (híbrido: reglas locales + LLM en la nube) le explica los
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>errores en términos físicos. Incluye página de venta. Es un producto 100% digital (no
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>hay hardware).
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Usuario final: estudiantes de ingeniería de 18–25 años, jugadores de Minecraft y
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>simuladores, aburridos de las clases tradicionales de programación, motivados por la
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>relevancia laboral de C++, dispuestos a pagar 100–400 MXN.
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>First-iteration product: instalador de Windows descargable desde la página de venta, con
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>tutorial y 5 niveles, compilador incluido, copiloto IA, guardado y cuenta; un estudiante
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>que no nos conoce lo usa sin instrucciones del equipo.
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>Este es nuestro PDS preliminar:
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>REQUERIMIENTOS FUNCIONALES:
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>1. El juego debe compilar C++.
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>2. El copiloto debe explicar los errores.
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>3. El juego debe guardar el progreso.
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>REQUERIMIENTOS DE DESEMPEÑO:
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>1. El juego debe correr fluido.
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>2. El copiloto debe responder rápido.
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>REQUERIMIENTOS DE INTERFAZ:
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>1. La interfaz debe ser fácil de usar.
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>2. Debe estar en español.
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>REQUERIMIENTOS DE RESTRICCIÓN:
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>1. Debe estar listo para la semana 13.
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>2. Debe ser barato de operar.
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>Revisa el PDS completo y entrega: 1) diagnóstico por categoría, 2) correcciones con
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>criterio de verificación explícito, 3) requerimientos faltantes (mínimo 2 por
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>categoría). Usa el formato REVISIÓN DE PDS del curso.
+</span></code></pre></div>
+</details>
+<details class="note">
+<summary>Salida del Prompt 2 (diagnóstico)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>════════════════════════════════════════════════════════
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>REVISIÓN DE PDS
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Producto: GPIO Génesis
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>════════════════════════════════════════════════════════
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>REQUERIMIENTOS FUNCIONALES
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>✅ Bien redactados: ninguno todavía; los tres apuntan a lo correcto pero no se pueden
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   verificar.
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>⚠️ Con problema:
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  1 "Compilar C++" — ¿qué C++? ¿dónde corre?
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    → Corrección: compilar un subconjunto definido de C++17 y ejecutarlo en el MCU
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      virtual sin instalar herramientas; verificar con 30 programas de prueba.
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  2 "Explicar los errores" — no dice en qué términos ni qué NO debe hacer.
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    → Corrección: explicar en español la causa física, marcar líneas y dar una pista
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>      sin la solución completa; verificar con 40 errores etiquetados.
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  3 "Guardar el progreso" — ¿local, en la nube, sin conexión?
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    → Corrección: guardado local + sincronización con la cuenta; prueba offline/online.
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>❌ Faltantes: la simulación debe reflejar cada pin en la fábrica; el validador
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>   automático de niveles (sin él no hay "juego"); el modo sin conexión; la exportación
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>   a portafolio (es su propuesta de valor); la página de venta.
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>REQUERIMIENTOS DE DESEMPEÑO
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>✅ Bien redactados: ninguno.
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>⚠️ Con problema:
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>  1 "Correr fluido" — sin número ni hardware de referencia.
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    → Corrección: ≥30 fps promedio en una PC mínima definida.
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  2 "Responder rápido" — mezcla la pista local con la nube.
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    → Corrección: pista local ≤200 ms; nube: primer texto ≤2 s y completa ≤8 s (p90).
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>❌ Faltantes: tiempo de compilación; calidad mínima del copiloto (% de aciertos);
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>   costo de IA por consulta y por jugador (es el riesgo número uno de la arquitectura);
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>   robustez ante código defectuoso del jugador (bucles infinitos, divisiones entre 0).
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>REQUERIMIENTOS DE INTERFAZ
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>✅ Bien redactados: "en español" va bien encaminado; falta decir qué NO se traduce.
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>⚠️ Con problema:
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>  1 "Fácil de usar" — no es verificable.
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    → Corrección: 4 de 5 usuarios del segmento completan tutorial + nivel 1 sin ayuda
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>      en ≤20 min. Es literalmente la definición de first-iteration del curso.
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>❌ Faltantes: interfaz del editor (resaltado, marca de línea); la API del HAL
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>   compatible con Arduino-ESP32 (es lo que hace transferible su código); la API del backend;
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>   la instalación sin dependencias.
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>REQUERIMIENTOS DE RESTRICCIÓN
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>✅ Bien redactados: "semana 13" es verificable; agreguen el tamaño del equipo.
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>⚠️ Con problema:
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>  1 "Barato de operar" — ¿cuánto es barato?
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    → Corrección: tope en pesos para el piloto y límite de gasto en la API.
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>❌ Faltantes: licencias (en semana 3 detectaron GPL en GCC y QEMU); plataforma
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>   objetivo; privacidad (el código sale a un tercero); la API key fuera del cliente.
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>────────────────────────────────────────────────────────
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>PDS COMPLETO CORREGIDO: ver sección 4.2
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>════════════════════════════════════════════════════════
+</span></code></pre></div>
+</details>
+<p><strong>Qué aceptamos y qué cambiamos de la revisión:</strong> aceptamos casi todo. Cambiamos dos cosas: 1) el umbral de calidad del copiloto lo dejamos en <strong>80%</strong> y no en el 85% del ejemplo de clase, porque es una tarea más abierta que clasificar humedad y preferimos un número que podamos cumplir y después subir; 2) el tope de costo de IA lo expresamos como <strong>% del ingreso neto por copia</strong> y no como un monto fijo, porque si cambiamos el precio del juego el tope se ajusta solo.</p>
+<h3 id="42-pds-v10-entregable">4.2 PDS v1.0 (entregable)</h3>
+<div class="admonition info">
+<p class="admonition-title">PRODUCT DESIGN SPECIFICATION</p>
+<p><strong>Producto:</strong> GPIO Génesis (juego para PC + copiloto IA + página de venta) · <strong>Versión:</strong> 1.0<br />
+<strong>Equipo:</strong> José Carlos y Yael · <strong>Fecha:</strong> 24-sep-2026<br />
+<strong>PC mínima de referencia:</strong> Core i3 / Ryzen 3, 8 GB RAM, gráficos integrados, Windows 10 64 bits</p>
+</div>
+<p><strong>REQUERIMIENTOS FUNCIONALES</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+<th>Verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RF-01</strong></td>
+<td>El sistema debe compilar el C++ que escribe el jugador (subconjunto de C++17: tipos básicos, funciones, if/switch, ciclos, arreglos, struct/class simples, punteros) y ejecutarlo en el MCU virtual sin instalar herramientas adicionales.</td>
+<td>30 programas de prueba (15 válidos, 15 con error): los 15 válidos corren y los 15 con error muestran mensaje con número de línea.</td>
+</tr>
+<tr>
+<td><strong>RF-02</strong></td>
+<td>El sistema debe reflejar cada escritura/lectura de pin del MCU virtual (digital, PWM 0–255, analógico 0–4095) en el actuador o sensor correspondiente de la fábrica dentro del mismo ciclo de simulación.</td>
+<td>Programa que conmuta un pin a 1 Hz y barre un PWM durante 60 s; la traza y la animación coinciden en todo el registro.</td>
+</tr>
+<tr>
+<td><strong>RF-03</strong></td>
+<td>El sistema debe validar cada nivel comparando la traza con las condiciones del objetivo e indicar cuál condición falló.</td>
+<td>Por cada uno de los 5 niveles, 1 solución de referencia (pasa) y 3 soluciones con fallas conocidas (fallan señalando la condición): 20/20.</td>
+</tr>
+<tr>
+<td><strong>RF-04</strong></td>
+<td>Cuando el jugador pida ayuda, el copiloto debe explicar en español la causa del error en términos del comportamiento físico, marcar las líneas probables y dar una pista sin escribir la solución completa.</td>
+<td>Set de 40 errores reales etiquetados, revisado con rúbrica (línea, causa física, no entrega solución); umbral en RD-04.</td>
+</tr>
+<tr>
+<td><strong>RF-05</strong></td>
+<td>Sin conexión a internet, el sistema debe dar una pista local para los errores de su catálogo (mínimo 25 patrones) y permitir jugar y guardar.</td>
+<td>Con la red desactivada, 25/25 patrones generan pista; se completa un nivel, se cierra el juego y el progreso sigue al abrirlo.</td>
+</tr>
+<tr>
+<td><strong>RF-06</strong></td>
+<td>El sistema debe sincronizar progreso y soluciones con la cuenta del jugador cuando haya conexión, y exportar las soluciones de los niveles superados como proyecto (.cpp + README por nivel).</td>
+<td>2 niveles jugados offline aparecen en otra PC tras reconectar; el proyecto exportado compila con g++ usando el HAL de escritorio incluido.</td>
+</tr>
+<tr>
+<td><strong>RF-07</strong></td>
+<td>La página de venta debe permitir descargar la demo y registrarse en la lista de espera.</td>
+<td>10 registros de prueba aparecen en la base en &lt;5 s; la descarga funciona en Chrome, Edge y Firefox.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REQUERIMIENTOS DE DESEMPEÑO</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+<th>Criterio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RD-01</strong></td>
+<td>El sistema debe compilar y arrancar la simulación rápido.</td>
+<td>P95 ≤ 3 s para programas de hasta 300 líneas en la PC mínima (50 corridas).</td>
+</tr>
+<tr>
+<td><strong>RD-02</strong></td>
+<td>El simulador debe mantenerse fluido y en tiempo real.</td>
+<td>≥ 30 fps promedio y ≥ 24 fps mínimo en el nivel más grande en la PC mínima; MCU virtual a 1,000 ticks/s con desfase &lt; 1% en 5 min.</td>
+</tr>
+<tr>
+<td><strong>RD-03</strong></td>
+<td>El copiloto debe responder dentro de la paciencia del jugador.</td>
+<td>Pista local ≤ 200 ms; nube: primer texto ≤ 2 s y respuesta completa ≤ 8 s en el p90 con conexión ≥ 5 Mbps; a los 10 s cae a la pista local.</td>
+</tr>
+<tr>
+<td><strong>RD-04</strong></td>
+<td>El copiloto debe acertar.</td>
+<td>≥ 80% de respuestas correctas (línea + causa física) en el set de 40 errores y 0 respuestas que entreguen la solución completa.</td>
+</tr>
+<tr>
+<td><strong>RD-05</strong></td>
+<td>El costo de IA debe ser sostenible.</td>
+<td>≤ US$0.006 por consulta y costo de IA por jugador ≤ 10% del ingreso neto por copia (≈ $17 MXN con precio de $249), medido con los logs de tokens del piloto.</td>
+</tr>
+<tr>
+<td><strong>RD-06</strong></td>
+<td>El sistema debe resistir código defectuoso del jugador.</td>
+<td>0 cierres del juego con 20 programas defectuosos (bucle infinito, división entre cero, acceso fuera de arreglo, recursión sin fin); el runtime los detiene en ≤ 2 s y los reporta.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REQUERIMIENTOS DE INTERFAZ</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+<th>Verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RI-01</strong></td>
+<td>La interfaz debe permitir que un estudiante del segmento que nunca vio el juego complete el tutorial y el nivel 1 sin ayuda del equipo.</td>
+<td>Prueba con 5 usuarios; ≥ 4 de 5 lo logran en ≤ 20 min.</td>
+</tr>
+<tr>
+<td><strong>RI-02</strong></td>
+<td>La interfaz del editor debe resaltar sintaxis C++, numerar líneas y marcar la línea del error de compilación o la señalada por el copiloto.</td>
+<td>Con los 15 programas con error de RF-01, la marca cae en la línea correcta en 15/15.</td>
+</tr>
+<tr>
+<td><strong>RI-03</strong></td>
+<td>La interfaz y las explicaciones del copiloto deben estar en español de México, sin traducir las palabras del lenguaje (pinMode, int, for).</td>
+<td>Revisión de todas las cadenas y de las 40 respuestas del set: 0 en inglés.</td>
+</tr>
+<tr>
+<td><strong>RI-04</strong></td>
+<td>La interfaz de programación (HAL virtual) debe exponer la misma API que el core Arduino-ESP32: pinMode, digitalWrite, digitalRead, analogWrite, analogRead, delay, millis, Serial.</td>
+<td>Las soluciones de referencia de los niveles 1–3 compilan sin cambios con arduino-cli para ESP32-S3.</td>
+</tr>
+<tr>
+<td><strong>RI-05</strong></td>
+<td>La interfaz del backend debe ser HTTPS/JSON autenticada con JWT, y el copiloto debe responder por streaming (SSE).</td>
+<td>Con curl, sin token → 401; con token → respuesta en stream; 20 payloads revisados sin nombre ni correo.</td>
+</tr>
+<tr>
+<td><strong>RI-06</strong></td>
+<td>La instalación debe completarse sin instalar compilador, SDK ni crear cuenta para jugar los niveles 1–2.</td>
+<td>VM limpia de Windows 10: instalar desde la página y jugar; instalador ≤ 500 MB.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REQUERIMIENTOS DE RESTRICCIÓN</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+<th>Verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RR-01</strong></td>
+<td>El sistema debe estar listo como first-iteration en la semana 13 (8 semanas) con un equipo de 2 personas.</td>
+<td>Build publicado en itch.io antes de la semana 13.</td>
+</tr>
+<tr>
+<td><strong>RR-02</strong></td>
+<td>El sistema no debe enlazar dependencias con licencia GPL; solo MIT, Apache 2.0, BSD o zlib (ver semana 3).</td>
+<td>Inventario de licencias (SBOM) del build.</td>
+</tr>
+<tr>
+<td><strong>RR-03</strong></td>
+<td>El costo operativo del piloto no debe superar $600 MXN en total.</td>
+<td>Facturación de Anthropic (con límite de gasto) y panel de Supabase.</td>
+</tr>
+<tr>
+<td><strong>RR-04</strong></td>
+<td>El sistema debe correr en Windows 10/11 de 64 bits en la PC mínima; macOS, Linux y móvil quedan fuera de la versión 1.</td>
+<td>Pruebas en 2 PCs reales de estudiantes del segmento.</td>
+</tr>
+<tr>
+<td><strong>RR-05</strong></td>
+<td>El sistema debe cumplir la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (aviso de privacidad) y no enviar al LLM nombre, correo ni identificadores.</td>
+<td>Revisión de 20 payloads en los logs de la Edge Function.</td>
+</tr>
+<tr>
+<td><strong>RR-06</strong></td>
+<td>El sistema no debe incluir la API key del LLM en el cliente; toda llamada pasa por la Edge Function con cuota por usuario (10 consultas por hora).</td>
+<td>0 coincidencias de la key en el ejecutable; la consulta 11 en una hora recibe la pista local.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DIAGRAMA DE ARQUITECTURA:</strong> <a href="../../recursos/archivos/semana5/arquitectura-gpio-genesis.drawio">arquitectura-gpio-genesis.drawio</a> · <strong>BOM PRELIMINAR:</strong> <a href="../../recursos/archivos/semana5/bom-preliminar-gpio-genesis.xlsx">bom-preliminar-gpio-genesis.xlsx</a></p>
+<hr />
+<h2 id="5-bom-preliminar-servicios-y-costos">5. BOM preliminar: servicios y costos</h2>
+<p>El BOM completo, con fórmulas y fuentes, está en la <a href="../../recursos/archivos/semana5/bom-preliminar-gpio-genesis.xlsx">hoja de cálculo</a>. Tiene tres pestañas: supuestos, costos del software y servicios críticos. Como el producto es 100% digital, no hay componentes de hardware: el BOM son los servicios de los que dependemos y el costo de la IA por jugador. Tipo de cambio: <strong>$17.50 MXN por dólar</strong> (FIX del 24-sep-2026).</p>
+<h3 id="51-first-iteration-software">5.1 First-iteration (software)</h3>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Proveedor</th>
+<th>Costo</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motor del juego, compilador y runtime</td>
+<td>Godot 4 (MIT), wasi-sdk (Apache 2.0), WAMR (Apache 2.0)</td>
+<td>$0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Backend (Auth + Postgres + Edge Functions)</td>
+<td>Supabase Free</td>
+<td>$0</td>
+<td>Piloto</td>
+</tr>
+<tr>
+<td>Copiloto IA para 20 jugadores</td>
+<td>Claude Haiku 4.5</td>
+<td>≈ US$30 (≈ $525 MXN)</td>
+<td>Piloto</td>
+</tr>
+<tr>
+<td>Página de venta y demo</td>
+<td>GitHub Pages + itch.io</td>
+<td>$0</td>
+<td>Piloto</td>
+</tr>
+<tr>
+<td>Dominio</td>
+<td>Por cotizar</td>
+<td>≈ US$15/año (estimado)</td>
+<td>Al lanzar</td>
+</tr>
+<tr>
+<td>Firma de código para Windows (opcional)</td>
+<td>Certificado OV de una autoridad certificadora</td>
+<td>≈ US$99/año (estimado)</td>
+<td>Opcional</td>
+</tr>
+<tr>
+<td>Backend en producción</td>
+<td>Supabase Pro</td>
+<td>US$25/mes</td>
+<td>Al lanzar</td>
+</tr>
+<tr>
+<td>Alta en Steam</td>
+<td>Steam Direct</td>
+<td>US$100 (recuperable)</td>
+<td>Al lanzar</td>
+</tr>
+<tr>
+<td><strong>Total para llegar al piloto</strong></td>
+<td></td>
+<td><strong>≈ $525 MXN</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Costo de la IA por jugador (el "costo por unidad" de un producto de software):</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Costo por consulta (3,000 tokens de entrada + 400 de salida)</td>
+<td>US$0.005 ≈ $0.09 MXN</td>
+</tr>
+<tr>
+<td>Costo por jugador con 300 consultas</td>
+<td>US$1.50 ≈ $26 MXN</td>
+</tr>
+<tr>
+<td>Ingreso neto por copia ($249 − 30% de la tienda)</td>
+<td>$174.30 MXN</td>
+</tr>
+<tr>
+<td>IA como % del ingreso neto</td>
+<td><strong>15%</strong> ⚠️</td>
+</tr>
+<tr>
+<td>Si la API sube 10×</td>
+<td><strong>151%</strong>: cada venta pierde dinero ❌</td>
+</tr>
+<tr>
+<td>Consultas máximas para que la IA sea ≤10%</td>
+<td>≈ 199 por jugador → cuota de 10 por hora</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-servicios-criticos-los-componentes-de-un-producto-digital">5.2 Servicios críticos (los "componentes" de un producto digital)</h3>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>Proveedor</th>
+<th>Costo</th>
+<th>¿Disponible desde México?</th>
+<th>Riesgo</th>
+<th>Plan B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM del copiloto ★</td>
+<td><a href="https://platform.claude.com/docs/en/about-claude/pricing">Claude Haiku 4.5</a></td>
+<td>US$1 / US$5 por millón de tokens</td>
+<td>✅ Sí</td>
+<td>Alza de precio o caída del servicio; es la dependencia más cara</td>
+<td>Cuota + caché + reglas locales; proveedor intercambiable detrás de la Edge Function</td>
+</tr>
+<tr>
+<td>Backend ★</td>
+<td><a href="https://supabase.com/pricing">Supabase</a></td>
+<td>Free: $0 · Pro: US$25/mes</td>
+<td>✅ Sí</td>
+<td>El plan Free se pausa tras 1 semana sin actividad</td>
+<td>Guardado local primero; Pro al lanzar</td>
+</tr>
+<tr>
+<td>Firma de código de Windows ★</td>
+<td>Autoridad certificadora (OV) o <a href="https://learn.microsoft.com/en-us/azure/artifact-signing/quickstart">Azure Artifact Signing</a></td>
+<td>≈ US$99/año (OV, precio de revendedor)</td>
+<td>❌ <strong>Artifact Signing no</strong>: individuos solo de EE. UU. y Canadá; organizaciones de una lista de países sin México</td>
+<td>Sin firma, Windows muestra "Windows protegió su PC" y el jugador puede abandonar la instalación</td>
+<td>Piloto: guía visual en la página de descarga. Lanzamiento: distribuir por Steam</td>
+</tr>
+<tr>
+<td>Tienda</td>
+<td>itch.io → <a href="https://partner.steamgames.com/doc/gettingstarted/appfee">Steam</a></td>
+<td>$0 → US$100 (recuperable después de US$1,000 en ventas)</td>
+<td>✅ Sí</td>
+<td>Revisión y tiempos de espera de Steam</td>
+<td>Vender la demo en itch.io mientras tanto</td>
+</tr>
+<tr>
+<td>Compilador y runtime</td>
+<td>wasi-sdk (clang) + WAMR</td>
+<td>$0 (Apache 2.0)</td>
+<td>✅ Código abierto</td>
+<td>Tamaño del instalador; C++ limitado en WebAssembly</td>
+<td>Acotar el subconjunto de C++ que enseña el juego</td>
+</tr>
+</tbody>
+</table>
+<p><small>★ = servicio crítico.</small></p>
+<p><strong>Lectura:</strong> sin hardware, el costo por unidad de GPIO Génesis es lo que cuesta cada jugador en la nube (≈ $26 MXN con 300 consultas) más la comisión de la tienda. Con un precio de $249 quedan ≈ $148 MXN por copia después de la IA, y la cuota de consultas protege ese margen. El único "componente" que no se consigue fácil desde México es la firma de código, y tiene salida por Steam.</p>
+<hr />
+<h2 id="6-viabilidad-de-la-primera-version-y-lo-que-dejamos-fuera">6. Viabilidad de la primera versión y lo que dejamos fuera</h2>
+<p><strong>Las cuatro preguntas de viabilidad, traducidas a un producto digital:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pregunta del curso</th>
+<th>Versión digital</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuántas unidades para una prueba de mercado real?</td>
+<td>¿Cuántos jugadores reales?</td>
+<td><strong>20 jugadores</strong> del segmento en el piloto de la semana 13, con la meta de que 4 de cada 5 terminen el tutorial y el nivel 1 solos</td>
+</tr>
+<tr>
+<td>¿Componentes disponibles en México en &lt;2 semanas?</td>
+<td>¿Servicios disponibles desde México?</td>
+<td>Sí, todos menos Azure Artifact Signing (sección 5.2); la firma tiene plan B</td>
+</tr>
+<tr>
+<td>¿PCB fabricable con el proceso elegido?</td>
+<td>¿El build se puede generar y distribuir?</td>
+<td>Sí: export de Godot + instalador ≤500 MB, distribuido en itch.io; hay que probarlo en una Windows limpia</td>
+</tr>
+<tr>
+<td>¿El costo por unidad permite un precio viable?</td>
+<td>¿La IA por jugador cabe en el precio?</td>
+<td>Sí, con cuota: ≈ $26 MXN de IA por jugador frente a $174.30 de ingreso neto; con la cuota de 10 consultas por hora baja a ≤10%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Qué dejamos fuera al volverlo 100% digital, y qué implica:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Lo que se va</th>
+<th>Implicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estación de pruebas (ESP32-S3, motor, servo, sensores)</td>
+<td>No hay BOM de hardware, ni manufactura, ni proveedores de componentes.</td>
+</tr>
+<tr>
+<td>Comparar lo simulado contra lo medido en hardware real</td>
+<td>El copiloto compara lo <strong>esperado</strong> por el nivel contra lo <strong>simulado</strong>. Pierde el "momento wow" del hardware real, pero nos aleja de la patente CN121583173B</td>
+</tr>
+<tr>
+<td>Modelo de utilidad y diseño industrial (semana 3)</td>
+<td>Ya no aplican. La PI se queda en marca, derechos de autor y secreto industrial (el diagnóstico y sus datos)</td>
+</tr>
+<tr>
+<td>Canal B2B con laboratorios vendiendo estaciones</td>
+<td>Se puede recuperar vendiendo <strong>licencias del juego</strong> a universidades (semana 2: US$7–25 por estudiante al año), sin hardware</td>
+</tr>
+<tr>
+<td>"Ver tu código mover algo real"</td>
+<td>Lo cubre la animación de la fábrica y la API compatible con Arduino-ESP32: quien tenga una placa puede llevar su código a ella por su cuenta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-lo-que-debemos-poder-responder-al-salir">7. Lo que debemos poder responder al salir</h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> <strong>¿Dónde corre el modelo de IA y por qué?</strong> Híbrido cloud-first: el LLM que explica los errores corre en la nube (Claude Haiku 4.5 detrás de una Edge Function) porque la tarea necesita un modelo grande y tolera 2–5 s; las reglas de diagnóstico, el compilador y el simulador corren en la PC del jugador para responder en &lt;1 s y funcionar sin internet.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> <strong>¿Qué protocolo hay entre el artefacto y el backend, y por qué ese?</strong> HTTPS REST para enviar la consulta y SSE para recibir la respuesta en streaming: son pocas consultas por hora iniciadas por el jugador (request/response), así que MQTT o WebSocket no aportan nada. Como el producto es 100% digital, no hay protocolo con hardware.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> <strong>¿Cuál componente es el más difícil de conseguir en México y cuál es el plan B?</strong> No tenemos hardware. El equivalente en un producto digital es la <strong>firma de código de Windows</strong>: el servicio barato de Microsoft (Azure Artifact Signing) no acepta México. Plan B: un certificado OV (~US$99/año) o distribuir por Steam; en el piloto, una guía en la página de descarga. La dependencia más frágil es la API del LLM: plan B = cuota, caché, reglas locales y proveedor intercambiable.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> <strong>¿Qué diferencia hay entre lo que entregaremos en la semana 13 y un prototipo de exploración?</strong> El prototipo de exploración corre en nuestras máquinas para que aprendamos. La first-iteration es un instalador que un estudiante que no nos conoce descarga de la página de venta y usa solo: 4 de 5 deben terminar el tutorial y el nivel 1 sin ayuda.</li>
+</ul>
+<hr />
+<h2 id="reflexion">Reflexión</h2>
+<p>Esta semana tomamos la decisión más grande desde que elegimos la idea: GPIO Génesis va a ser un producto 100% digital. Al principio dejamos la estación física "para después", pero al costearla vimos que su precio mínimo pasaba de $3,000 MXN por unidad, algo que nuestro estudiante nunca pagaría. No era una fase 2 del mismo producto, sino otro producto para otro cliente. Me costó soltarla, porque es la parte más "mecatrónica" del proyecto, pero quedarnos con ella solo por gusto habría sido diseñar para nuestra imaginación y no para el usuario, que es justo lo que el PDS intenta evitar.</p>
+<p>Lo que más me sorprendió fue hacer las cuentas de la IA. En el chat se siente gratis, pero al multiplicar tokens por consultas y por jugadores, el copiloto se lleva el 15% de lo que nos queda de cada venta, y si la API subiera diez veces perderíamos dinero con cada copia. Eso cambió cómo veo la capa local y la cuota: no son detalles técnicos, son lo que mantiene vivo el negocio. También entendí que un producto de software también tiene "costo por unidad", solo que no aparece en un BOM de componentes.</p>
+<p>Escribir el PDS me enseñó a desconfiar de mis propios requerimientos. Nuestro primer borrador decía cosas como "correr fluido" y "fácil de usar", que suenan bien pero no se pueden comprobar. Tener que escribir cómo se verifica cada uno lo convierte casi en una prueba, y eso obliga a definir cosas que no habíamos pensado, como cuál es la computadora mínima o qué pasa si el jugador escribe un bucle infinito.</p>
+<p>Por último, justificar cada flecha del diagrama me hizo ver que elegir el protocolo más simple también es una decisión. Al preguntarnos "¿por qué no MQTT?" nos dimos cuenta de que no lo necesitamos. Y aunque ya no tenemos componentes que comprar, sí tenemos dependencias: descubrimos que la forma barata de firmar el instalador para Windows no está disponible en México. Un producto digital también tiene su "componente difícil de conseguir".</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
