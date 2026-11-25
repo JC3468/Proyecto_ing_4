@@ -340,11 +340,11 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 
 ## 10. Prototipos y evidencia { #s10 }
 
-!!! abstract "v1 · 24-nov-2026"
+!!! abstract "v2 · 25-nov-2026 (v1: 24-nov)"
     - **Decisión:** cada prototipo respondió una pregunta técnica o de experiencia; el siguiente ciclo tiene que ser con usuarios.
     - **Evidencia:** semanas 6–7 y las capturas fechadas de [§12](#s12) y de la [semana 8](semanas/semana-08.md).
-    - **Qué cambió:** primera versión de esta sección.
-    - **Queda abierto:** **ningún prototipo tiene todavía evidencia de usuarios** (el curso pide mínimo 3). Es lo primero de [§18](#s18).
+    - **Qué cambió:** (24-nov) primera versión de esta sección. (25-nov) se agregó P8: la primera vez que tres personas probaron la versión sin tutorial se perdían mucho, y por eso se agregó la guía para quien empieza.
+    - **Queda abierto:** **ningún prototipo tiene todavía evidencia de usuarios medida** (el curso pide mínimo 3): P8 es una observación informal de tres personas, sin tiempos registrados. Lo medido es lo primero de [§18](#s18).
 
 | # | Fecha | Pregunta | Tipo · resolución | Qué se construyó | Evidencia | Aprendizaje → cambio de diseño |
 |---|---|---|---|---|---|---|
@@ -355,6 +355,22 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | P5 | 21–22 nov | ¿El simulador reproduce tiempos como el chip (rebote, latencia, prioridades)? | Función · alta | Niveles 2–9, registros del RP2350 y NVIC | 41 programas = gcc; 28 plantillas con las cabeceras reales del SDK | MCU con tiempo exacto por evento y osciloscopio en la pared |
 | P6 | 22–23 nov | ¿El copiloto puede guiar sin escribir el código? | Experiencia · alta | Demo del copiloto (cabina de pintura) | Prueba que revisa que ninguno de los ~100 textos lleve código; resumen «líneas que escribió el copiloto: 0» | 4 pistas locales y Claude al final; una sola fila para preguntar |
 | P7 | 23–24 nov | ¿Alguien aparta una copia de $249? | Negocio · alta | Landing con pre-registro | Publicada; **PENDIENTE** medir ([§19](#s19)) | — |
+| P8 | 25-nov | ¿Quien no conoce el juego se orienta sin que se lo expliquen? | Experiencia · media | La versión completa **sin** tutorial ni explicaciones, probada de manera informal | Tres personas probaron la versión sin tutorial y las tres nos dijeron lo mismo: se perdían mucho. Quiénes eran y cuánto tardaron: **POR VERIFICAR** (no quedó registrado) | Guía para quien empieza: recorrido de la pantalla, consejos la primera vez que aparece algo, botón «?» y «Cómo se juega» ([detalle abajo](#p8)) |
+
+<span id="p8"></span>
+
+??? note "P8 · Lo que nos dijeron del juego sin tutorial, y por qué agregamos la guía"
+    Probamos la versión que no traía tutorial ni explicaciones con **tres personas** y se perdían mucho: no es amigable para quien empieza. Esto fue lo que nos dijeron y qué hicimos con cada punto (la etiqueta es de nuestro propio estado al 25-nov):
+
+    | Lo que nos dijeron | Por qué importa | Qué hicimos | Estado |
+    |---|---|---|---|
+    | «No es beginner friendly» | Es la hipótesis de RI-01 (terminar el nivel 1 sin ayuda): sin orientación no se cumple | Recorrido guiado de la pantalla (qué hace cada parte y cada botón), consejos que salen una sola vez la primera vez que aparece algo (primera alerta, primer error, el tablero de cada fábrica), botón **«?»** para repetirlo y **Menú → Cómo se juega** | ✅ Hecho (25-nov); falta probarlo con alguien que no conozca el juego |
+    | Más contexto sobre las funciones y las variables: comentar qué hace cada línea de código nueva y cada variable | Quien empieza no sabe qué hace `gpio_init` ni por qué un pin es una constante | Las plantillas ya traen comentarios de qué falta y los consejos explican el código de la fábrica | ⚠️ Parcial: **PENDIENTE** comentar línea por línea el código nuevo de cada nivel y cada variable |
+    | No esconder la Referencia: tenerla en la pantalla principal como guía | La Referencia es donde está la sintaxis de cada función; hoy se abre en un panel que tapa la planta | Recordatorio de la Referencia al pedir la pista 2 («Insertar en mi código» y luego modificarlo) | ⚠️ Parcial: **PENDIENTE** dejarla visible en la pantalla principal junto a la planta y el editor |
+    | Sección introductoria tipo Duolingo que presente los conceptos | Los conceptos (pin, entrada, salida, 1 y 0) se explican hoy dentro del nivel, ya jugando | — | ⏳ **PENDIENTE** |
+    | Resaltar el error en el editor de código al pedir ayuda o una pista | Hoy la pista dice «línea N» y el jugador tiene que buscarla | La línea de la pista ya se tiñe de color en el editor, pero el fondo es tenue | ⚠️ Parcial: **PENDIENTE** hacerlo más visible |
+
+    **Qué falta para cerrar P8:** repetir la prueba con la guía y registrar quiénes son, cuánto tardan en la primera compilación y dónde se atoran. Esa medición es la tarea 1 y 2 de [§18](#s18).
 
 ??? note "Ciclo de aprendizaje en imágenes"
 
@@ -692,10 +708,10 @@ El equilibrio cuenta el margen de Pro: 10% de los compradores × 2.9 meses × $4
 
 ## 18. Pruebas con usuarios { #s18 }
 
-!!! abstract "v0 · 24-nov-2026 — PENDIENTE"
+!!! abstract "v0.1 · 25-nov-2026 — PENDIENTE"
     - **Decisión:** hacer 5 sesiones de 30 min: 3 del segmento y 2 de otros equipos.
-    - **Evidencia:** todavía ninguna.
-    - **Qué cambió:** adaptamos el protocolo del curso al juego.
+    - **Evidencia:** todavía ninguna medida. Hay una observación informal del 25-nov: tres personas probaron la versión sin tutorial y se perdían mucho ([§10, P8](#p8)).
+    - **Qué cambió:** adaptamos el protocolo del curso al juego. (25-nov) Después de esa observación el juego trae una guía para quien empieza, así que las sesiones prueban **si la guía resuelve el problema**: si alguien se pierde, anotar en qué pantalla y en qué minuto.
     - **Queda abierto:** **las 5 sesiones**. Es lo más urgente: sostiene RI-01, H2 y la señal de compra.
 
 | Min | Qué pasa | Qué se observa |
@@ -938,4 +954,4 @@ Además, las 28 plantillas y soluciones de los niveles 1–9 pasan `gcc -Wall -f
 
 ---
 
-<small>**Historial de esta página:** 24-nov-2026 — primera versión completa (secciones 0–22 y anexos), con los Excel de la semana 7 conciliados. Antes era un marcador "En construcción". 25-nov-2026 — demo publicada en un Release de GitHub, landing publicada y conectada, Claude probado con una clave real, roles del equipo y reflexión de Yael.</small>
+<small>**Historial de esta página:** 24-nov-2026 — primera versión completa (secciones 0–22 y anexos), con los Excel de la semana 7 conciliados. Antes era un marcador "En construcción". 25-nov-2026 — demo publicada en un Release de GitHub, landing publicada y conectada, Claude probado con una clave real, roles del equipo y reflexión de Yael. 25-nov-2026 — P8 en §10 y nota en §18: lo que nos dijeron del juego sin tutorial y por qué se agregó la guía.</small>
