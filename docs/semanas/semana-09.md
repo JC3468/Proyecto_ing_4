@@ -47,7 +47,7 @@
 
 | # | Prueba del curso | Versión GPIO Génesis | Criterio | Resultado |
 |---|---|---|---|---|
-| T1 | Instalación sin ayuda | Descargar el `.exe` y llegar al nivel 1 | < 5 min sin intervención | ⏳ **PENDIENTE** (falta el Release y una persona) |
+| T1 | Instalación sin ayuda | Descargar el `.exe` y llegar al nivel 1 | < 5 min sin intervención | ⏳ **PENDIENTE** (el Release ya está; falta una persona) |
 | T2 | Latencia de punta a punta | Compilar → la planta reacciona; pedir ayuda a la IA → respuesta | ≤ 3 s y ≤ 8 s (RD-01, RD-03) | ⏳ **PENDIENTE** |
 | T3 | Desconexión y recuperación | Cortar el internet 10 min mientras se juega | Sigue con pistas locales, avisa «IA sin conexión» y no pierde progreso | ⚠️ Probado con red simulada en las pruebas automáticas; falta en vivo |
 | T4 | Autonomía de batería | Rendimiento en la PC mínima | ≥ 30 fps (RD-02) | ⏳ **PENDIENTE** |
@@ -57,7 +57,7 @@
 ### 1.3 Definición de "listo"
 
 - [ ] El juego corre en una PC que no es nuestra, sin Godot (hoy solo se ha abierto en nuestras PCs).
-- [ ] El `.exe` se descarga de un Release público (falta crearlo; el `.exe` del 24-nov ya usa Claude Haiku 5.5).
+- [x] La demo (`GPIO_Genesis_demo.exe`) se descarga de un Release público (25-nov); usa Claude Haiku 5.5.
 - [x] La landing está publicada en internet, con el Google Form y GoatCounter.
 - [ ] El flujo descargar del Release → nivel 1 → pedir ayuda → exportar, y aparte landing → apartar una copia, sale sin que intervengamos.
 
@@ -73,7 +73,7 @@
 | Min | Qué pasa | Qué se observa |
 |---|---|---|
 | 0–3 | Guion fijo: «Es un juego para PC. Te voy a pedir tres cosas; piensa en voz alta. Yo no puedo ayudarte.» | Nada del producto se explica |
-| 3–10 | **Tarea 1:** descargar el juego del Release de GitHub y abrir el nivel 1 | Si lo logra solo, tiempo y dudas (incluida la advertencia de Windows) |
+| 3–10 | **Tarea 1:** descargar la demo del Release de GitHub y abrir el nivel 1 | Si lo logra solo, tiempo y dudas (incluida la advertencia de Windows) |
 | 10–20 | **Tarea 2:** completar el turno 1 del nivel 1 y decir qué le pide el copiloto cuando algo falla | Si entiende la alerta y la pista, y qué hace después |
 | 20–25 | **Tarea 3:** encontrar el precio y apartar una copia | Si encuentra el botón y completa el pre-registro |
 | 25–30 | Cierre: ¿cuándo fue la última vez que te atoraste con un programa y qué hiciste? ¿Cuánto pagaste por tu último juego o curso? ¿Te apunto para el piloto? | Compromisos, no opiniones |

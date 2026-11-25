@@ -44,7 +44,7 @@ Esta es la memoria del proyecto: la guía que llenamos semana a semana, el plan 
 | Precio | **$249 MXN**, pago único en PC; Copiloto Pro opcional a $49 MXN/mes | [§14](#s14) |
 | Economía unitaria | **$173.44 de contribución por copia** (después del 30% de Steam y $0.86 de IA); equilibrio con **322 copias** contando nuestras horas o **49** contando solo el dinero que sale del bolsillo | [§14](#s14), [§15](#s15) · SUPUESTOS del modelo |
 
-**Enlaces:** [repositorio](https://github.com/JC3468/Proyecto_ing_4) · [landing page](https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/) · video del pitch (**PENDIENTE**) · video de respaldo de la demo (**PENDIENTE**) · descarga del `.exe` en [Releases](https://github.com/JC3468/Proyecto_ing_4/releases) (**PENDIENTE**: subirlo).
+**Enlaces:** [repositorio](https://github.com/JC3468/Proyecto_ing_4) · [landing page](https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/) · video del pitch (**PENDIENTE**) · video de respaldo de la demo (**PENDIENTE**) · [demo descargable](https://github.com/JC3468/Proyecto_ing_4/releases) (Release de GitHub).
 
 **Estado, en una oración:** el juego ya funciona en PC con los 9 niveles del bloque 1 y la demo del copiloto, pero todavía no tenemos pruebas documentadas con usuarios, y de la IA en la nube solo sabemos que ya responde con una clave real (falta medir tokens y tiempo). La landing ya está publicada, pero todavía sin visitas medidas.
 
@@ -248,7 +248,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     - **Qué cambió:** RI-04 pasó de la API de Arduino-ESP32 a la del Pico SDK; RF-01 se cumple con un intérprete propio en lugar de clang; RI-07 se agregó desde la semana 6; RF-07 (24-nov): la descarga de la demo aparece en la landing solo después del pre-registro, para que la página siga con una sola acción (apartar una copia); el `.exe` está en el Release de GitHub.
     - **Queda abierto:** **6 cumplen, 10 parcialmente, 1 no cumple y 9 están sin probar**: casi todos los pendientes necesitan usuarios o una PC mínima.
 
-**Producto de primera iteración (definición vigente):** un solo `.exe` de 110 MB para Windows que se descarga del Release de GitHub (la landing da el enlace de la demo después del pre-registro), con los 9 niveles del bloque 1 y 2 demos, el compilador incluido, el copiloto (4 pistas locales + Claude con la clave del jugador) y guardado local, sin cuenta. Criterio de éxito (RI-01): 4 de 5 estudiantes del segmento terminan el nivel 1 sin ayuda en 20 minutos o menos.
+**Producto de primera iteración (definición vigente):** un solo `.exe` de 110 MB para Windows, con los 9 niveles del bloque 1 y 2 demos, el compilador incluido, el copiloto (4 pistas locales + Claude con la clave del jugador) y guardado local, sin cuenta. La demo gratis (nivel 1, demo del copiloto, proyecto del copiloto y demo avanzada) es otro `.exe` que se descarga del Release de GitHub; la landing da el enlace después del pre-registro. La versión completa no se publica. Criterio de éxito (RI-01): 4 de 5 estudiantes del segmento terminan el nivel 1 sin ayuda en 20 minutos o menos.
 
 ??? note "Tabla completa de requerimientos con estado"
     | ID | Requerimiento | Verificación | Estado | Prueba / evidencia |
@@ -259,7 +259,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     | RF-04 | El copiloto explica en español la causa física, marca la línea y no da la solución completa | Set de 40 errores con rúbrica | ⚠️ | Las 4 pistas locales lo hacen; la respuesta de Claude no se ha evaluado (RD-04) |
     | RF-05 | Sin internet: pista local para ≥ 25 patrones; jugar y guardar | 25/25 sin red | ✅ | 79 tipos de problema distintos con 4 pistas cada uno (155 en los 9 niveles y 2 demos del Pico SDK, en los archivos de nivel del juego); el guardado es local |
     | RF-06 | Sincronizar con la cuenta y exportar las soluciones | 2 niveles en otra PC; exportado compila | ⚠️ | Exportar: sí (`main.c`/`main.cpp` + `CMakeLists.txt` por turno). Cuenta y sincronización: no hay backend |
-    | RF-07 | La landing permite apuntarse y, ya apuntado, descargar la demo | 10 registros de prueba en la hoja en < 5 s; la descarga funciona en Chrome, Edge y Firefox | ⚠️ | Pre-registro conectado a Google Forms; faltan los 10 registros de prueba. El botón «Descargar la demo gratis» sale solo después del pre-registro (un solo CTA) y apunta a `GPIO_Genesis_demo.exe` del Release más reciente: falta crear el Release |
+    | RF-07 | La landing permite apuntarse y, ya apuntado, descargar la demo | 10 registros de prueba en la hoja en < 5 s; la descarga funciona en Chrome, Edge y Firefox | ⚠️ | Pre-registro conectado a Google Forms; faltan los 10 registros de prueba. El botón «Descargar la demo gratis» sale solo después del pre-registro (un solo CTA) y apunta a `GPIO_Genesis_demo.exe` del Release (publicado el 25-nov). Falta probar la descarga en los tres navegadores |
     | RD-01 | Compilar y arrancar: P95 ≤ 3 s (300 líneas, PC mínima) | 50 corridas | ⏳ | No medido |
     | RD-02 | ≥ 30 fps promedio en la PC mínima | Nivel más grande | ⏳ | No medido |
     | RD-03 | Pista local ≤ 200 ms; nube ≤ 8 s | p90 con 5 Mbps | ⚠️ | Local: inmediata (sin red). Nube: sin medir; no hay streaming |
@@ -394,7 +394,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     | Dominio | gpiogenesis.com | ~US$12 al año (**ESTIMADO**) | Registrador | Inmediato |
     | Página, pre-registro y métricas | GitHub Pages, Google Forms, GoatCounter | $0 | GitHub, Google, GoatCounter | Inmediato |
 
-**Volumen y proceso:** piloto de 20 jugadores (descarga gratis desde un Release de GitHub) y lanzamiento de 400 copias en el año 1 (escenario base) en Steam. El proceso es el mismo para 1 o 1,000 copias: exportar con Godot (preset "Windows Desktop", el paquete va dentro del `.exe`), subir y distribuir. Una versión nueva toma minutos.
+**Volumen y proceso:** piloto de 20 jugadores (se les pasa el `.exe` completo; el Release público solo trae la demo) y lanzamiento de 400 copias en el año 1 (escenario base) en Steam. El proceso es el mismo para 1 o 1,000 copias: exportar con Godot (preset "Windows Desktop", el paquete va dentro del `.exe`), subir y distribuir. Una versión nueva toma minutos.
 
 | Revisión DFM | Antes (semana 5) | Después (24-nov) |
 |---|---|---|
@@ -419,7 +419,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     2. Correr las 5 suites de pruebas automáticas ([Anexo B](#anexo-b)). Todas deben pasar.
     3. Exportar con el preset **Windows Desktop** a `GPIO_Genesis.exe` (un solo archivo, ~110 MB).
     4. Abrir el `.exe` en una PC sin Godot y revisar que salgan los 9 niveles, las dos demos y la Estación de empaque.
-    5. Subirlo a un Release de GitHub; para quien lo descarga, reproducir una unidad es bajar ese archivo.
+    5. La demo se sube a un Release de GitHub; para quien la descarga, reproducir una unidad es bajar ese archivo. La versión completa no se publica.
 
 ## 12. Aplicación conectada { #s12 }
 
@@ -427,7 +427,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     - **Decisión:** la "aplicación" es el juego: fábrica + editor + copiloto en una sola pantalla.
     - **Evidencia:** el `.exe` (Godot 4.7.2) y las capturas de abajo.
     - **Qué cambió:** el modelo por defecto pasó a `claude-haiku-5-5` (24-nov), el que se usó para costear la semana 7. El `.exe` ya se volvió a exportar con este modelo (24-nov).
-    - **Queda abierto:** publicar el `.exe` en un Release (el código del juego no se publica).
+    - **Queda abierto:** cómo distribuir la versión completa sin publicarla; el Release trae solo la demo y el código del juego no se publica.
 
 **Flujo del usuario:** abrir el `.exe` → la primera vez entra directo al nivel 1 con el código al 90% ("2 de 3 sistemas en línea") → escribe una línea → **Compilar y ejecutar** (Ctrl+Enter) → la banda arranca → ventana «Turno 1 completado» → **Exportar turno 1** o **Ir al turno 2** → al terminar los turnos, **Siguiente nivel**. Wireframes del menú, la alerta y la primera vez en la [semana 6](semanas/semana-06.md), sección 8.
 
@@ -481,7 +481,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     ```
     Va por HTTPS a `https://api.anthropic.com/v1/messages` con las cabeceras `x-api-key` (la clave del jugador) y `anthropic-version: 2023-06-01`. No lleva nombre, correo ni ningún dato del jugador.
 
-**Cómo correrlo:** descargar `GPIO_Genesis.exe` del [Release](https://github.com/JC3468/Proyecto_ing_4/releases) (**PENDIENTE**) y abrirlo con doble clic. Para la IA: **Menú → Opciones → Copiloto en la nube**, pegar una clave de Anthropic, **Guardar** y **Probar conexión**.
+**Cómo correrlo:** descargar `GPIO_Genesis_demo.exe` del [Release](https://github.com/JC3468/Proyecto_ing_4/releases) y abrirlo con doble clic (si Windows avisa, «Más información» → «Ejecutar de todos modos»). La demo trae el nivel 1, la demo del copiloto, el proyecto del copiloto y la demo avanzada; los 9 niveles se ven en la demo en vivo. Para la IA: **Menú → Opciones → Copiloto en la nube**, pegar una clave de Anthropic, **Guardar** y **Probar conexión**.
 
 ??? note "Limitaciones conocidas"
     - El código lo ejecuta un intérprete: no es el compilador de ARM. Falta comprobar en una placa que los `main.c` exportados compilan y corren igual.
@@ -592,7 +592,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | Steam | Lanzamiento, con la demo gratis del nivel 1 | Ventas reales y reseñas | 30% de comisión; revisión y divulgación de IA |
 | Licencia escolar (venta directa) | Cuando un profesor lo quiera usar con su grupo | Si las universidades pagan (hipótesis de la semana 2) | Ciclos de venta lentos; facturación |
 
-**Plan de preventa y piloto:** (1) difundir la landing (ya publicada) y medir visitas, clics y pre-registros; (2) a quienes se registren, invitarlos al piloto de 20 jugadores con el `.exe` del Release; (3) al final del piloto, preguntar con compromiso (dejar tarjeta para la compra anticipada o pagar Pro un mes), no con opiniones.
+**Plan de preventa y piloto:** (1) difundir la landing (ya publicada) y medir visitas, clics y pre-registros; (2) a quienes se registren, invitarlos al piloto de 20 jugadores con el `.exe` completo (se les pasa directo; el Release público solo trae la demo); (3) al final del piloto, preguntar con compromiso (dejar tarjeta para la compra anticipada o pagar Pro un mes), no con opiniones.
 
 | Métrica | Valor | ¿Medido o supuesto? |
 |---|---|---|
@@ -657,7 +657,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 
 | # | Prueba del curso | Versión GPIO Génesis | Criterio | Resultado |
 |---|---|---|---|---|
-| T1 | Instalación sin ayuda | Descargar el `.exe` y llegar al nivel 1 | < 5 min sin intervención | ⏳ PENDIENTE (falta el Release y una persona) |
+| T1 | Instalación sin ayuda | Descargar el `.exe` y llegar al nivel 1 | < 5 min sin intervención | ⏳ PENDIENTE (el Release ya está; falta una persona) |
 | T2 | Latencia de punta a punta | Compilar → la planta reacciona; pedir ayuda a la IA → respuesta | ≤ 3 s y ≤ 8 s (RD-01, RD-03) | ⏳ PENDIENTE |
 | T3 | Desconexión y recuperación | Cortar el internet 10 min mientras se juega | Sigue con pistas locales, avisa y no pierde progreso | ⚠️ Probado con red simulada en las pruebas; falta en vivo |
 | T4 | Autonomía de batería | No aplica (sin batería). Equivalente: rendimiento en la PC mínima | ≥ 30 fps (RD-02) | ⏳ PENDIENTE |
@@ -679,7 +679,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 **Checklist de "listo" (traducido):**
 
 - [ ] El juego corre en una PC que no es nuestra, sin Godot (hoy solo en nuestras PCs).
-- [ ] El `.exe` se puede descargar de un Release público (falta crearlo).
+- [x] La demo (`GPIO_Genesis_demo.exe`) se puede descargar de un Release público (25-nov).
 - [x] La landing está publicada en internet, con el Google Form y GoatCounter.
 - [ ] El flujo descargar → jugar el nivel 1 → pedir ayuda → exportar sale sin que intervengamos (falta T1 con una persona).
 
@@ -694,7 +694,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | Min | Qué pasa | Qué se observa |
 |---|---|---|
 | 0–3 | Guion fijo: «Es un juego para PC. Te voy a pedir tres cosas; piensa en voz alta. Yo no puedo ayudarte.» | Nada del producto se explica |
-| 3–10 | **Tarea 1:** descargar el juego del Release de GitHub y abrir el nivel 1 | Si lo logra solo, tiempo, dudas (incluida la advertencia de Windows) |
+| 3–10 | **Tarea 1:** descargar la demo del Release de GitHub y abrir el nivel 1 | Si lo logra solo, tiempo, dudas (incluida la advertencia de Windows) |
 | 10–20 | **Tarea 2:** completar el turno 1 del nivel 1 y decir qué le está pidiendo el copiloto cuando algo falla | Si entiende la alerta y la pista, y qué hace después |
 | 20–25 | **Tarea 3:** encontrar el precio y apartar una copia | Si encuentra el CTA y completa el pre-registro |
 | 25–30 | Cierre: ¿cuándo fue la última vez que te atoraste con un programa y qué hiciste? ¿Cuánto pagaste por tu último juego o curso? ¿Te apunto para el piloto? | Compromisos, no opiniones |
@@ -852,7 +852,7 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
 
 **Plan de 90 días (diciembre 2026 a febrero 2027):**
 
-1. **Semanas 1–2:** Release con el `.exe`, landing publicada con el formulario y las métricas, y las 5 sesiones de [§18](#s18).
+1. **Semanas 1–2:** las 5 sesiones de [§18](#s18) y medir la landing (visitas, clics y pre-registros).
 2. **Semanas 3–6:** piloto con 20 jugadores (un grupo de Sistemas Embebidos), medir tokens y corregir lo crítico.
 3. **Semanas 7–12:** si el piloto cumple RI-01, backend mínimo con cuota (nuestra clave, límite de gasto), firma de código y acceso anticipado en itch.io; ofrecer la licencia escolar a un profesor. Decidir Steam con datos.
 
@@ -869,7 +869,7 @@ En un producto digital el BOM son servicios y licencias: tabla de [§11](#s11), 
 ## Anexo B. Repositorio, README, commits y entregables { #anexo-b }
 
 - **Repositorio:** <https://github.com/JC3468/Proyecto_ing_4> (esta página, las semanas y la [landing](gpio-genesis/index.html)).
-- **Código del juego:** no se publica (decisión del equipo). Se entrega el `GPIO_Genesis.exe` en un [Release](https://github.com/JC3468/Proyecto_ing_4/releases) (**PENDIENTE** subirlo; pesa ~110 MB y GitHub no acepta archivos de más de 100 MB en el repositorio). Lo que se cita del código en esta página va resumido aquí.
+- **Código del juego:** no se publica (decisión del equipo). El [Release](https://github.com/JC3468/Proyecto_ing_4/releases) trae solo la demo (`GPIO_Genesis_demo.exe`, ~110 MB); la versión completa no se publica y se muestra en la demo en vivo. Lo que se cita del código en esta página va resumido aquí.
 
 **Pruebas automáticas del juego** (corren sin ventana; 834 al 24-nov-2026):
 
