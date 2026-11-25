@@ -12,7 +12,7 @@
 
 !!! warning "Estado al 24 de noviembre de 2026"
     - **Pruebas con usuarios: PENDIENTES.** No hemos hecho ninguna sesión, así que no hay tiempos, tasas de éxito ni citas de usuarios del juego.
-    - **Landing: lista pero sin publicar.** Faltan el push, el formulario y las métricas; por eso no hay visitas ni pre-registros.
+    - **Landing: publicada**, con el formulario y las métricas conectados. Todavía no hay visitas ni pre-registros que reportar.
     - **Economía unitaria: SUPUESTOS.** Los números salen del Excel; ninguno está medido todavía.
 
 !!! info "Dólares y pesos"
@@ -36,10 +36,10 @@
 
 | Frontera | Protocolo | Registro para la bisección | Estado |
 |---|---|---|---|
-| **F1** · código → MCU virtual | Llamada interna del juego (GDScript) | Pestaña Consola del juego (errores de compilación y de ejecución) y comparación contra gcc en `prueba_lenguaje.gd` | ✅ 41 programas de C dan la misma salida que gcc y 14 de C++ la misma que g++. Los tiempos no se han comparado con una Pico real |
-| **F2** · juego → internet | HTTPS, API de mensajes de Anthropic (JSON) | Código HTTP y tokens de entrada y salida de cada petición | ⚠️ La petición se arma y se revisa en las pruebas, pero **nunca se ha mandado con una clave real** |
+| **F1** · código → MCU virtual | Llamada interna del juego (GDScript) | Pestaña Consola del juego (errores de compilación y de ejecución) y comparación contra gcc en las pruebas de lenguaje | ✅ 41 programas de C dan la misma salida que gcc y 14 de C++ la misma que g++. Los tiempos no se han comparado con una Pico real |
+| **F2** · juego → internet | HTTPS, API de mensajes de Anthropic (JSON) | Código HTTP y tokens de entrada y salida de cada petición | ⚠️ La petición se arma y se revisa en las pruebas, y el 25-nov ya se mandó con una clave real y Claude respondió. **Falta medir** tokens y tiempo |
 | **F3** · Claude → respuesta utilizable | Texto | Respuesta cruda antes del filtro de código y del convertidor de Markdown | ⚠️ Filtro y convertidor hechos; falta evaluar las respuestas reales |
-| **F4** · juego y landing → usuario | Pantalla; landing → Google Forms por HTTPS (`formResponse`) | Capturas de pantalla; fila nueva en la hoja; visitas en GoatCounter | ⚠️ Juego probado en `prueba_nivel.gd`; landing sin publicar |
+| **F4** · juego y landing → usuario | Pantalla; landing → Google Forms por HTTPS (`formResponse`) | Capturas de pantalla; fila nueva en la hoja; visitas en GoatCounter | ⚠️ Juego probado en la prueba de niveles; landing publicada, falta medir |
 
 **Frontera donde es más probable que falle:** F2/F3, porque es la única que nunca se ha probado de verdad. El registro que vamos a poner ahí: código HTTP, tokens y la respuesta cruda de las primeras 10 consultas con la clave del equipo.
 
@@ -58,7 +58,7 @@
 
 - [ ] El juego corre en una PC que no es nuestra, sin Godot (hoy solo se ha abierto en nuestras PCs).
 - [ ] El `.exe` se descarga de un Release público (falta crearlo; el `.exe` del 24-nov ya usa Claude Haiku 5.5).
-- [ ] La landing está publicada en internet (falta el push, el Google Form y GoatCounter).
+- [x] La landing está publicada en internet, con el Google Form y GoatCounter.
 - [ ] El flujo descargar del Release → nivel 1 → pedir ayuda → exportar, y aparte landing → apartar una copia, sale sin que intervengamos.
 
 **Qué no funciona todavía y por qué:** cuentas y progreso en la nube, cuota de consultas con nuestra clave y respuestas en streaming (no hay backend); compilación con el toolchain real de ARM (se usa el intérprete); niveles de los bloques 2 y 3 (tiempo). Detalle y errores encontrados por frontera en la [página del proyecto final, §17](../proyecto-final.md#s17).
@@ -234,13 +234,13 @@ No es asesoría legal. Las fuentes oficiales y el borrador del aviso de privacid
 | Parte | Tiempo | Palabras (tope) | Texto | De dónde sale |
 |---|---|---|---|---|
 | Impacto y problema | 0:00–0:35 | 65 (76) | Son las dos de la mañana y Diego, estudiante de mecatrónica, lleva tres horas con una práctica que no funciona. Su código compila, pero la banda no arranca y nadie le dice por qué. No es el único: entre 28 y 50% de los alumnos reprueba o abandona su primer curso de programación. Muchos, además, ya pagaron un kit de hasta 8,000 pesos para practicar. | Diego es una persona ilustrativa; cifras en el [proyecto final, §2](../proyecto-final.md#s2) |
-| Solución y por qué nosotros | 0:35–1:10 | 65 (76) | GPIO Génesis es un juego para PC: arrancas una fábrica de drones escribiendo C/C++ de verdad para una Raspberry Pi Pico 2 virtual. Un tutorial de YouTube te da código para copiar; aquí, si tu código falla, la banda se detiene y el copiloto te pregunta qué ves. Somos dos estudiantes de mecatrónica que llevamos Sistemas Embebidos: el juego enseña lo mismo que nuestra clase. | [Semana 8](semana-08.md), sección 2 |
+| Solución y por qué nosotros | 0:35–1:10 | 68 (76) | GPIO Génesis es un juego para PC: arrancas una fábrica de drones escribiendo C/C++ de verdad para una Raspberry Pi Pico 2 virtual. Un tutorial de YouTube te da código para copiar; aquí, si tu código falla, la banda se detiene y el copiloto te pregunta qué ves. Somos dos estudiantes de mecatrónica, y uno de nosotros lleva Sistemas Embebidos: el juego enseña lo mismo que esa clase. | [Semana 8](semana-08.md), sección 2 |
 | Mercado y modelo | 1:10–1:45 | 66 (76) | Hay 219 mil estudiantes de ingeniería en México que juegan simuladores. Queremos llegar a 1,100 cada año. Cobramos 249 pesos, pago único, como un juego independiente, no como un curso; el copiloto Pro es opcional. Después de la tienda y de la inteligencia artificial, cada copia nos deja 173 pesos. Con 49 copias recuperamos el dinero que sale de nuestro bolsillo. Con 322, también nuestras horas. | SAM y SOM: [proyecto final, §4](../proyecto-final.md#s4); números: sección 3.3 |
 | Tracción | 1:45–2:20 | 72 (76) | Hoy funcionan los nueve niveles del primer bloque del curso, con interrupciones y prioridades. Los cuidan 834 pruebas automáticas, y cada plantilla pasa la revisión del compilador con las cabeceras reales de la Pico. De cuatro estudiantes entrevistados, tres pagarían entre 100 y 400 pesos por un juego así. Lo que todavía no tenemos, y es lo siguiente: pruebas con usuarios del juego. La página de preventa va a contar cada registro. | Semana 8 y semana 4. **La confesión honesta es que faltan las pruebas con usuarios** |
 | Equipo | 2:20–2:35 | 25 (32) | Somos José Carlos y Yael, de Ingeniería Mecatrónica. Usamos inteligencia artificial para construir, pero cada nivel lo revisamos contra el SDK real de la Pico. | [Proyecto final, §1](../proyecto-final.md#s1) |
 | Ask y cierre | 2:35–3:00 | 47 (54) | Buscamos veinte estudiantes para el piloto y un profesor que lo use con su grupo. En la demo van a ver la fábrica fallar y al copiloto negarse a darnos la solución. GPIO Génesis: si tu código falla, ves por qué; si funciona, va a tu portafolio. | Sección 3 |
 
-**Total: 340 palabras** (rango del curso: 330–360). Cumple: abre con una persona y un costo, contrasta con YouTube, una cifra por frase con origen, una sola confesión, anuncia la demo sin hacerla y cierra con la promesa. Sin «innovador», «plataforma», «solución integral» ni «revolucionario».
+**Total: 343 palabras** (rango del curso: 330–360). Cumple: abre con una persona y un costo, contrasta con YouTube, una cifra por frase con origen, una sola confesión, anuncia la demo sin hacerla y cierra con la promesa. Sin «innovador», «plataforma», «solución integral» ni «revolucionario».
 
 **Video del pitch:** **PENDIENTE** (grabarlo, verlo y reescribir lo que no funcione). Las respuestas a preguntas de inversionista (costo por copia, competencia, costo de la IA, punto de equilibrio, requisitos legales, retención) están en la [página del proyecto final, §20](../proyecto-final.md#s20).
 
@@ -257,11 +257,11 @@ No es asesoría legal. Las fuentes oficiales y el borrador del aviso de privacid
 
 **Roles (propuesta):** narrador, Yael; operador, José Carlos. **15 minutos antes:** laptop cargada · `.exe` congelado · progreso limpio (Versiones → Restaurar original) · hotspot del teléfono probado · clave guardada y «Probar conexión» en verde · landing abierta y QR impreso · videos de respaldo en el teléfono y la laptop. **Prohibido:** depender del Wi-Fi del salón o cambiar el `.exe` ese día.
 
-**Ensayos con cronómetro (3) y video de respaldo:** **PENDIENTES.** **Importante:** Claude nunca se ha probado con una clave real; el tramo 3:15–4:45 depende de hacerlo antes.
+**Ensayos con cronómetro (3) y video de respaldo:** **PENDIENTES.** Claude ya respondió con una clave real (25-nov); antes de la demo hay que medir cuánto tarda, porque el tramo 3:15–4:45 depende de eso.
 
 ## 7. Preguntas de cierre
 
-1. **¿En qué frontera es más probable que falle el sistema y qué registro pondrán ahí?** F2/F3 (juego → Claude → respuesta): nunca se ha probado con una clave real. Registro: código HTTP, tokens y respuesta cruda de cada petición.
+1. **¿En qué frontera es más probable que falle el sistema y qué registro pondrán ahí?** F2/F3 (juego → Claude → respuesta): con una clave real solo probamos que responde; no hemos medido tiempos ni qué pasa con red lenta. Registro: código HTTP, tokens y respuesta cruda de cada petición.
 2. **¿Cuáles son su CAC, LTV y LTV ÷ inversión, y qué palanca mueve más el resultado?** CAC $44.40, LTV ≈ $185.11, 4.2× (todo SUPUESTO). Lo que más mueve es el CAC; la mejor palanca, demos en clase y referidos (8.3×).
 3. **¿Qué tema regulatorio puede impedirles vender y qué fuente lo confirma?** Los datos personales de la landing ([LFPDPPP](https://www.diputados.gob.mx/LeyesBiblio/ref/lfpdppp.htm)) y vender un juego con IA sin backend; además Steam pide declarar el contenido generado por IA (POR VERIFICAR).
 4. **¿Qué evidencia respalda cada parte del pitch y qué está pendiente?** Ver la columna "De dónde sale" de la sección 5. Pendiente: pruebas con usuarios y pre-registros.

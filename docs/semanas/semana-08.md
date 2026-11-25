@@ -97,7 +97,7 @@ El jugador es el ingeniero de automatización de una planta de drones. Cada nive
 | P4 | 8-nov | ¿Se puede enseñar con la API del curso? | Función · alta | El Pico SDK pasa a ser la opción por defecto |
 | P5 | 21–22 nov | ¿El simulador reproduce los tiempos del chip? | Función · alta | Niveles 2–9 con rebote, interrupciones y prioridades |
 | P6 | 22–23 nov | ¿El copiloto puede guiar sin escribir el código? | Experiencia · alta | 4 pistas locales y Claude al final |
-| P7 | 23–24 nov | ¿Alguien aparta una copia de $249? | Negocio · alta | Landing lista; **PENDIENTE** publicarla y medir |
+| P7 | 23–24 nov | ¿Alguien aparta una copia de $249? | Negocio · alta | Landing publicada; **PENDIENTE** medir |
 
 Ninguna de estas preguntas se ha respondido todavía con usuarios: la de esta semana (sección 1) es la primera.
 
@@ -155,7 +155,7 @@ Ordenados por lo que pesan en cada copia a 400 copias:
 ### 3.4 Paso 4 — Reducir el soporte de producción
 
 - **Inventario:** ninguno; una copia nueva cuesta $0 de fabricar.
-- **Habilidades especializadas:** GDScript (Godot) y C del Pico SDK. Riesgo: la mayor parte del código se escribió con Claude Code y tenemos que entenderlo para mantenerlo. Lo mitigamos con el registro de desarrollo (`juego/CLAUDE.md`) y las pruebas.
+- **Habilidades especializadas:** GDScript (Godot) y C del Pico SDK. Riesgo: la mayor parte del código se escribió con Claude Code y tenemos que entenderlo para mantenerlo. Lo mitigamos con el registro de desarrollo del juego y las pruebas automáticas.
 - **Control de calidad:** 834 pruebas automáticas (intérprete, lenguaje, periféricos, niveles y referencia) que se corren antes de exportar; las plantillas se revisan con gcc contra las cabeceras reales del SDK.
 
 ### 3.5 Paso 5 — Efectos en otros factores
@@ -227,11 +227,11 @@ Ordenados por lo que pesan en cada copia a 400 copias:
 |---|---|---|---|
 | Compilar y arrancar la planta (RD-01) | P95 ≤ 3 s, 300 líneas, PC mínima | Cronometrar 50 corridas | ⏳ Sin medir |
 | Cuadros por segundo (RD-02) | ≥ 30 fps en la PC mínima | Nivel más grande | ⏳ Sin medir |
-| Costo del intérprete | Un ciclo que nunca duerme no pasa de ~4 ms por cuadro | `prueba_mcu.gd` | ✅ En pruebas automáticas |
+| Costo del intérprete | Un ciclo que nunca duerme no pasa de ~4 ms por cuadro | Pruebas del MCU virtual | ✅ En pruebas automáticas |
 | Ciclos infinitos | El juego no se congela | En modo Arduino, watchdog de 2 s; con el Pico SDK, un `while(true)` es válido, como en el chip | ✅ |
 | Tamaño de la descarga | Un solo archivo | `GPIO_Genesis.exe` de 110 MB | ✅ |
 | Pista local (RD-03) | ≤ 200 ms | No usa la red | ✅ |
-| Respuesta de Claude (RD-03) | ≤ 8 s | Clave real y 5 Mbps | ⏳ Nunca probado con una clave real |
+| Respuesta de Claude (RD-03) | ≤ 8 s | Clave real y 5 Mbps | ⏳ Ya responde con una clave real (25-nov); falta medir el tiempo |
 
 ## 8. Preguntas de cierre
 
