@@ -264,7 +264,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     | RD-02 | ≥ 30 fps promedio en la PC mínima | Nivel más grande | ⏳ | No medido |
     | RD-03 | Pista local ≤ 200 ms; nube ≤ 8 s | p90 con 5 Mbps | ⚠️ | Local: inmediata (sin red). Nube: sin medir; no hay streaming |
     | RD-04 | ≥ 80% de respuestas correctas y 0 soluciones completas | Set de 40 errores | ⏳ | Pendiente; el filtro de la demo bloquea respuestas con código |
-    | RD-05 | ≤ US$0.006 por consulta e IA ≤ 10% del ingreso neto | Logs de tokens del piloto | ⏳ | Estimado: US$0.0005 y 0.5% (cumpliría); tokens sin medir ([§14](#s14)) |
+    | RD-05 | ≤ US$0.006 por consulta e IA ≤ 10% del ingreso neto | Logs de tokens del piloto | ⏳ | Medido (promedio de 10 consultas): ≈ US$0.00032 por consulta, menos de lo estimado (cumple); puede variar según el nivel ([§14](#s14)) |
     | RD-06 | 0 cierres con 20 programas defectuosos | Bucle infinito, división entre cero, fuera de arreglo, recursión | ⚠️ | El MCU detiene accesos fuera de arreglo e ISR que se repiten; el set formal de 20 no se ha corrido |
     | RI-01 | 4 de 5 usuarios terminan el tutorial y el nivel 1 sin ayuda | 5 usuarios, ≤ 20 min | ⏳ | [§18](#s18) |
     | RI-02 | Resaltado, números de línea y línea del error marcada | 15 programas con error | ✅ | Capturas de [§12](#s12) y prueba de niveles |
@@ -531,7 +531,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     - **Decisión:** precio de $249 MXN y alcance de lanzamiento = MVP (los bloques 2 y 3 como actualizaciones).
     - **Evidencia:** [modelo financiero](recursos/archivos/semana7/modelo-financiero-gpio-genesis-semana7.xlsx), [costos](recursos/archivos/semana7/costos-gpio-genesis-semana7.xlsx) y [alcance y niveles](recursos/archivos/semana7/alcance-niveles-costos-gpio-genesis.xlsx), con fórmulas visibles.
     - **Qué cambió (24-nov):** los tres Excel quedaron conciliados: 423 h del MVP en 5 ciclos (84.6 h por ciclo), 220 consultas por jugador y plan gratuito de Supabase en el escenario pesimista ([semana 7](semanas/semana-07.md), nota del 24-nov).
-    - **Queda abierto:** **los tokens no están medidos**; comparar las 423 h estimadas con las que de verdad tomó el juego; cotizar firma y dominio; consultar impuestos con un contador.
+    - **Queda abierto:** los tokens ya se midieron en 10 consultas (promedio, varía según el nivel; falta repetir en niveles grandes); comparar las 423 h estimadas con las que de verdad tomó el juego; cotizar firma y dominio; consultar impuestos con un contador.
 
 ??? note "Costos CREAR y DISTRIBUIR clasificados D / F / S"
     | Partida | Tipo | MVP | 3 bloques | Por copia |
@@ -551,7 +551,10 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 
     Montos de desarrollo con 15% de indirectos y 30% de contingencia. Regla del curso: si no cierra, se recortan primero los F; los que no cierran son los niveles de los bloques 2 y 3, que son F.
 
-**Costo de la IA (estimado, no medido):** 3,000 tokens de entrada + 400 de salida por consulta con Haiku 5.5 = US$0.0005 por consulta → **$1.31 MXN al mes por usuario activo** (5 consultas al día × 30 días) y **$0.86 MXN por jugador en todo el MVP**. La petición real del juego ([§12](#s12)) lleva las reglas, el código y el diagnóstico del nivel: no sabemos si pesa más o menos que 3,000 tokens hasta medirla. **Cómo lo vamos a medir:** con la clave del equipo, hacer 10 consultas en la demo del copiloto y leer los tokens de entrada y salida en el panel de uso de la consola de Anthropic (o con el endpoint `count_tokens`); poner el promedio en `Supuestos!B11:B12` del Excel de costos.
+**Costo de la IA (medido, 25-nov):** con la clave del equipo hicimos 10 consultas en la demo del copiloto y el contador de la demo registró **21,275 tokens de entrada y 2,047 de salida, US$0.0032 en total** (Haiku 5.5). Eso da un **promedio de ≈ 2,130 tokens de entrada y ≈ 205 de salida por consulta, ≈ US$0.00032 por consulta**, por debajo de la estimación de 3,000 + 400 (US$0.0005). Con ese costo, un usuario activo (5 consultas al día × 30 días) gasta **≈ US$0.05 ≈ $0.83 MXN al mes**, y un jugador que usara las 220 consultas del MVP, todas en la nube, **≈ US$0.07 ≈ $1.21 MXN** (con la mitad en pistas locales, ≈ $0.61 MXN).
+
+!!! warning "Es un promedio, no un valor fijo"
+    Esta medición es un **promedio de 10 consultas**. El gasto real puede ser **mayor o menor según el nivel**: un nivel con más código, más periféricos o un error más largo manda más tokens de entrada, y una pista más detallada genera más tokens de salida. Por eso se toma como referencia, y la cuota de consultas (RR-06) sigue protegiendo el margen aunque el costo suba. **Pendiente:** repetir la medición en los niveles más grandes del bloque 1. El promedio ya está en `Supuestos!B11:B12` del Excel de costos (2,128 y 205 tokens); el $0.86 por jugador de la tabla DFM y del resumen del Excel sigue siendo la cifra más alta, calculada por nivel (2,500–4,000 tokens), y queda como cota conservadora.
 
 | Indicador | MVP (5 niveles) | 3 bloques (22 niveles) | Fuente |
 |---|---|---|---|
@@ -851,7 +854,7 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
 | El copiloto que pregunta se siente como ayuda | Tarea 2 de las 5 sesiones ([§18](#s18)): éxito sin ayuda y SEQ |
 | Alguien paga $249 | Pre-registros y, en el piloto, compra anticipada con tarjeta |
 | 10% compra Pro | Ofrecer Pro a los 20 del piloto y contar quién paga el primer mes |
-| La IA cuesta lo estimado | 10 consultas reales y leer los tokens ([§14](#s14)) |
+| La IA cuesta lo estimado | **Hecho (25-nov):** 10 consultas reales, ≈ US$0.00032 por consulta en promedio; repetir en los niveles más grandes ([§14](#s14)) |
 | El código exportado corre en una Pico 2 real | Compilar un `main.c` exportado con el Pico SDK y cargarlo en una placa del curso |
 
 **Plan de 90 días (diciembre 2026 a febrero 2027):**
