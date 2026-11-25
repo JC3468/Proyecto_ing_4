@@ -1,13 +1,13 @@
 # Proyecto final: GPIO Génesis
 
-**Equipo:** José Carlos y Yael · **Curso:** Proyectos de Ingeniería 4 · **Última actualización:** 24 de noviembre de 2026
+**Equipo:** José Carlos y Yael · **Curso:** Proyectos de Ingeniería 4 · **Última actualización:** 25 de noviembre de 2026
 
 Esta es la memoria del proyecto: la guía que llenamos semana a semana, el plan de negocio que puede leer alguien que no nos conoce y el registro contra el que se califica. Cada sección empieza con una ficha (versión y fecha, decisión, evidencia, qué cambió y qué queda abierto). Los detalles largos están en bloques que se abren con un clic y en los anexos.
 
 !!! info "Cómo leer esta página"
     - **Ruta del evaluador (10 min):** [§0](#s0) (1 min) → [§5](#s5) (1) → [§13](#s13) (2) → [§17](#s17) (2) → [§18](#s18) (2) → [§21](#s21) (1) → [§20](#s20) (1).
     - **Para un inversionista:** resumen [§0](#s0) · problema [§2](#s2), [§3](#s3) · solución [§5](#s5), [§9](#s9) · mercado [§4](#s4) · modelo de negocio [§13](#s13) · operación [§11](#s11) · finanzas y economía unitaria [§14](#s14), [§15](#s15) · legal [§16](#s16) · tracción [§18](#s18), [§19](#s19) · equipo [§1](#s1) · riesgos y siguientes pasos [§22](#s22).
-    - **Etiquetas:** **VERIFICADO** = tiene fuente o prueba enlazada · **HIPÓTESIS** = afirmación sin evidencia todavía · **SUPUESTO** = número que pusimos nosotros · **POR VERIFICAR** = falta confirmarlo con una fuente oficial · **PENDIENTE** = no se ha hecho.
+    - **Etiquetas:** **VERIFICADO** = tiene fuente o prueba enlazada · **HIPÓTESIS** = afirmación sin evidencia todavía · **SUPUESTO** = número que pusimos nosotros · **POR VERIFICAR** = falta confirmarlo con una fuente oficial · **ESTIMADO** = precio aproximado que falta cotizar · **PENDIENTE** = no se ha hecho.
     - En los requerimientos: ✅ cumple · ⚠️ parcial · ❌ no cumple · ⏳ pendiente de probar.
 
 ??? note "Rúbrica del curso y dónde está cada criterio"
@@ -18,7 +18,7 @@ Esta es la memoria del proyecto: la guía que llenamos semana a semana, el plan 
     | Landing page de lanzamiento | 15% | Demo (tramo de compra) | [19](#s19) | Publicada, con pre-registro (Google Forms) y GoatCounter; faltan visitas y registros. |
     | Pitch | 15% | Pitch de 3 min y retroalimentación | [0](#s0), [2](#s2), [5](#s5), [13](#s13), [15](#s15), [20](#s20) | Guion listo en [§20](#s20); falta el video. |
     | Documentación técnica y BOM | 10% | Solo la página | [3](#s3), [4](#s4), [6](#s6), [7](#s7), [8](#s8), [11](#s11), [13](#s13)–[16](#s16), [18](#s18) | Esta página y sus anexos. |
-    | Entregables semanales y proceso | 5% | Página y repositorio | [1](#s1), [10](#s10), [21](#s21), [22](#s22), [Anexo B](#anexo-b) | Semanas 1–7 publicadas; el código del juego falta subirlo con commits. |
+    | Entregables semanales y proceso | 5% | Página y repositorio | [1](#s1), [10](#s10), [21](#s21), [22](#s22), [Anexo B](#anexo-b) | Semanas 1–9 publicadas. El código del juego no se publica (decisión del equipo); la demo está en un Release de GitHub. |
 
     La evaluación final dura 15 minutos: 3 de pitch, 7 de demo y 5 de retroalimentación.
 
@@ -30,7 +30,7 @@ Esta es la memoria del proyecto: la guía que llenamos semana a semana, el plan 
     - **Decisión:** presentamos GPIO Génesis como un juego para PC de $249 MXN, con el bloque 1 del curso (GPIO) completo y un copiloto que guía sin resolver.
     - **Evidencia:** el juego (9 niveles + 2 demos + el proyecto del copiloto, 834 pruebas automáticas al 24-nov), los Excel de la semana 7 y la landing ([§12](#s12), [§14](#s14), [§19](#s19)).
     - **Qué cambió:** primera versión del resumen.
-    - **Queda abierto:** pruebas con usuarios, video del pitch, video de respaldo de la demo y publicar el `.exe`.
+    - **Queda abierto:** pruebas con usuarios, medir los tokens de la IA y las visitas de la landing, video del pitch y video de respaldo de la demo.
 
 ![Ícono de GPIO Génesis](gpio-genesis/assets/img/icono.svg){ width="64" align=left } **GPIO GÉNESIS** — juego de PC para aprender a programar microcontroladores.
 
@@ -42,11 +42,11 @@ Esta es la memoria del proyecto: la guía que llenamos semana a semana, el plan 
 |---|---|---|
 | Mercado alcanzable | **1,100 copias al año** (SOM de 2,200 en 2 años) de un SAM de 219,000 estudiantes de ingeniería que juegan simuladores | [§4](#s4) · HIPÓTESIS (cálculo de la semana 4) |
 | Precio | **$249 MXN**, pago único en PC; Copiloto Pro opcional a $49 MXN/mes | [§14](#s14) |
-| Economía unitaria | **$173.44 de contribución por copia** (después del 30% de Steam y $0.86 de IA); equilibrio con **322 copias** contando nuestras horas o **49** contando solo el dinero que sale del bolsillo | [§14](#s14), [§15](#s15) · SUPUESTOS del modelo |
+| Economía unitaria | **$173.44 de contribución por copia** (después del 30% de Steam y $0.86 de IA); equilibrio con **322 copias** contando nuestras horas o **49** contando solo el dinero que sale del bolsillo (con el margen del 10% que toma Pro; solo con el juego serían 343 y 52) | [§14](#s14), [§15](#s15) · SUPUESTOS del modelo |
 
 **Enlaces:** [repositorio](https://github.com/JC3468/Proyecto_ing_4) · [landing page](https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/) · video del pitch (**PENDIENTE**) · video de respaldo de la demo (**PENDIENTE**) · [demo descargable](https://github.com/JC3468/Proyecto_ing_4/releases) (Release de GitHub).
 
-**Estado, en una oración:** el juego ya funciona en PC con los 9 niveles del bloque 1 y la demo del copiloto, pero todavía no tenemos pruebas documentadas con usuarios, y de la IA en la nube solo sabemos que ya responde con una clave real (falta medir tokens y tiempo). La landing ya está publicada, pero todavía sin visitas medidas.
+**Estado, en una oración:** el juego ya funciona en PC con los 9 niveles del bloque 1 y la demo del copiloto, pero todavía no tenemos pruebas documentadas con usuarios, y de la IA en la nube solo sabemos que ya responde con una clave real (falta medir tokens y tiempo). La landing y la demo ya están publicadas, pero todavía sin visitas medidas.
 
 ---
 
@@ -245,7 +245,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 !!! abstract "v2 · 24-nov-2026 (v1.0: semana 5, 24-sep · RI-07: semana 6)"
     - **Decisión:** mantenemos los 26 requerimientos y agregamos la columna de estado con su prueba.
     - **Evidencia:** [PDS v1.0](semanas/semana-05.md) y las pruebas automáticas del juego (834 al 24-nov-2026, resumidas en [Anexo B](#anexo-b)).
-    - **Qué cambió:** RI-04 pasó de la API de Arduino-ESP32 a la del Pico SDK; RF-01 se cumple con un intérprete propio en lugar de clang; RI-07 se agregó desde la semana 6; RF-07 (24-nov): la descarga de la demo aparece en la landing solo después del pre-registro, para que la página siga con una sola acción (apartar una copia); el `.exe` está en el Release de GitHub.
+    - **Qué cambió:** RI-04 pasó de la API de Arduino-ESP32 a la del Pico SDK; RF-01 se cumple con un intérprete propio en lugar de clang; RI-07 se agregó desde la semana 6; RF-07 (24-nov): la descarga de la demo aparece en la landing solo después del pre-registro, para que la página siga con una sola acción (apartar una copia); la demo (`GPIO_Genesis_demo.exe`) está en el Release de GitHub desde el 25-nov.
     - **Queda abierto:** **6 cumplen, 10 parcialmente, 1 no cumple y 9 están sin probar**: casi todos los pendientes necesitan usuarios o una PC mínima.
 
 **Producto de primera iteración (definición vigente):** un solo `.exe` de 110 MB para Windows, con los 9 niveles del bloque 1 y 2 demos, el compilador incluido, el copiloto (4 pistas locales + Claude con la clave del jugador) y guardado local, sin cuenta. La demo gratis (nivel 1, demo del copiloto, proyecto del copiloto y demo avanzada) es otro `.exe` que se descarga del Release de GitHub; la landing da el enlace después del pre-registro. La versión completa no se publica. Criterio de éxito (RI-01): 4 de 5 estudiantes del segmento terminan el nivel 1 sin ayuda en 20 minutos o menos.
@@ -273,7 +273,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     | RI-05 | Backend HTTPS/JSON con JWT y respuesta por SSE | curl sin token → 401 | ❌ | No hay backend: el juego llama directo a la API de Anthropic, sin streaming ([§8](#s8)) |
     | RI-06 | Instalar sin compilador, SDK ni cuenta; ≤ 500 MB | VM limpia de Windows 10 | ⚠️ | Un `.exe` de 110 MB sin instalador; falta probarlo en una Windows limpia |
     | RI-07 | En 1366×768 y 1280×720: código ≥ 14 px con ≥ 20 líneas | Greybox en 4 resoluciones | ⏳ | Existe el ajuste de letra (14–36 px); falta la prueba documentada |
-    | RR-01 | Primera iteración publicada en itch.io antes de la semana 13 | Build publicado | ⏳ | No publicado |
+    | RR-01 | Primera iteración publicada en itch.io antes de la semana 13 | Build publicado | ⏳ | En itch.io todavía no; la demo está en un Release de GitHub (25-nov) |
     | RR-02 | Sin dependencias GPL | Inventario de licencias | ✅ | Godot (MIT), fuentes (OFL), arte y sonidos propios; falta el SBOM formal |
     | RR-03 | Costo del piloto ≤ $600 MXN | Facturación | ⏳ | Sin piloto |
     | RR-04 | Windows 10/11 en la PC mínima | 2 PCs de estudiantes | ⏳ | No probado fuera de nuestras PCs |
@@ -298,7 +298,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 2. **El costo de la IA deja de depender de cuánto pregunta cada jugador.** Con 4 pistas locales, solo los atorados de verdad llegan a la nube: estimamos $0.86 MXN de IA por jugador en todo el MVP ([§14](#s14)).
 3. **Respeta la regla de no resolver.** Las pistas locales las escribimos y probamos nosotros; la nube da "otro ángulo" y, en la demo, pasa por un filtro que no deja pasar código.
 
-*Consecuencias:* el `.exe` pesa 110 MB porque lleva el intérprete; cada pista hay que escribirla a mano en el JSON del nivel; y, mientras no haya backend, cada jugador pone su propia clave de API, lo que sirve para la demo pero no para vender.
+*Consecuencias:* el `.exe` pesa 110 MB porque lleva adentro el motor de Godot (así no hace falta instalar nada); cada pista hay que escribirla a mano en el JSON del nivel; y, mientras no haya backend, cada jugador pone su propia clave de API, lo que sirve para la demo pero no para vender.
 
 ??? note "Por qué cada protocolo"
     | Conexión | Protocolo y formato | Por qué este | Por qué no otro |
@@ -418,7 +418,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     1. Instalar [Godot 4.7.2](https://godotengine.org/download) (versión estándar, no .NET) y sus plantillas de exportación oficiales.
     2. Correr las 5 suites de pruebas automáticas ([Anexo B](#anexo-b)). Todas deben pasar.
     3. Exportar con el preset **Windows Desktop** a `GPIO_Genesis.exe` (un solo archivo, ~110 MB).
-    4. Abrir el `.exe` en una PC sin Godot y revisar que salgan los 9 niveles, las dos demos y la Estación de empaque.
+    4. Abrir el `.exe` en una PC sin Godot y revisar que salgan los 9 niveles, las dos demos y el proyecto del copiloto (Estación de empaque).
     5. La demo se sube a un Release de GitHub; para quien la descarga, reproducir una unidad es bajar ese archivo. La versión completa no se publica.
 
 ## 12. Aplicación conectada { #s12 }
@@ -451,7 +451,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 
     ![Respuesta de Claude a una pregunta libre](recursos/imgs/proyecto-final/pf-copiloto-claude-simulado.jpg)
 
-    **Captura de una prueba automática con respuesta simulada.** Falta probar con la API real.
+    **Captura de una prueba automática con respuesta simulada.** Con una clave real Claude ya respondió (25-nov), pero falta capturar esa respuesta.
 
 === "Turno completado"
 
@@ -509,7 +509,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | **Propuesta de valor** | Aprende C/C++ para microcontroladores arrancando una fábrica de drones: si falla, ves por qué; si funciona, va a tu portafolio | [§5](#s5) |
 | **Oferta** | Juego para PC (bloque 1: 9 niveles + 2 demos) con copiloto y exportación al portafolio | [§5](#s5), [§12](#s12) |
 | **Modelo de ingresos y precio** | $249 MXN pago único (Steam) + Copiloto Pro $49 MXN/mes (Stripe), opcional | [§14](#s14) |
-| **Canales** | Demos en salones con QR → landing; GitHub, YouTube y TikTok orgánicos; Release/itch.io para el piloto y Steam para el lanzamiento | [§15](#s15), [§19](#s19) |
+| **Canales** | Demos en salones con QR → landing; GitHub, YouTube y TikTok orgánicos; la demo en el Release de GitHub, el `.exe` completo directo a los 20 del piloto y Steam para el lanzamiento | [§15](#s15), [§19](#s19) |
 | **Costos** | Horas del equipo ($50,597 MXN el MVP, contando horas), comisión de Steam (30%), IA ($0.86 por jugador), lanzamiento y nube del año 1 ($8,943 MXN: cuota de Steam, firma, dominio y Supabase Pro) | [§14](#s14) |
 | **Socios** | Anthropic (IA), Godot (motor), Raspberry Pi (Pico SDK, solo como referencia de la API), Valve (Steam); posibles: profesores de Sistemas Embebidos | [§11](#s11), [§16](#s16) |
 | **Equipo y recursos** | 2 estudiantes de mecatrónica (uno lleva Sistemas Embebidos); Claude Code para programar; 834 pruebas automáticas | [§1](#s1), [§21](#s21) |
@@ -531,7 +531,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
     - **Decisión:** precio de $249 MXN y alcance de lanzamiento = MVP (los bloques 2 y 3 como actualizaciones).
     - **Evidencia:** [modelo financiero](recursos/archivos/semana7/modelo-financiero-gpio-genesis-semana7.xlsx), [costos](recursos/archivos/semana7/costos-gpio-genesis-semana7.xlsx) y [alcance y niveles](recursos/archivos/semana7/alcance-niveles-costos-gpio-genesis.xlsx), con fórmulas visibles.
     - **Qué cambió (24-nov):** los tres Excel quedaron conciliados: 423 h del MVP en 5 ciclos (84.6 h por ciclo), 220 consultas por jugador y plan gratuito de Supabase en el escenario pesimista ([semana 7](semanas/semana-07.md), nota del 24-nov).
-    - **Queda abierto:** **los tokens no están medidos**; cotizar firma y dominio; consultar impuestos con un contador.
+    - **Queda abierto:** **los tokens no están medidos**; comparar las 423 h estimadas con las que de verdad tomó el juego; cotizar firma y dominio; consultar impuestos con un contador.
 
 ??? note "Costos CREAR y DISTRIBUIR clasificados D / F / S"
     | Partida | Tipo | MVP | 3 bloques | Por copia |
@@ -562,6 +562,10 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | Equilibrio contando horas / solo efectivo | **322 / 49 copias** | 697 / 50 copias | Modelo, Equilibrio |
 | Mes en que el acumulado se vuelve positivo (base) | 9 | no en 12 meses | Modelo, Flujo 12 meses |
 
+El equilibrio cuenta el margen de Pro: 10% de los compradores × 2.9 meses × $40.85 = $11.67 más por copia ([semana 7](semanas/semana-07.md) §4.3). Solo con el juego ($173.44 por copia) serían **343** copias contando horas y **52** en efectivo.
+
+**Alcance costeado y alcance construido:** el modelo costea un MVP de 5 niveles (los niveles 1–5). El juego ya tiene los 9 del bloque 1: los niveles 6–9 (antirrebote e interrupciones) completan el bloque. Las 423 h del MVP son estimadas; no las hemos comparado con lo que de verdad tomó.
+
 **¿Por qué $249 si el piso es $299?** Entra en lo que dijo el segmento ($100–400 MXN), queda entre SHENZHEN I/O ($262) y Turing Complete ($350), y en efectivo se recupera con 49 copias. Lo que no recuperaríamos con menos de 322 copias son nuestras horas.
 
 **VPN a 12 meses** con una tasa de **15% anual** (1.17% mensual), la que propone el curso como costo de oportunidad razonable para un emprendedor en México:
@@ -588,8 +592,8 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 |---|---|---|---|
 | Demo de 10 min en un salón + QR a la landing | Ahora: el segmento está concentrado y el profesor da credibilidad | Conversión visita → pre-registro por grupo (`?ref=salon`) | Depende de que un profesor nos preste la clase |
 | GitHub, YouTube y TikTok orgánicos | Desde el pre-registro; cuesta horas, no dinero | Qué mensaje atrae (problema contra demo) | Lento; compite con contenido gratis |
-| Release de GitHub / itch.io (piloto) | Piloto de 20 jugadores, gratis a cambio de 30 min de prueba | Si terminan el nivel 1 solos y si pagarían | Sin firma de código, SmartScreen asusta |
-| Steam | Lanzamiento, con la demo gratis del nivel 1 | Ventas reales y reseñas | 30% de comisión; revisión y divulgación de IA |
+| Demo en el Release de GitHub; `.exe` completo para el piloto | Piloto de 20 jugadores, gratis a cambio de 30 min de prueba | Si terminan el nivel 1 solos y si pagarían | Sin firma de código, SmartScreen asusta |
+| Steam | Lanzamiento, con la demo gratis | Ventas reales y reseñas | 30% de comisión; revisión y divulgación de IA |
 | Licencia escolar (venta directa) | Cuando un profesor lo quiera usar con su grupo | Si las universidades pagan (hipótesis de la semana 2) | Ciclos de venta lentos; facturación |
 
 **Plan de preventa y piloto:** (1) difundir la landing (ya publicada) y medir visitas, clics y pre-registros; (2) a quienes se registren, invitarlos al piloto de 20 jugadores con el `.exe` completo (se les pasa directo; el Release público solo trae la demo); (3) al final del piloto, preguntar con compromiso (dejar tarjeta para la compra anticipada o pagar Pro un mes), no con opiniones.
@@ -617,7 +621,7 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | Tema | ¿Aplica? | Qué exige | Documento o trámite | Quién lo emite | Costo y tiempo | Estatus |
 |---|---|---|---|---|---|---|
 | Radio y homologación | No | — | — | IFT | — | VERIFICADO: no hay hardware |
-| Datos personales | Sí: la landing pide nombre, correo y carrera | Aviso de privacidad desde que se recaban los datos y respetar los derechos del titular | [LFPDPPP](https://www.diputados.gob.mx/LeyesBiblio/ref/lfpdppp.htm) (DOF 20-03-2025, en vigor el 21-03-2025) | Secretaría Anticorrupción y Buen Gobierno (antes INAI) | $0; redactarlo | POR VERIFICAR: el aviso actual es simplificado y le falta el correo de contacto |
+| Datos personales | Sí: la landing pide nombre, correo y carrera | Aviso de privacidad desde que se recaban los datos y respetar los derechos del titular | [LFPDPPP](https://www.diputados.gob.mx/LeyesBiblio/ref/lfpdppp.htm) (DOF 20-03-2025, en vigor el 21-03-2025) | Secretaría Anticorrupción y Buen Gobierno (antes INAI) | $0; redactarlo | POR VERIFICAR: el aviso de la landing es simplificado (ya tiene correo de contacto); falta el integral, con domicilio |
 | Seguridad y etiquetado | Probablemente: clasificación de contenido | Mostrar la clasificación del videojuego | [Lineamientos Generales del Sistema Mexicano de Equivalencias de Clasificación de Contenidos de Videojuegos](https://dof.gob.mx/nota_detalle_popup.php?codigo=5606047) (DOF 27-11-2020, en vigor desde el 27-05-2021) | SEGOB | Probablemente "A, todo público" | POR VERIFICAR si aplica a una tienda digital |
 | Baterías | No | — | — | — | — | VERIFICADO |
 | Licencias de software e IA | Sí | Avisos de licencia (Godot MIT, fuentes OFL); términos comerciales y política de uso de Anthropic | Leer los términos vigentes; SBOM | Cada proyecto / Anthropic | $0 | POR VERIFICAR |
@@ -628,13 +632,13 @@ Con el TAM directo (229,000) el SAM bajaría a ~132,000 y el SOM sería 1.7% del
 | Marca | Sí | Solicitud de marca mixta, clases 9 y 41 | Marca en Línea | IMPI | ~$2,814 MXN por clase; meses | POR VERIFICAR |
 
 ??? note "Borrador de aviso de privacidad integral y términos básicos (revisar antes de usarlo)"
-    **Aviso de privacidad.** José Carlos y Yael, equipo de GPIO Génesis (proyecto escolar), son responsables de los datos que dejas en el pre-registro: nombre, correo, carrera y la página de la que llegaste. Los usamos para avisarte del lanzamiento, invitarte al piloto y medir cuánto interés hay. No los vendemos ni los compartimos; se guardan en una hoja de Google Forms a la que solo tenemos acceso nosotros. Puedes pedir que los corrijamos o los borremos escribiendo a **[correo de contacto, PENDIENTE]**; respondemos en un máximo de 20 días hábiles. Si cambiamos este aviso, lo publicaremos en esta misma página. *Domicilio para notificaciones: PENDIENTE.*
+    **Aviso de privacidad.** José Carlos y Yael, equipo de GPIO Génesis, son responsables de los datos que dejas en el pre-registro: nombre, correo, carrera y la página de la que llegaste. Los usamos para avisarte del lanzamiento, invitarte al piloto y medir cuánto interés hay. No los vendemos ni los compartimos; se guardan en una hoja de Google Forms a la que solo tenemos acceso nosotros. Puedes pedir que los corrijamos o los borremos escribiendo al correo de contacto de esta página; respondemos en un máximo de 20 días hábiles. Si cambiamos este aviso, lo publicaremos en esta misma página. *Domicilio para notificaciones: PENDIENTE.*
 
     **El juego** no pide cuenta ni datos personales. Tu progreso y tu código se guardan en tu computadora. Si pones tu clave de Anthropic y pides ayuda a la IA, el juego envía a Anthropic tu código, el estado del nivel y tu pregunta (nunca tu nombre ni tu correo). La clave se guarda cifrada solo en tu PC.
 
     **Términos básicos.** El juego es una versión de prueba y puede tener errores. El copiloto puede equivocarse: verifica lo que te diga. El código que escribes y exportas es tuyo. Raspberry Pi, Pico y Arduino son marcas de sus dueños; GPIO Génesis no tiene relación con esas empresas.
 
-**Qué falta antes de venderle a alguien de fuera:** (1) aviso de privacidad integral con correo y domicilio; (2) un backend con nuestra clave, límite de gasto y cuota (no pedirle su clave al jugador); (3) la declaración de IA en Steam; (4) términos de venta y de cancelación de Pro; (5) la solicitud de marca; (6) el alta en el SAT.
+**Qué falta antes de venderle a alguien de fuera:** (1) aviso de privacidad integral con domicilio; (2) un backend con nuestra clave, límite de gasto y cuota (no pedirle su clave al jugador); (3) la declaración de IA en Steam; (4) términos de venta y de cancelación de Pro; (5) la solicitud de marca; (6) el alta en el SAT.
 
 ---
 
@@ -714,13 +718,13 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
 
 ## 19. Landing page { #s19 }
 
-!!! abstract "v1 · 23–24-nov-2026"
+!!! abstract "v2 · 25-nov-2026 (v1: 23–24-nov)"
     - **Decisión:** una sola página con un solo CTA, «Apartar mi copia», que lleva a un pre-registro sin pago.
     - **Evidencia:** [landing](gpio-genesis/index.html) (`docs/gpio-genesis/`).
-    - **Qué cambió (24-nov):** el beneficio del copiloto ya no promete que «se niega a darte la solución» en todo el juego: eso solo pasa en la demo del copiloto.
-    - **Queda abierto:** **publicarla** (push), crear el Google Form, la cuenta de GoatCounter y el correo de contacto; reemplazar el video armado con capturas por una grabación real.
+    - **Qué cambió:** (24-nov) el beneficio del copiloto ya no promete que «se niega a darte la solución» en todo el juego: eso solo pasa en la demo del copiloto. (25-nov) Publicada con el Google Form, GoatCounter y el correo de contacto; después del pre-registro aparece el botón para descargar la demo del Release.
+    - **Queda abierto:** medir visitas, clics y pre-registros; los 10 registros de prueba y la descarga en Chrome, Edge y Firefox (RF-07); reemplazar el video armado con capturas por una grabación real.
 
-**URL:** <https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/> (funciona después del push). Para la demo, el QR lleva `?ref=qr`.
+**URL:** <https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/>. Para la demo, el QR lleva `?ref=qr`.
 
 | # | Elemento | Qué tiene |
 |---|---|---|
@@ -730,7 +734,7 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
 | 4 | Demo de ~30 s | Video armado con capturas reales (la página lo dice) |
 | 5 | Evidencia | «Como un pasatiempo… no como una clase formal»; 4 de 4 juegan simuladores; 3 de 4 pagarían $100–400 |
 | 6 | Precio visible | $249 MXN, pago único, PC con Windows; Pro como opcional |
-| 7 | Un solo CTA | «Apartar mi copia» → nombre, correo y carrera → hoja de Google Forms |
+| 7 | Un solo CTA | «Apartar mi copia» → nombre, correo y carrera → hoja de Google Forms → botón «Descargar la demo gratis» |
 
 **Metadatos:** `title`, `description`, `canonical`, Open Graph (imagen de 1200×630) y tarjeta de X. **Métricas:** visitas y clics en el CTA (GoatCounter, sin cookies) y pre-registros (filas de la hoja), con el origen de cada visita (`?ref=`).
 
@@ -757,7 +761,7 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
     |---|---|---|---|---|
     | Impacto y problema | 0:00–0:35 | 65 (76) | Son las dos de la mañana y Diego, estudiante de mecatrónica, lleva tres horas con una práctica que no funciona. Su código compila, pero la banda no arranca y nadie le dice por qué. No es el único: entre 28 y 50% de los alumnos reprueba o abandona su primer curso de programación. Muchos, además, ya pagaron un kit de hasta 8,000 pesos para practicar. | Diego es una persona ilustrativa. 28–50% y kits de $600–8,270: [§2](#s2) |
     | Solución y por qué nosotros | 0:35–1:10 | 68 (76) | GPIO Génesis es un juego para PC: arrancas una fábrica de drones escribiendo C/C++ de verdad para una Raspberry Pi Pico 2 virtual. Un tutorial de YouTube te da código para copiar; aquí, si tu código falla, la banda se detiene y el copiloto te pregunta qué ves. Somos dos estudiantes de mecatrónica, y uno de nosotros lleva Sistemas Embebidos: el juego enseña lo mismo que esa clase. | [§5](#s5), [§12](#s12); contraste con el sustituto: [§4](#s4); quién lleva Sistemas Embebidos: [§1](#s1) |
-    | Mercado y modelo | 1:10–1:45 | 66 (76) | Hay 219 mil estudiantes de ingeniería en México que juegan simuladores. Queremos llegar a 1,100 cada año. Cobramos 249 pesos, pago único, como un juego independiente, no como un curso; el copiloto Pro es opcional. Después de la tienda y de la inteligencia artificial, cada copia nos deja 173 pesos. Con 49 copias recuperamos el dinero que sale de nuestro bolsillo. Con 322, también nuestras horas. | SAM y SOM: [§4](#s4); $173.44, 49 y 322: [§14](#s14) |
+    | Mercado y modelo | 1:10–1:45 | 66 (76) | Hay 219 mil estudiantes de ingeniería en México que juegan simuladores. Queremos llegar a 1,100 cada año. Cobramos 249 pesos, pago único, como un juego independiente, no como un curso; el copiloto Pro es opcional. Después de la tienda y de la inteligencia artificial, cada copia nos deja 173 pesos. Con 49 copias recuperamos el dinero que sale de nuestro bolsillo. Con 322, también nuestras horas. | SAM y SOM: [§4](#s4); $173.44, 49 y 322: [§14](#s14) (49 y 322 cuentan el margen de Pro) |
     | Tracción | 1:45–2:20 | 72 (76) | Hoy funcionan los nueve niveles del primer bloque del curso, con interrupciones y prioridades. Los cuidan 834 pruebas automáticas, y cada plantilla pasa la revisión del compilador con las cabeceras reales de la Pico. De cuatro estudiantes entrevistados, tres pagarían entre 100 y 400 pesos por un juego así. Lo que todavía no tenemos, y es lo siguiente: pruebas con usuarios del juego. La página de preventa va a contar cada registro. | [§17](#s17), [§3](#s3); la confesión honesta es la falta de pruebas con usuarios |
     | Equipo | 2:20–2:35 | 25 (32) | Somos José Carlos y Yael, de Ingeniería Mecatrónica. Usamos inteligencia artificial para construir, pero cada nivel lo revisamos contra el SDK real de la Pico. | [§1](#s1), [§7](#s7) (RI-04) |
     | Ask y cierre | 2:35–3:00 | 47 (54) | Buscamos veinte estudiantes para el piloto y un profesor que lo use con su grupo. En la demo van a ver la fábrica fallar y al copiloto negarse a darnos la solución. GPIO Génesis: si tu código falla, ves por qué; si funciona, va a tu portafolio. | [§15](#s15), [§5](#s5) |
@@ -787,8 +791,8 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
     |---|---|---|
     | ¿Cuánto cuesta "fabricar" una copia y cómo lo sabes? | $75.56 de costo variable (comisión de Steam $74.70 + IA $0.86); a 10 copias, $6,030 por el desarrollo repartido | [§11](#s11), [§14](#s14) |
     | ¿Por qué no lo hace Wokwi o Zachtronics? | Wokwi es una herramienta que no guía; Zachtronics usa lenguajes inventados. Ninguno enseña el SDK del curso jugando | [§4](#s4) |
-    | ¿Qué pasa si sube el precio de la API? | Con la API 10 veces más cara, LTV ÷ CAC baja de 4.2× a 3.8×; y el juego funciona sin IA con las 4 pistas locales | [§8](#s8), [§15](#s15) |
-    | ¿Cuántos clientes necesitas para no perder dinero? | 49 copias en efectivo; 322 si contamos nuestras horas | [§14](#s14) |
+    | ¿Qué pasa si sube el precio de la API? | Con la API 10 veces más cara, LTV ÷ inversión baja de 4.2× a 3.8×; y el juego funciona sin IA con las 4 pistas locales | [§8](#s8), [§15](#s15) |
+    | ¿Cuántos clientes necesitas para no perder dinero? | 49 copias en efectivo; 322 si contamos nuestras horas (con el margen de Pro; solo con el juego, 52 y 343) | [§14](#s14) |
     | ¿Qué necesitas para vender legalmente? | Aviso de privacidad, términos, declaración de IA en Steam, marca y alta fiscal | [§16](#s16) |
     | ¿Qué hace que no cancelen Pro? | No dependemos de Pro (~6% del LTV); el reto es dar algo nuevo cada mes | [§13](#s13), [§15](#s15) |
     | ¿No es lo mismo que YouTube y GitHub gratis? | Ahí copias código; aquí la fábrica te muestra por qué falla el tuyo y lo exportas a tu portafolio | [§4](#s4), [§5](#s5) |
@@ -811,7 +815,7 @@ Reglas del observador: no ayudar, no explicar, no defender el diseño; si se ato
 | # | Qué pedimos | Qué contestó la IA | Qué corregimos y por qué |
 |---|---|---|---|
 | 1 | Semana 2: validar la deseabilidad de GPIO Génesis (Paso 5) | Riesgo técnico alto si construíamos al mismo tiempo compilador, estación física, app y web | Priorizamos el simulador; en la semana 5 quitamos la estación por completo |
-| 2 | Semana 4: TAM, SAM y SOM con fuentes (Perplexity) | **Se equivocó:** calculó 229,000 personas y luego las "redondeó de forma conservadora" a 760,000, sin fórmula | Lo detectamos y lo dejamos marcado; el modelo financiero usa el SOM, no el TAM ([§4](#s4)) |
+| 2 | Semana 4: TAM, SAM y SOM con fuentes (Perplexity) | **Se equivocó:** calculó 229,000 personas y luego las "redondeó de forma conservadora" a 760,000, sin fórmula | No lo detectamos a la primera. Lo dejamos marcado en la semana 4; la tabla quedó en 380,000, que tampoco sale de la cadena de filtros. El modelo financiero usa el SOM, no el TAM ([§4](#s4)) |
 | 3 | Semana 5: arquitectura y costo por consulta (Claude) | Híbrido con la IA en la nube; con 300 consultas la IA se llevaba 15% de cada venta | Agregamos pistas locales y cuota; en la semana 7 pasamos a Haiku 5.5 (0.5%) |
 | 4 | Semana 6: criticar el boceto antes del greybox (Prompt 6) | 3 problemas críticos: etiquetas que no escalan, escalado que no cierra y un copiloto sin disparador | Los tres entraron en el boceto v2 y en el juego |
 | 5 | Noviembre: construir el juego con Claude Code (niveles, intérprete, copiloto) | Propuso un intérprete propio en lugar de clang → WebAssembly y lo hizo con pruebas | Lo aceptamos para la demo; pedimos el cambio a Pico SDK, la regla de no dar código y el botón único. **Un error que le corregimos:** en la landing escribió que solo el nivel 1 aceptaba C++, sin revisar el compilador. En realidad todos los niveles aceptan C y C++; el nivel 1 además acepta la API de Arduino |
@@ -893,7 +897,7 @@ Además, las 28 plantillas y soluciones de los niveles 1–9 pasan `gcc -Wall -f
 | 5 | [PDS y arquitectura](semanas/semana-05.md) | 25-sep | `cea1231` |
 | 6 | [Concepto de diseño](semanas/semana-06.md) | 1-oct | `531e39f` |
 | 7 | [Viabilidad técnica y económica](semanas/semana-07.md) | 22-oct | `ad988e6` |
-| 8–9 | [Prototipado y DFM](semanas/semana-08.md), [integración, go-to-market y pitch](semanas/semana-09.md), [landing](gpio-genesis/index.html) y esta página | 5 a 24-nov | `baab519`, `bdf0d2f` |
+| 8–9 | [Prototipado y DFM](semanas/semana-08.md), [integración, go-to-market y pitch](semanas/semana-09.md), [landing](gpio-genesis/index.html) y esta página | 5 a 25-nov | `baab519`, `bdf0d2f`, `46543a1`, `9a5a127` |
 
 ## Anexo C. Archivos de diseño { #anexo-c }
 
@@ -931,4 +935,4 @@ Además, las 28 plantillas y soluciones de los niveles 1–9 pasan `gcc -Wall -f
 
 ---
 
-<small>**Historial de esta página:** 24-nov-2026 — primera versión completa (secciones 0–22 y anexos), con los Excel de la semana 7 conciliados. Antes era un marcador "En construcción".</small>
+<small>**Historial de esta página:** 24-nov-2026 — primera versión completa (secciones 0–22 y anexos), con los Excel de la semana 7 conciliados. Antes era un marcador "En construcción". 25-nov-2026 — demo publicada en un Release de GitHub, landing publicada y conectada, Claude probado con una clave real, roles del equipo y reflexión de Yael.</small>

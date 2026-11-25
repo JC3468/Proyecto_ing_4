@@ -2,3 +2,8 @@
 site/
 *.pyc
 .venv/
+# Archivos de trabajo de Claude (el .exe pesa 110 MB: GitHub rechaza archivos de más de 100 MB).
+# El juego para descargar va en un Release de GitHub, no en el repositorio.
+Claude outputs/
+# Copia vieja del juego (9-nov-2026); el código vigente está en juego/.
+juego.zip
