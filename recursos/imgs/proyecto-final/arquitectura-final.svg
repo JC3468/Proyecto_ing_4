@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" width="100%" font-family="Arial, Helvetica, sans-serif" role="img" aria-label="Arquitectura final de GPIO Génesis al 24 de noviembre de 2026" xmlns:c2pa="http://c2pa.org/manifest">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#374151"/></marker><marker id="fl7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="fl15803d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="flc2410c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker></defs>
+<rect width="1400" height="950" fill="#ffffff"/>
+<text x="20" y="34.0" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">Arquitectura final de GPIO Génesis — lo que está construido (24-nov-2026)</text>
+<text x="20" y="56.0" font-size="12.5" font-weight="normal" fill="#374151" text-anchor="start">Contra la semana 5: intérprete propio en lugar de clang → WebAssembly · Pico SDK en lugar de Arduino-ESP32 · 4 pistas locales y Claude solo al final · sin backend propio.</text>
+<rect x="20" y="72" width="920" height="608" rx="14" fill="#eef4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text x="36" y="98.0" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="start">PC del jugador · Windows 10/11 · GPIO_Genesis.exe (Godot 4.7.2, un solo archivo, sin instalar nada)</text>
+<rect x="40" y="118" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="61" cy="138" r="11" fill="#1f2937"/>
+<text x="61" y="142.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+<text x="79" y="143.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Editor de código</text>
+<text x="52" y="166.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Resaltado de C/C++,</text>
+<text x="52" y="182.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">línea del error en rojo,</text>
+<text x="52" y="198.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Referencia del Pico SDK</text>
+<text x="52" y="214.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">(F2), 3 versiones por</text>
+<text x="52" y="230.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">turno, «Restaurar original».</text>
+<rect x="270" y="118" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="291" cy="138" r="11" fill="#1f2937"/>
+<text x="291" y="142.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+<text x="309" y="143.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Compilador propio</text>
+<text x="282" y="166.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Escrito en GDScript.</text>
+<text x="282" y="182.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">C y el C++ más usado</text>
+<text x="282" y="198.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">(clases, referencias,</text>
+<text x="282" y="214.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">lambdas). Errores en</text>
+<text x="282" y="230.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">español, con la línea.</text>
+<rect x="500" y="118" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="521" cy="138" r="11" fill="#1f2937"/>
+<text x="521" y="142.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+<text x="539" y="143.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">MCU virtual RP2350</text>
+<text x="512" y="166.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">GPIO/SIO, timers, NVIC</text>
+<text x="512" y="182.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">con prioridades, PRIMASK</text>
+<text x="512" y="198.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">y BASEPRI, PWM, ADC,</text>
+<text x="512" y="214.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">UART, I2C, SPI, watchdog.</text>
+<text x="512" y="230.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Tiempo exacto por evento.</text>
+<rect x="730" y="118" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="751" cy="138" r="11" fill="#1f2937"/>
+<text x="751" y="142.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+<text x="769" y="143.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Fábrica del nivel</text>
+<text x="742" y="166.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Escena 2D en pixel art.</text>
+<text x="742" y="182.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Etiqueta GPn con LED,</text>
+<text x="742" y="198.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">botones y sensores,</text>
+<text x="742" y="214.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">trazas de 3 s y un</text>
+<text x="742" y="230.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">osciloscopio en la pared.</text>
+<rect x="40" y="318" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="61" cy="338" r="11" fill="#1f2937"/>
+<text x="61" y="342.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">8</text>
+<text x="79" y="343.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Exportar</text>
+<text x="52" y="366.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Al completar un turno:</text>
+<text x="52" y="382.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">main.c o main.cpp +</text>
+<text x="52" y="398.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">CMakeLists.txt (Pico SDK,</text>
+<text x="52" y="414.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">PICO_BOARD pico2) para</text>
+<text x="52" y="430.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">el portafolio en GitHub.</text>
+<rect x="270" y="318" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<text x="282" y="343.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Niveles en JSON</text>
+<text x="282" y="366.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">9 niveles del bloque 1</text>
+<text x="282" y="382.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">y 2 demos: máquinas,</text>
+<text x="282" y="398.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">pines, objetivos,</text>
+<text x="282" y="414.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">plantillas de código y</text>
+<text x="282" y="430.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">4 pistas por problema.</text>
+<rect x="500" y="318" width="190" height="150" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="1.6"/>
+<circle cx="521" cy="338" r="11" fill="#1f2937"/>
+<text x="521" y="342.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">6</text>
+<text x="539" y="343.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Copiloto local</text>
+<text x="512" y="366.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">79 problemas × 4 pistas:</text>
+<text x="512" y="382.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">pregunta → máquina y</text>
+<text x="512" y="398.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">línea → causa física →</text>
+<text x="512" y="414.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">qué cambiar. Sin internet.</text>
+<text x="512" y="430.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Demo: nunca da código.</text>
+<rect x="730" y="318" width="190" height="150" rx="8" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<circle cx="751" cy="338" r="11" fill="#1f2937"/>
+<text x="751" y="342.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+<text x="769" y="343.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Diagnóstico</text>
+<text x="742" y="366.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Compara la planta con</text>
+<text x="742" y="382.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">los objetivos del turno</text>
+<text x="742" y="398.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">y nombra el problema:</text>
+<text x="742" y="414.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">sin init, rebote, flanco,</text>
+<text x="742" y="430.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">ISR sin limpiar, prioridad.</text>
+<rect x="270" y="512" width="650" height="132" rx="8" fill="#f3f4f6" stroke="#374151" stroke-width="1.6"/>
+<text x="282" y="537.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Guardado local (carpeta user:// del juego)</text>
+<text x="282" y="560.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">progreso.json: código, versiones, turnos completados e historial del copiloto, por turno.</text>
+<text x="282" y="576.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">copiloto_nube.cfg: la clave de API del jugador, cifrada y solo en esa PC (no va al repositorio).</text>
+<text x="282" y="592.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Estados en pantalla: normal · alerta (marcador naranja) · error de compilación (línea roja) ·</text>
+<text x="282" y="608.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">«● IA lista» / «● IA sin conexión» / «○ IA sin clave · solo pistas».</text>
+<path d="M230,193 L267,193" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<path d="M460,193 L497,193" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<path d="M690,178 L727,178" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<path d="M730,213 L693,213" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<path d="M825.0,268 L825.0,315" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<rect x="831.0" y="285.5" width="128.2" height="18.0" rx="4" fill="#ffffff" fill-opacity="0.95"/>
+<text x="835.0" y="297.0" font-size="11.5" font-weight="normal" fill="#374151" text-anchor="start">estado de la planta</text>
+<path d="M730,393 L693,393" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<path d="M135.0,268 L135.0,315" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#fl)"/>
+<rect x="141.0" y="285.5" width="109.2" height="18.0" rx="4" fill="#ffffff" fill-opacity="0.95"/>
+<text x="145.0" y="297.0" font-size="11.5" font-weight="normal" fill="#374151" text-anchor="start">turno completado</text>
+<rect x="960" y="72" width="420" height="290" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="976" y="98.0" font-size="14" font-weight="bold" fill="#5b21b6" text-anchor="start">Nube (Anthropic)</text>
+<rect x="978" y="114" width="384" height="196" rx="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.6"/>
+<circle cx="999" cy="134" r="11" fill="#1f2937"/>
+<text x="999" y="138.5" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">7</text>
+<text x="1017" y="139.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">API de Claude · Messages API</text>
+<text x="990" y="162.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Modelo claude-haiku-5-5 ($0.10 / $0.50 por millón</text>
+<text x="990" y="178.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">de tokens), max_tokens 400, texto plano en español.</text>
+<text x="990" y="194.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Entra: reglas + turno, objetivos, máquinas, código,</text>
+<text x="990" y="210.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">diagnóstico y pistas leídas (sin nombre ni correo).</text>
+<text x="990" y="226.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Sale: 2–4 oraciones. En la demo, si trae código,</text>
+<text x="990" y="242.4" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">no se muestra y se queda la pista local.</text>
+<text x="990" y="258.5" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Se llama después de la pista 4 (o con una pregunta</text>
+<text x="990" y="274.6" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">libre en la demo), con la clave del jugador.</text>
+<text x="1170" y="332.0" font-size="11.5" font-weight="normal" fill="#5b21b6" text-anchor="middle">(6) ⇄ (7): HTTPS POST /v1/messages, cuerpo JSON;</text>
+<text x="1170" y="348.0" font-size="11.5" font-weight="normal" fill="#5b21b6" text-anchor="middle">respuesta completa en texto (sin streaming).</text>
+<path d="M595.0,468 L595.0,488 L948,488 L948,230 L975,230" fill="none" stroke="#7c3aed" stroke-width="1.8" marker-start="url(#fl7c3aed)" marker-end="url(#fl7c3aed)"/>
+<rect x="960" y="382" width="420" height="298" rx="14" fill="#effaf1" stroke="#15803d" stroke-width="1.6"/>
+<text x="976" y="408.0" font-size="14" font-weight="bold" fill="#166534" text-anchor="start">Web (sin servidor propio)</text>
+<rect x="978" y="422" width="186" height="104" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<text x="990" y="447.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Landing</text>
+<text x="990" y="470.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">GitHub Pages. Un solo</text>
+<text x="990" y="486.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">CTA: «Apartar mi</text>
+<text x="990" y="502.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">copia» ($249 MXN).</text>
+<rect x="1176" y="422" width="186" height="104" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="1188" y="447.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Google Forms</text>
+<text x="1188" y="470.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Pre-registro → hoja</text>
+<text x="1188" y="486.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">(nombre, correo,</text>
+<text x="1188" y="502.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">carrera, origen).</text>
+<rect x="978" y="538" width="186" height="96" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="990" y="563.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">GoatCounter</text>
+<text x="990" y="586.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Visitas y clics en el</text>
+<text x="990" y="602.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">CTA, sin cookies.</text>
+<rect x="1176" y="538" width="186" height="96" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="1188" y="563.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Repositorio GitHub</text>
+<text x="1188" y="586.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Código, README y un</text>
+<text x="1188" y="602.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Release con el .exe.</text>
+<path d="M1164,474 L1173,474" fill="none" stroke="#15803d" stroke-width="1.8" marker-end="url(#fl15803d)"/>
+<path d="M1071,526 L1071,535" fill="none" stroke="#15803d" stroke-width="1.8" marker-end="url(#fl15803d)"/>
+<path d="M1269,634 L1269,662 L944,662" fill="none" stroke="#15803d" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#fl15803d)"/>
+<rect x="1024.6" y="645.0" width="110.9" height="17.3" rx="4" fill="#ffffff" fill-opacity="0.95"/>
+<text x="1080" y="656.0" font-size="11" font-weight="normal" fill="#166534" text-anchor="middle">descarga del .exe</text>
+<rect x="20" y="700" width="1360" height="236" rx="14" fill="#fafafa" stroke="#9ca3af" stroke-width="1.6" stroke-dasharray="8 6"/>
+<text x="1364" y="726.0" font-size="14" font-weight="bold" fill="#374151" text-anchor="end">Planeado o por verificar (borde punteado = todavía no existe o no se ha probado de punta a punta)</text>
+<rect x="40" y="742" width="420" height="176" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="52" y="767.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Raspberry Pi Pico 2 real (opcional del jugador)</text>
+<text x="52" y="790.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">main.c + CMakeLists → Pico SDK 2.x → .uf2 → placa.</text>
+<text x="52" y="806.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Revisado: las 28 plantillas y soluciones pasan</text>
+<text x="52" y="822.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">gcc -Wall -fsyntax-only con las cabeceras reales</text>
+<text x="52" y="838.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">del Pico SDK 2.2.0. POR VERIFICAR: compilar con</text>
+<text x="52" y="854.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">arm-none-eabi-gcc y correrlo en una placa.</text>
+<rect x="480" y="742" width="420" height="176" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="492" y="767.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Backend de la semana 5 (no construido)</text>
+<text x="492" y="790.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Supabase: cuenta, progreso en la nube y Edge</text>
+<text x="492" y="806.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Function que guarda la clave y aplica la cuota de</text>
+<text x="492" y="822.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">10 consultas por hora; respuesta en streaming (SSE).</text>
+<text x="492" y="838.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Hoy cada jugador pone su propia clave (Opciones) y la</text>
+<text x="492" y="854.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">petición sale directo del juego. Falta para vender.</text>
+<rect x="920" y="742" width="440" height="176" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="932" y="767.0" font-size="13.5" font-weight="bold" fill="#111827" text-anchor="start">Compilación real (meta de la semana 5)</text>
+<text x="932" y="790.0" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">clang/wasi-sdk → WebAssembly + WAMR. Se cambió por</text>
+<text x="932" y="806.1" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">el intérprete propio: pesa menos, corre en cualquier</text>
+<text x="932" y="822.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">PC y da los errores en español. Sigue como meta</text>
+<text x="932" y="838.2" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">para garantizar que todo lo que corre en el juego</text>
+<text x="932" y="854.3" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">compila igual con el toolchain de ARM.</text>
+<path d="M135.0,468 L135.0,738" fill="none" stroke="#c2410c" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#flc2410c)"/>
+<rect x="141.0" y="682.0" width="123.0" height="17.3" rx="4" fill="#ffffff" fill-opacity="0.95"/>
+<text x="145.0" y="693.0" font-size="11" font-weight="normal" fill="#9a3412" text-anchor="start">main.c + CMakeLists</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2YmYzYmVjNS0yZjc4LTRiNzMtYmY3Zi1kMWY4NGNmOGUxMWQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaJgvwAZnqlvPT7UMu0s77AwAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDplOTVlNzU2NC03NTNiLTQ3MDEtODA5NC0yMDgyNjg2Mzk5MzVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoYkC1DYqbVcvqHpyPLxtxJgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggutzD51i0wVQDvIAbUOcca35HQrG5Sz6zOt6+MqnI0SekZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaAb94QIs4p7+6TkdhDzQau8AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIAWW9zYkTNrGrfFX/uK8vi0MApnwD35+KsZ8FmfyWtMyZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GVG/Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZiZjNiZWM1LTJmNzgtNGI3My1iZjdmLWQxZjg0Y2Y4ZTExZC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmE5NzYwZGU3LWM4ZDYtNDllYi05NzNiLTZiZDIzYmQ4Nzg3ZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCC63MPnWLTBVAO8gBtQ5xxrfkdCsblLPrM63r4yqcjRJ6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgggQFw0Yu7wNX7wWguIUEqcBuJHfaNs14qc5Rjzs0NReeiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggmA79BHeso3P0bHfYQ7XM4C9OVNIfmSYKMgjIJsxZnJ90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQMcQbrqqQtr/KHbvwdWDR0kuJ7YIfZQ6spUu/8wxsuMjrto28zwb/biPgf2TvZaMJ53IteWUzQUDkHjltKTYlOg=</c2pa:manifest></metadata></svg>

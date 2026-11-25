@@ -1,0 +1,1985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../semana-07/">
+      
+      
+        <link rel="next" href="../semana-09/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Semana 8 - Prototipado y diseño para manufactura - José Carlos - Proyectos 4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-8-prototipado-y-diseno-para-manufactura" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="José Carlos - Proyectos 4" class="md-header__button md-logo" aria-label="José Carlos - Proyectos 4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            José Carlos - Proyectos 4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semana 8 - Prototipado y diseño para manufactura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="José Carlos - Proyectos 4" class="md-nav__button md-logo" aria-label="José Carlos - Proyectos 4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    José Carlos - Proyectos 4
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semanas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semanas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 1 - SCAMPER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporte-oportunidad-semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3 - Propiedad intelectual y marca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas-mercado-semana4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 - PDS y arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 6 - Concepto de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 7 - Viabilidad técnica y económica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 8 - Prototipado y diseño para manufactura
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 8 - Prototipado y diseño para manufactura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-como-adaptamos-la-semana-a-un-producto-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Cómo adaptamos la semana a un producto digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-plan-de-prototipado-taller-parte-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Plan de prototipado (Taller, Parte A)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-prototipo-construido-demo-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El prototipo construido: Demo v0.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-revision-dfm-taller-parte-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Revisión DFM (Taller, Parte B)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Revisión DFM (Taller, Parte B)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-paso-1-estimar-el-costo-por-copia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Paso 1 — Estimar el costo por copia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-paso-2-reducir-el-costo-de-los-componentes-mas-caros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Paso 2 — Reducir el costo de los componentes más caros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-paso-3-disminuir-los-costos-de-ensamble-dfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Paso 3 — Disminuir los costos de "ensamble" (DFA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-paso-4-reducir-el-soporte-de-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Paso 4 — Reducir el soporte de producción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-paso-5-efectos-en-otros-factores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Paso 5 — Efectos en otros factores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-compatibilidad-con-la-fabrica-equivalente-a-jlcpcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Compatibilidad con la "fábrica" (equivalente a JLCPCB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-defensa-del-plan-4-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Defensa del plan (4 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prueba-con-usuarios-tarea-en-casa-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prueba con usuarios (tarea en casa) — PENDIENTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-reporte-del-prototipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Reporte del prototipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-circularidad-lente-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Circularidad (lente del curso)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-metricas-de-calidad-del-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Métricas de calidad del software
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-preguntas-de-cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Preguntas de cierre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 9 - Integración, go-to-market y pitch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyecto-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Landing page (GPIO Génesis)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ideas descartadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ideas descartadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ideas_pasadas/semana3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-como-adaptamos-la-semana-a-un-producto-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Cómo adaptamos la semana a un producto digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-plan-de-prototipado-taller-parte-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Plan de prototipado (Taller, Parte A)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-prototipo-construido-demo-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El prototipo construido: Demo v0.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-revision-dfm-taller-parte-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Revisión DFM (Taller, Parte B)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Revisión DFM (Taller, Parte B)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-paso-1-estimar-el-costo-por-copia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Paso 1 — Estimar el costo por copia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-paso-2-reducir-el-costo-de-los-componentes-mas-caros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Paso 2 — Reducir el costo de los componentes más caros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-paso-3-disminuir-los-costos-de-ensamble-dfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Paso 3 — Disminuir los costos de "ensamble" (DFA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-paso-4-reducir-el-soporte-de-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Paso 4 — Reducir el soporte de producción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-paso-5-efectos-en-otros-factores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Paso 5 — Efectos en otros factores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-compatibilidad-con-la-fabrica-equivalente-a-jlcpcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Compatibilidad con la "fábrica" (equivalente a JLCPCB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-defensa-del-plan-4-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Defensa del plan (4 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prueba-con-usuarios-tarea-en-casa-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prueba con usuarios (tarea en casa) — PENDIENTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-reporte-del-prototipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Reporte del prototipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-circularidad-lente-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Circularidad (lente del curso)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-metricas-de-calidad-del-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Métricas de calidad del software
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-preguntas-de-cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Preguntas de cierre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="semana-8-prototipado-y-diseno-para-manufactura">Semana 8 — Prototipado y diseño para manufactura</h1>
+<p><strong>Equipo:</strong> José Carlos y Yael<br />
+<strong>Concepto:</strong> GPIO Génesis — videojuego de una fábrica de drones donde se programa una Raspberry Pi Pico 2 virtual con C/C++ real, con un copiloto de IA<br />
+<strong>Tipo de producto:</strong> 100% digital (sin hardware)<br />
+<strong>Fecha:</strong> 24 de noviembre de 2026</p>
+<div class="admonition abstract">
+<p class="admonition-title">De qué trata esta semana</p>
+<p>El curso pide dos cosas: <strong>prototipar para responder una pregunta</strong> (no para "tener algo") y <strong>revisar el diseño para que fabricarlo cueste menos</strong> (DFM). En GPIO Génesis el prototipo es la <strong>Demo v0.1</strong>, un juego jugable para Windows, y "manufacturar" una copia es exportar el <code>.exe</code> y distribuirlo.</p>
+<p>Entregables de esta página: plan de prototipado (sección 1), el prototipo construido (sección 2), revisión DFM en cinco pasos (sección 3), pruebas con usuarios (sección 4, <strong>PENDIENTE</strong>), reporte del prototipo (sección 5), circularidad (sección 6), métricas de calidad (sección 7) y respuestas de cierre (sección 8).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Lo que todavía no tenemos</p>
+<p><strong>No hemos probado el prototipo con ninguna persona.</strong> Todo lo que viene de usuarios (evidencia, tiempos, si se validó el supuesto) está marcado como <strong>PENDIENTE</strong>. Lo que sí está verificado viene del código del juego y de sus pruebas automáticas.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Dólares y pesos</p>
+<p>Lo que se cobra en dólares (cuota de Steam, dominio, firma de código, Supabase y la API de Claude) se deja en <strong>US$</strong>, porque el tipo de cambio varía. Para sumarlo con lo que está en pesos usamos la aproximación <strong>US$1 ≈ $17.50 MXN</strong> (supuesto del proyecto desde la semana 5, el mismo de los Excel; no es el tipo de cambio del día). Las cifras en pesos que dependen de esa conversión llevan <strong>≈</strong>.</p>
+</div>
+<h2 id="0-como-adaptamos-la-semana-a-un-producto-digital">0. Cómo adaptamos la semana a un producto digital</h2>
+<table>
+<thead>
+<tr>
+<th>Lo que pide el curso</th>
+<th>Qué es en GPIO Génesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prototipo de forma, función, experiencia o negocio</td>
+<td>Renders y bocetos (semana 6), niveles jugables, demo del copiloto y landing con pre-registro</td>
+</tr>
+<tr>
+<td>BOM con componentes</td>
+<td>Servicios por copia (comisión de la tienda e IA) y partes del desarrollo (motor, simulación, niveles, arte, sonido)</td>
+</tr>
+<tr>
+<td>PCB / PCBA</td>
+<td>No aplica (no hay electrónica)</td>
+</tr>
+<tr>
+<td>Carcasa (número de partes, cierre, material)</td>
+<td>Lo que el jugador tiene que instalar: hoy, <strong>un solo <code>.exe</code></strong></td>
+</tr>
+<tr>
+<td>Ensamble</td>
+<td>Exportar el juego con Godot y publicarlo</td>
+</tr>
+<tr>
+<td>Proceso y volumen</td>
+<td>Exportación de Godot; piloto de 20 jugadores y 400 copias en el año 1 (escenario base)</td>
+</tr>
+<tr>
+<td>Compatibilidad con JLCPCB</td>
+<td>Compatibilidad con Windows y con las reglas de Steam</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-plan-de-prototipado-taller-parte-a">1. Plan de prototipado (Taller, Parte A)</h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Nuestro plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Equipo y concepto</strong></td>
+<td>José Carlos y Yael · GPIO Génesis</td>
+</tr>
+<tr>
+<td><strong>Supuesto a validar</strong></td>
+<td>Que un estudiante del segmento <strong>entiende por qué falla su código</strong> viendo la fábrica, el osciloscopio y las pistas del copiloto, <strong>sin que nadie le explique</strong>. Si no pasa, el juego es un editor de código con dibujos y la propuesta de valor ("si tu código falla, ves por qué") se cae.</td>
+</tr>
+<tr>
+<td><strong>Pregunta precisa</strong></td>
+<td>¿Puede un estudiante de Mecatrónica o Electrónica que nunca ha usado el Pico SDK <strong>completar el turno 1 del nivel 1 sin ayuda del equipo</strong>?</td>
+</tr>
+<tr>
+<td><strong>Tipo de prototipo</strong></td>
+<td><strong>Experiencia:</strong> la fábrica, el editor y el copiloto juntos, como los usaría un jugador.</td>
+</tr>
+<tr>
+<td><strong>Resolución</strong></td>
+<td><strong>Alta.</strong> La dirección visual ya se probó en baja resolución (renders de la semana 6); ahora la pregunta es si alguien entiende un error real en código real, y eso solo se ve con la demo jugable.</td>
+</tr>
+<tr>
+<td><strong>Qué construimos</strong></td>
+<td>Demo v0.1 en Godot 4.7.2 (Windows): niveles 1–9 del bloque 1, demo del copiloto y proyecto del copiloto. Herramientas: Godot, Claude Code, cabeceras del Pico SDK 2.2.0 y gcc para revisar las plantillas. Tiempo: del 5 al 24 de noviembre (horas reales del equipo <strong>POR CONFIRMAR</strong>).</td>
+</tr>
+<tr>
+<td><strong>Cómo capturamos evidencia</strong></td>
+<td>Comportamiento: si termina el turno sin ayuda, cuánto tarda, cuántas compilaciones fallan, cuántas pistas pide y si puede decir con sus palabras qué estaba mal. Registro: grabación de pantalla (con permiso) y notas. Si se atora: esperar 30 s y preguntar «¿qué esperabas que hiciera?».</td>
+</tr>
+<tr>
+<td><strong>Umbral de éxito</strong></td>
+<td>Si <strong>3 de 3</strong> estudiantes del segmento (y después <strong>4 de 5</strong>, criterio RI-01) terminan el nivel 1 <strong>sin ayuda en 20 minutos o menos</strong> y explican la causa de su error, el supuesto queda validado.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-el-prototipo-construido-demo-v01">2. El prototipo construido: Demo v0.1</h2>
+<p>El jugador es el ingeniero de automatización de una planta de drones. Cada nivel es una máquina de la planta conectada a pines de la Pico 2; el jugador escribe el programa en C (o C++) con el Pico SDK, lo compila dentro del juego y ve a la fábrica reaccionar.</p>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Qué hace hoy (verificado en el código)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Menú</strong></td>
+<td>Continuar · Niveles · Portafolio · Opciones · Salir. Abajo dice <code>v0.1 · demo · Pico 2 (C)</code>. Guarda el progreso en la PC, sin cuenta.</td>
+</tr>
+<tr>
+<td><strong>Niveles</strong></td>
+<td>9 niveles del bloque 1 del curso: salidas (<code>gpio_init</code>, <code>gpio_put</code>), máscaras de bits, entradas con pull-up, antirrebote, interrupciones por flanco y prioridades del NVIC. Cada nivel tiene 2 o 3 turnos. Además: demo avanzada (PWM, ADC, I2C), demo del copiloto y proyecto del copiloto.</td>
+</tr>
+<tr>
+<td><strong>Nivel 1 · Arranque de línea</strong></td>
+<td><code>MOTOR_BANDA</code> en GP5, <code>LUZ_ESTACION</code> en GP2 y <code>SENSOR_ESTACION</code> en GP4. Por defecto con el Pico SDK; el nivel 1 también se puede jugar con la API de Arduino (<code>pinMode</code>, <code>digitalWrite</code>).</td>
+</tr>
+<tr>
+<td><strong>Compilador y MCU virtual</strong></td>
+<td>Intérprete propio de C y de lo más usado de C++, con los registros del RP2350 y tiempos por evento (rebote, latencia). 41 programas de C dan la misma salida que gcc y 14 de C++ la misma que g++.</td>
+</tr>
+<tr>
+<td><strong>Osciloscopio</strong></td>
+<td>Panel inferior con los <strong>últimos 3 s</strong> de cada pin: 1 = 3.3 V, 0 = 0 V (la Pico 2 trabaja a 3.3 V).</td>
+</tr>
+<tr>
+<td><strong>Copiloto</strong></td>
+<td>Detecta el problema, marca la línea y da <strong>hasta 4 pistas locales</strong> (funcionan sin internet). Con la clave de Anthropic del jugador, después de la cuarta le pregunta a Claude. En la demo del copiloto se niega a dar la solución.</td>
+</tr>
+<tr>
+<td><strong>Portafolio</strong></td>
+<td>Cada turno se exporta como <code>main.c</code> (o <code>main.cpp</code>) + <code>CMakeLists.txt</code>, listo para el toolchain real de la Pico.</td>
+</tr>
+<tr>
+<td><strong>Pruebas automáticas</strong></td>
+<td>834 pruebas en 5 suites (al 24-nov-2026). Las 28 plantillas y soluciones de los niveles pasan la revisión de gcc (<code>-fsyntax-only</code>) con las cabeceras reales del Pico SDK 2.2.0; falta compilarlas para la placa y probarlas en una Pico 2 real.</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>Capturas del prototipo</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Menú de niveles</label><label for="__tabbed_1_2">Nivel con pistas</label><label for="__tabbed_1_3">Falla visible</label><label for="__tabbed_1_4">Copiloto</label><label for="__tabbed_1_5">Turno completado</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Menú de niveles de la Demo v0.1" src="../../recursos/imgs/proyecto-final/pf-menu-niveles.jpg" /></p>
+<p>Los 9 niveles del bloque 1, las dos demos y el bloque 2 marcado como "próximamente". Abajo: versión y estado del copiloto.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Nivel 2 con el copiloto dando la pista 3 de 4" src="../../recursos/imgs/proyecto-final/pf-estado-pistas.jpg" /></p>
+<p>Nivel 2 · Tres estaciones: falta un bit en la máscara. La estación de pintura no se enciende, el copiloto ya dio 2 de sus 4 pistas y el osciloscopio muestra que GP3 nunca sube.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Nivel 7, el paro de emergencia llega tarde" src="../../recursos/imgs/proyecto-final/pf-estado-alerta.jpg" /></p>
+<p>Nivel 7 · Paro de emergencia: revisar el botón dentro del ciclo hace que el paro llegue tarde; la planta lo marca como falla.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="El copiloto se niega a dar la solución" src="../../recursos/imgs/proyecto-final/pf-copiloto-niega.jpg" /></p>
+<p>Demo del copiloto: al pedir la solución, se niega y da la siguiente pista.</p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Turno 1 completado en la demo del copiloto" src="../../recursos/imgs/proyecto-final/pf-turno-completado.jpg" /></p>
+<p>Al terminar un turno: cuántas líneas escribió el jugador, cuántas pistas pidió y «Líneas de código que escribió el copiloto: 0».</p>
+</div>
+</div>
+</div>
+</details>
+<p><strong>Cómo llegamos aquí:</strong> cada versión respondió una pregunta técnica antes que la siguiente (detalle en la <a href="../../proyecto-final/#s10">página del proyecto final, §10</a>).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Fecha</th>
+<th>Pregunta</th>
+<th>Tipo · resolución</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>1-oct</td>
+<td>¿Qué estilo deja ver qué pin mueve qué máquina?</td>
+<td>Forma · baja</td>
+<td>Concepto combinado (semana 6)</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>5-nov</td>
+<td>¿Podemos ejecutar el código del jugador dentro del juego?</td>
+<td>Función · alta</td>
+<td>Intérprete propio en lugar de clang → WebAssembly</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>8-nov</td>
+<td>¿Se puede enseñar con la API del curso?</td>
+<td>Función · alta</td>
+<td>El Pico SDK pasa a ser la opción por defecto</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>21–22 nov</td>
+<td>¿El simulador reproduce los tiempos del chip?</td>
+<td>Función · alta</td>
+<td>Niveles 2–9 con rebote, interrupciones y prioridades</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>22–23 nov</td>
+<td>¿El copiloto puede guiar sin escribir el código?</td>
+<td>Experiencia · alta</td>
+<td>4 pistas locales y Claude al final</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>23–24 nov</td>
+<td>¿Alguien aparta una copia de $249?</td>
+<td>Negocio · alta</td>
+<td>Landing publicada; <strong>PENDIENTE</strong> medir</td>
+</tr>
+</tbody>
+</table>
+<p>Ninguna de estas preguntas se ha respondido todavía con usuarios: la de esta semana (sección 1) es la primera.</p>
+<h2 id="3-revision-dfm-taller-parte-b">3. Revisión DFM (Taller, Parte B)</h2>
+<p>Revisamos el concepto con Claude siguiendo los cinco pasos del curso. Los montos salen de los Excel de la semana 7: <a href="../../recursos/archivos/semana7/modelo-financiero-gpio-genesis-semana7.xlsx">modelo financiero</a>, <a href="../../recursos/archivos/semana7/costos-gpio-genesis-semana7.xlsx">costos</a> y <a href="../../recursos/archivos/semana7/alcance-niveles-costos-gpio-genesis.xlsx">alcance y niveles</a>.</p>
+<h3 id="31-paso-1-estimar-el-costo-por-copia">3.1 Paso 1 — Estimar el costo por copia</h3>
+<p>En un juego no hay BOM ni carcasa: el desarrollo se reparte entre las copias vendidas y ya trae 15% de indirectos y 30% de contingencia, así que no se vuelven a sumar.</p>
+<table>
+<thead>
+<tr>
+<th>Concepto (MXN por copia)</th>
+<th>10 copias</th>
+<th>100 copias</th>
+<th>400 copias*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>$0</td>
+<td>$0</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Desarrollo repartido ($50,596.56 MXN del MVP, horas en pesos)</td>
+<td>$5,059.66</td>
+<td>$505.97</td>
+<td>$126.49</td>
+</tr>
+<tr>
+<td>Lanzamiento repartido: Steam US$100, dominio US$12, firma US$99 (US$211 ≈ $3,692.50)</td>
+<td>≈ $369.83</td>
+<td>≈ $36.98</td>
+<td>≈ $9.23</td>
+</tr>
+<tr>
+<td>Nube repartida: Supabase Pro, US$25 al mes = US$300 al año (≈ $5,250)</td>
+<td>≈ $525.00</td>
+<td>≈ $52.50</td>
+<td>≈ $13.13</td>
+</tr>
+<tr>
+<td>IA del copiloto por jugador: US$0.049</td>
+<td>≈ $0.86</td>
+<td>≈ $0.86</td>
+<td>≈ $0.86</td>
+</tr>
+<tr>
+<td>Comisión de Steam (30% de $249 MXN)</td>
+<td>$74.70</td>
+<td>$74.70</td>
+<td>$74.70</td>
+</tr>
+<tr>
+<td><strong>Costo unitario total</strong></td>
+<td><strong>≈ $6,030.04</strong></td>
+<td><strong>≈ $671.01</strong></td>
+<td><strong>≈ $224.41</strong></td>
+</tr>
+<tr>
+<td>de eso, variable (IA + comisión)</td>
+<td>≈ $75.56</td>
+<td>≈ $75.56</td>
+<td>≈ $75.56</td>
+</tr>
+</tbody>
+</table>
+<p>≈ = incluye costos en dólares convertidos a US$1 ≈ $17.50 MXN. * La columna de 400 copias (escenario base del año 1) la calculamos aquí con las mismas fórmulas del Excel. Con el precio de $249 deja <strong>≈ $24.59</strong> por copia después de pagar todo, incluidas nuestras horas.</p>
+<h3 id="32-paso-2-reducir-el-costo-de-los-componentes-mas-caros">3.2 Paso 2 — Reducir el costo de los componentes más caros</h3>
+<p>Ordenados por lo que pesan en cada copia a 400 copias:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Componente</th>
+<th>Por copia</th>
+<th>Alternativa DFM</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Comisión de Steam (30%)</td>
+<td>$74.70</td>
+<td>Vender las <strong>licencias escolares</strong> directamente con una pasarela (≈ 3.6% + $3 + IVA ≈ <strong>$13.88</strong> por $249, ESTIMADO) y usar Steam solo para la venta al público</td>
+<td>Propuesta; es la palanca B2B de la semana 9</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Motor (compilador, MCU virtual, editor)</td>
+<td>$51.43 ($20,571)</td>
+<td><strong>Intérprete propio</strong> en GDScript en lugar de la cadena clang → WebAssembly + runtime WAMR que planeamos en la semana 5 (la integración de esa cadena eran unas 60 h estimadas de riesgo)</td>
+<td>✅ Hecho y probado</td>
+</tr>
+<tr>
+<td>3</td>
+<td>IA del copiloto</td>
+<td>US$1.50 → <strong>US$0.049</strong> (≈ $26.25 → $0.86)</td>
+<td>4 pistas locales por problema (antes 2 locales y 2 en la nube), Claude solo después de la cuarta y Claude Haiku 5.5 en lugar de Haiku 4.5</td>
+<td>✅ Hecho (tokens <strong>sin medir</strong>)</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Arte de máquinas nuevas</td>
+<td>$24.82 ($9,927)</td>
+<td>Los niveles 2–9 reutilizan la fábrica base y dibujan sus máquinas con figuras simples desde el código, en lugar de arte nuevo por máquina (el Excel estimaba 6 h por máquina)</td>
+<td>✅ Hecho; falta ver con usuarios si se entiende</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Antes y después (mismo desarrollo; solo cambia la IA):</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Antes (semana 5)</th>
+<th>Después (24-nov)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IA por jugador</td>
+<td>US$1.50 ≈ $26.25 (300 consultas, todo en la nube, Haiku 4.5)</td>
+<td>US$0.049 ≈ $0.86 (220 consultas, la mitad o menos a la nube, Haiku 5.5)</td>
+</tr>
+<tr>
+<td>Costo variable por copia</td>
+<td>≈ $100.95</td>
+<td><strong>≈ $75.56 (−25%)</strong></td>
+</tr>
+<tr>
+<td>Costo unitario a 400 copias</td>
+<td>≈ $249.80 (más que el precio)</td>
+<td><strong>≈ $224.41</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Opción que dejamos abierta:</strong> usar el plan gratuito de Supabase el primer año (como en el escenario pesimista) ahorraría US$300 al año (≈ $13.13 por copia; ≈ $211.28 de costo unitario a 400 copias), pero el plan gratuito pausa el proyecto tras una semana sin uso; lo decidimos cuando exista el backend.</p>
+<h3 id="33-paso-3-disminuir-los-costos-de-ensamble-dfa">3.3 Paso 3 — Disminuir los costos de "ensamble" (DFA)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Plan de la semana 5</th>
+<th>Demo v0.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Partes" que recibe el jugador</td>
+<td>Instalador + compilador clang + runtime WAMR + cuenta en Supabase</td>
+<td><strong>1 archivo:</strong> <code>GPIO_Genesis.exe</code> (110 MB, con el paquete del juego adentro)</td>
+</tr>
+<tr>
+<td>Pasos para empezar a jugar</td>
+<td>Descargar, instalar, crear cuenta, iniciar sesión, abrir el nivel</td>
+<td>Descargar, abrir, Continuar</td>
+</tr>
+<tr>
+<td>Lo que hacemos para sacar una versión</td>
+<td>—</td>
+<td>Correr las 5 suites de pruebas y exportar con el preset "Windows Desktop" (pasos en la <a href="../../proyecto-final/#s11">página del proyecto final, §11</a>)</td>
+</tr>
+<tr>
+<td>Tiempo de instalación con una persona</td>
+<td>—</td>
+<td><strong>PENDIENTE</strong> (prueba T1 de la semana 9)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-paso-4-reducir-el-soporte-de-produccion">3.4 Paso 4 — Reducir el soporte de producción</h3>
+<ul>
+<li><strong>Inventario:</strong> ninguno; una copia nueva cuesta $0 de fabricar.</li>
+<li><strong>Habilidades especializadas:</strong> GDScript (Godot) y C del Pico SDK. Riesgo: la mayor parte del código se escribió con Claude Code y tenemos que entenderlo para mantenerlo. Lo mitigamos con el registro de desarrollo del juego y las pruebas automáticas.</li>
+<li><strong>Control de calidad:</strong> 834 pruebas automáticas (intérprete, lenguaje, periféricos, niveles y referencia) que se corren antes de exportar; las plantillas se revisan con gcc contra las cabeceras reales del SDK.</li>
+</ul>
+<h3 id="35-paso-5-efectos-en-otros-factores">3.5 Paso 5 — Efectos en otros factores</h3>
+<table>
+<thead>
+<tr>
+<th>Cambio</th>
+<th>Lo que ganamos</th>
+<th>Lo que perdemos (trade-off)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intérprete propio</td>
+<td>Un solo <code>.exe</code>, sin instalar compilador; menos tiempo al mercado</td>
+<td>No es un compilador completo: no acepta <code>template</code>, <code>new</code>/<code>delete</code>, la biblioteca <code>std</code>, <code>virtual</code>/herencia ni excepciones</td>
+</tr>
+<tr>
+<td>Pistas locales + Haiku 5.5</td>
+<td>IA = 0.5% del ingreso neto; el juego funciona sin internet</td>
+<td>Las pistas locales solo cubren los errores que imaginamos; la ayuda de Claude depende de que el jugador ponga su clave</td>
+</tr>
+<tr>
+<td>Pico SDK por defecto</td>
+<td>Enseña lo mismo que el curso (RP2350)</td>
+<td>Menos transferible para quien usa Arduino (el nivel 1 sigue con las dos opciones)</td>
+</tr>
+<tr>
+<td>Arte con figuras simples</td>
+<td>Más niveles en el mismo tiempo</td>
+<td>Puede verse menos atractivo: <strong>por validar con usuarios</strong></td>
+</tr>
+<tr>
+<td>Sin backend en la demo</td>
+<td>Sin cuenta ni servidor que mantener</td>
+<td>No hay progreso en la nube ni cuota de IA con nuestra clave; para vender hace falta (semana 9, regulación)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-compatibilidad-con-la-fabrica-equivalente-a-jlcpcb">3.6 Compatibilidad con la "fábrica" (equivalente a JLCPCB)</h3>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.exe</code> de Windows de 64 bits (preset "Windows Desktop")</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Abre en una PC sin Godot que no sea nuestra</td>
+<td>⚠️ Sin probar</td>
+</tr>
+<tr>
+<td>Firma de código (sin ella, Windows SmartScreen advierte al abrirlo)</td>
+<td>⚠️ Sin certificado; cotizar</td>
+</tr>
+<tr>
+<td>Cuota de Steam Direct (US$100 por juego)</td>
+<td>✅ Verificada en la semana 7</td>
+</tr>
+<tr>
+<td>Declarar en Steam el contenido generado por IA en vivo</td>
+<td>⚠️ POR VERIFICAR</td>
+</tr>
+<tr>
+<td>Integración con Steamworks (logros, guardado en la nube de Steam)</td>
+<td>❌ No integrada (no hace falta para la demo)</td>
+</tr>
+<tr>
+<td>Versión para macOS</td>
+<td>❌ No hay; solo Windows</td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-defensa-del-plan-4-min">3.7 Defensa del plan (4 min)</h3>
+<ol>
+<li><strong>Supuesto más riesgoso:</strong> que el jugador entienda su error sin que se lo expliquemos. Si falla, perdemos la propuesta de valor y la razón para pagar $249 en lugar de ver YouTube gratis.</li>
+<li><strong>Prototipo:</strong> Demo v0.1, experiencia de alta resolución; responde si alguien termina el nivel 1 solo.</li>
+<li><strong>Evidencia:</strong> 3 de 3 (y luego 4 de 5) terminan el nivel 1 sin ayuda en 20 min o menos y explican la causa de su error.</li>
+<li><strong>Cambio DFM más importante:</strong> pistas locales + Haiku 5.5: IA de US$1.50 a US$0.049 por jugador; costo variable de ≈ $100.95 a ≈ $75.56 por copia; a 400 copias, costo unitario de ≈ $249.80 a ≈ $224.41 (con US$1 ≈ $17.50).</li>
+</ol>
+<h2 id="4-prueba-con-usuarios-tarea-en-casa-pendiente">4. Prueba con usuarios (tarea en casa) — PENDIENTE</h2>
+<div class="admonition danger">
+<p class="admonition-title">PENDIENTE</p>
+<p>El curso pide probar el prototipo con <strong>al menos 3 usuarios del segmento</strong>. <strong>Todavía no lo hacemos.</strong> Las sesiones se harán con el protocolo de la <a href="../semana-09/">semana 9</a> (sección 2) y sus resultados se escribirán aquí.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Perfil</th>
+<th>¿Terminó el turno 1 sin ayuda?</th>
+<th>Tiempo</th>
+<th>Compilaciones con error</th>
+<th>Pistas pedidas</th>
+<th>¿Explicó la causa del error?</th>
+<th>Cita textual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U1</td>
+<td>Segmento</td>
+<td>PENDIENTE</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>U2</td>
+<td>Segmento</td>
+<td>PENDIENTE</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>U3</td>
+<td>Segmento</td>
+<td>PENDIENTE</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-reporte-del-prototipo">5. Reporte del prototipo</h2>
+<table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Equipo y concepto</strong></td>
+<td>José Carlos y Yael · GPIO Génesis</td>
+</tr>
+<tr>
+<td><strong>Tipo y resolución</strong></td>
+<td>Experiencia · alta</td>
+</tr>
+<tr>
+<td><strong>Materiales y tiempo</strong></td>
+<td>Godot 4.7.2, Claude Code, cabeceras del Pico SDK 2.2.0, gcc, fuentes con licencia OFL. Del 5 al 24-nov; horas reales <strong>POR CONFIRMAR</strong> (el Excel estimaba 423 h para el MVP).</td>
+</tr>
+<tr>
+<td><strong>Pregunta que respondía</strong></td>
+<td>¿Puede un estudiante que nunca ha usado el Pico SDK completar el turno 1 del nivel 1 sin ayuda?</td>
+</tr>
+<tr>
+<td><strong>Evidencia de 3 usuarios</strong></td>
+<td><strong>PENDIENTE</strong> (sección 4)</td>
+</tr>
+<tr>
+<td><strong>¿Se validó el supuesto?</strong></td>
+<td><strong>PENDIENTE.</strong> Sin pruebas con usuarios no se puede decir Sí, No ni Parcialmente.</td>
+</tr>
+<tr>
+<td><strong>Aprendizaje clave (de construirlo, no de usuarios)</strong></td>
+<td>El costo del producto estaba en la IA y en la cadena de compilación: resolverlas con un intérprete propio y pistas locales bajó el costo variable 25% y dejó el juego en un solo archivo.</td>
+</tr>
+<tr>
+<td><strong>Cambio al diseño</strong></td>
+<td>Pico SDK por defecto (antes Arduino-ESP32); 4 pistas locales antes de llamar a Claude (antes 2 y 2); un solo <code>.exe</code> sin cuenta.</td>
+</tr>
+<tr>
+<td><strong>Siguiente hipótesis</strong></td>
+<td><strong>Negocio:</strong> que alguien deje sus datos para apartar una copia de $249 en la landing (prototipo P7).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-circularidad-lente-del-curso">6. Circularidad (lente del curso)</h2>
+<table>
+<thead>
+<tr>
+<th>Pregunta del curso</th>
+<th>Versión digital</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Se puede reparar?</td>
+<td>¿Se arregla una parte sin romper otra?</td>
+<td>Cada nivel es un JSON y su fábrica un script aparte; los errores se corrigen con un parche del <code>.exe</code></td>
+</tr>
+<tr>
+<td>¿Módulos reemplazables?</td>
+<td>¿Se cambia una pieza sin rehacer el resto?</td>
+<td>El modelo de IA cambia con una variable; el intérprete y la fábrica están separados</td>
+</tr>
+<tr>
+<td>¿Materiales identificables?</td>
+<td>¿Se sabe de dónde viene cada pieza y su licencia?</td>
+<td>Godot (MIT) y fuentes (OFL). <strong>PENDIENTE:</strong> inventario de licencias</td>
+</tr>
+<tr>
+<td>¿Se actualiza sin reemplazar?</td>
+<td>¿Crece sin comprar otro juego?</td>
+<td>Los bloques 2 y 3 irían como actualización y las partidas viejas se siguen leyendo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-metricas-de-calidad-del-software">7. Métricas de calidad del software</h2>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Objetivo</th>
+<th>Cómo se controla</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compilar y arrancar la planta (RD-01)</td>
+<td>P95 ≤ 3 s, 300 líneas, PC mínima</td>
+<td>Cronometrar 50 corridas</td>
+<td>⏳ Sin medir</td>
+</tr>
+<tr>
+<td>Cuadros por segundo (RD-02)</td>
+<td>≥ 30 fps en la PC mínima</td>
+<td>Nivel más grande</td>
+<td>⏳ Sin medir</td>
+</tr>
+<tr>
+<td>Costo del intérprete</td>
+<td>Un ciclo que nunca duerme no pasa de ~4 ms por cuadro</td>
+<td>Pruebas del MCU virtual</td>
+<td>✅ En pruebas automáticas</td>
+</tr>
+<tr>
+<td>Ciclos infinitos</td>
+<td>El juego no se congela</td>
+<td>En modo Arduino, watchdog de 2 s; con el Pico SDK, un <code>while(true)</code> es válido, como en el chip</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tamaño de la descarga</td>
+<td>Un solo archivo</td>
+<td><code>GPIO_Genesis.exe</code> de 110 MB</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Pista local (RD-03)</td>
+<td>≤ 200 ms</td>
+<td>No usa la red</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Respuesta de Claude (RD-03)</td>
+<td>≤ 8 s</td>
+<td>Clave real y 5 Mbps</td>
+<td>⏳ Ya responde con una clave real (25-nov); falta medir el tiempo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-preguntas-de-cierre">8. Preguntas de cierre</h2>
+<ul>
+<li><strong>¿Cuál es el supuesto más riesgoso y qué prototipo lo validará?</strong> Que el jugador entienda por qué falla su código sin que se lo expliquemos; lo valida la Demo v0.1 con 3–5 estudiantes del segmento (<strong>PENDIENTE</strong>).</li>
+<li><strong>¿Qué comportamiento específico se capturará como evidencia?</strong> Si termina el turno 1 del nivel 1 sin ayuda, en cuánto tiempo, cuántas compilaciones fallan, cuántas pistas pide y si explica la causa con sus palabras.</li>
+<li><strong>¿Cuál es el componente más caro y su alternativa DFM?</strong> Por copia, la comisión de Steam ($74.70): venta directa para grupos escolares. El cambio ya hecho que más pesó fue la IA: de US$1.50 a US$0.049 por jugador (≈ $26.25 a $0.86).</li>
+<li><strong>¿Cuántas partes tiene la "carcasa" y cómo se redujeron?</strong> Una: el <code>.exe</code>. El plan de la semana 5 tenía instalador, compilador, runtime y cuenta.</li>
+</ul>
+<h2 id="reflexion">Reflexión</h2>
+<p>Esta semana me di cuenta de que en un proyecto de software es muy fácil confundir avanzar con validar. En unas semanas pasamos de un boceto a un juego con nueve niveles, un copiloto y más de 800 pruebas automáticas, y aun así el supuesto más importante, que un estudiante pueda arrancar la fábrica solo entendiendo por qué falla su código, no lo hemos probado con una sola persona. El prototipo es de alta resolución, pero la evidencia de usuarios todavía está en cero.</p>
+<p>También me sirvió traducir el diseño para manufactura a nuestro caso. Al principio pensé que no aplicaba porque no fabricamos nada, pero las mismas preguntas funcionan: cuál es el componente más caro, cuántas "piezas" recibe el usuario y qué tan fácil es reproducir una copia. La decisión que más pesó fue la de la IA: con pistas locales y un modelo más barato, el costo variable bajó de unos $100.95 a unos $75.56 por copia (con el dólar a $17.50), y a 400 copias el costo unitario quedó por debajo del precio. Entregar un solo <code>.exe</code>, sin instalador ni cuenta, es nuestra forma de reducir el número de partes.</p>
+<p>Lo que haría distinto es probar antes con usuarios. Construir sin evidencia se siente productivo, pero si en las pruebas descubrimos que el copiloto estorba en lugar de ayudar, mucho de lo que hicimos habría que cambiarlo. Por eso lo siguiente no es otro nivel, sino sentar a tres compañeros frente al nivel 1 y observar qué hacen sin ayudarles.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
