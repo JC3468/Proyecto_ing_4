@@ -7,3 +7,8 @@ site/
 Claude outputs/
 # Copia vieja del juego (9-nov-2026); el código vigente está en juego/.
 juego.zip
+
+# Código del juego y notas internas: no se publican (decisión del equipo).
+juego/
+notas/
+juego (2).zip
