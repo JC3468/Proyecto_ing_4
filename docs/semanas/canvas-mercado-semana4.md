@@ -52,14 +52,16 @@
 |---|---|---|---|
 | **TAM** | 380,000 personas | $95,000,000 MXN | INEGI/CONAPO (población 18–24), SEP (matrícula educación superior 2025–26), The CIU (mercado gamer México 2025), Steam pricing research 2025–26 |
 | **SAM** | 219,000 personas | $54,750,000 MXN | Filtros aplicados al TAM: geografía urbana con smartphone (90%) · canal digital en español (80%) · precio compatible con ticket indie 199–299 MXN (80%) |
-| **SOM (años 1–2)** | 2,200 personas | $275,000 MXN/año* | Canal: Steam + orgánico (TikTok/YouTube/Discord) · Piloto: Puebla, CDMX, Guadalajara, Monterrey · Equipo de 4 personas |
+| **SOM (años 1–2)** | 2,200 personas | $275,000 MXN/año* | Canal: Steam + orgánico (TikTok/YouTube/Discord) · Piloto: Puebla, CDMX, Guadalajara, Monterrey · Equipo de 2 personas |
 
 <small>\* Corrección de cálculo: 2,200 clientes × $250 MXN = $550,000 MXN **a lo largo de 2 años** → $275,000 MXN/año en promedio.</small>
 
 !!! warning "Punto a revisar antes de defender el número"
     El TAM se calculó primero de forma directa en 229,000 personas (1.27M estudiantes STEM × 60% jugadores × 30% preferencia sandbox), y luego se redondeó hacia arriba a 760,000 citando la penetración de Minecraft/Roblox — sin una fórmula explícita que sustente ese salto de 3.3x. Esto es justo lo que el curso llama "la trampa del TAM aspiracional". Si se pregunta por la lógica de esa reducción específica, la respuesta honesta es que falta una fuente más precisa del % de estudiantes de ingeniería que juegan sandbox.
 
-**Señal de viabilidad:** SOM × precio anual ≈ $275,000 MXN/año. **Marginal / insuficiente** — no cubre la nómina básica de un equipo de 4 personas (~$720,000–960,000 MXN/año). Requiere financiamiento externo, preventas, o ampliar el modelo de ingresos (ver precio y modelo, abajo).
+    *Nota del 24-nov-2026:* la tabla quedó con 380,000 personas, una cifra que tampoco sale de esa cadena de filtros. Con el cálculo directo (229,000), los mismos filtros del SAM darían ~132,000 personas y el SOM de 2,200 sería 1.7% del SAM en lugar de 1.0%. El SOM, que es lo que usa el modelo financiero, no cambia.
+
+**Señal de viabilidad:** SOM × precio anual ≈ $275,000 MXN/año. **Marginal / insuficiente** — no cubre la nómina básica de nuestro equipo de 2 personas (~$360,000–480,000 MXN/año; el prompt del curso suponía una startup de 4, ~$720,000–960,000). Requiere financiamiento externo, preventas, o ampliar el modelo de ingresos (ver precio y modelo, abajo).
 
 ---
 
@@ -151,7 +153,7 @@ La descripción inicial del concepto ("un videojuego que enseña C++ al requerir
 
 ## Reflexión
 
-Esta semana los números le ganaron al entusiasmo. Al calcular el SOM, GPIO Génesis llega a unos $275,000 MXN al año, y eso no alcanza ni para la nómina básica de un equipo de cuatro. Ver ese resultado fue duro, pero prefiero saberlo ahora que después de meses de desarrollo. También aprendí a desconfiar de los números de la IA: al calcular el TAM llegó a 229,000 personas y luego lo "redondeó de forma conservadora" a 760,000, más del triple, sin una fórmula que lo sostuviera. No lo detectamos a la primera, y es justo la trampa del TAM aspiracional.
+Esta semana los números le ganaron al entusiasmo. Al calcular el SOM, GPIO Génesis llega a unos $275,000 MXN al año, y eso no alcanza ni para la nómina básica de nuestro equipo de dos. Ver ese resultado fue duro, pero prefiero saberlo ahora que después de meses de desarrollo. También aprendí a desconfiar de los números de la IA: al calcular el TAM llegó a 229,000 personas y luego lo "redondeó de forma conservadora" a 760,000, más del triple, sin una fórmula que lo sostuviera. No lo detectamos a la primera, y es justo la trampa del TAM aspiracional.
 
 Lo que más me movió fue el mapa competitivo. Yo pensaba que nuestros rivales eran Shenzhen I/O o CodeCombat, y resultó que el más peligroso es gratis: GitHub y YouTube. Entendí que el verdadero competidor casi nunca es quien hace lo mismo que tú, sino lo que el usuario ya hace hoy para resolver su problema. En el lienzo de océano azul eso se notó: en "C++ real" empatamos con lo gratuito, así que la diferencia tiene que venir del portafolio exportable, del feedback visual y de la experiencia, no del lenguaje.
 

@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPIO Génesis — aprende C/C++ arrancando una fábrica de drones</title>
+<meta name="description" content="Videojuego para PC: programa en C/C++ una Raspberry Pi Pico 2 virtual y arranca una fábrica de drones. Si falla, ves por qué; si funciona, va a tu portafolio.">
+<link rel="canonical" href="https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/">
+<meta name="theme-color" content="#0E1117">
+<link rel="icon" href="assets/img/icono.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icono-180.png">
+
+<!-- Open Graph: así se ve al compartir el enlace por WhatsApp, Instagram, LinkedIn, etc. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GPIO Génesis">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/">
+<meta property="og:title" content="GPIO Génesis — aprende C/C++ arrancando una fábrica de drones">
+<meta property="og:description" content="Si tu código falla, ves por qué; si funciona, va a tu portafolio. Pre-registro abierto · $249 MXN.">
+<meta property="og:image" content="https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/assets/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Captura de GPIO Génesis: una fábrica de drones en pixel art junto al editor de código y el copiloto.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPIO Génesis — aprende C/C++ arrancando una fábrica de drones">
+<meta name="twitter:description" content="Si tu código falla, ves por qué; si funciona, va a tu portafolio. $249 MXN.">
+<meta name="twitter:image" content="https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/assets/img/og.jpg">
+
+<link rel="preload" href="assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/PressStart2P-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face{font-family:"Inter";src:url(assets/fonts/Inter-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url(assets/fonts/Inter-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(assets/fonts/JetBrainsMono-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(assets/fonts/JetBrainsMono-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Press Start 2P";src:url(assets/fonts/PressStart2P-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+
+/* Colores del juego (juego/scripts/tema.gd) */
+:root{
+  --fondo:#0E1117; --panel:#161B22; --panel-2:#1C2230; --hundido:#0B0E13; --borde:#30363D;
+  --texto:#E6EDF3; --sec:#8B949E; --tenue:#6E7681;
+  --ambar:#F2C572; --ambar-claro:#F7D58F; --ambar-osc:#B5793A;
+  --verde:#3FB950; --naranja:#F0883E; --rojo:#F85149; --azul:#58A6FF;
+  --globo:#E9EEF4;
+  --pixel:"Press Start 2P",ui-monospace,monospace;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ancho:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+#apartar,#caja-formulario,#privacidad{scroll-margin-top:80px}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,video{max-width:100%;height:auto;display:block}
+a{color:var(--ambar)}
+a:hover{color:var(--ambar-claro)}
+:focus-visible{outline:3px solid var(--ambar);outline-offset:3px;border-radius:4px}
+.contenedor{max-width:var(--ancho);margin:0 auto;padding:0 22px}
+.oculto{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pixelado{image-rendering:pixelated;image-rendering:crisp-edges}
+
+/* Etiquetas como las del juego: "GP5 · MOTOR_BANDA ●" */
+.etiqueta{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--texto);background:var(--hundido);border:2px solid var(--borde);border-radius:6px;padding:8px 11px}
+.etiqueta.ambar{border-color:var(--ambar);color:var(--ambar)}
+.led{width:9px;height:9px;border-radius:50%;background:var(--verde);box-shadow:0 0 8px var(--verde);flex:none}
+.led.parpadea{animation:parpadeo 1.6s steps(2,jump-none) infinite}
+@keyframes parpadeo{0%{opacity:1}100%{opacity:.25}}
+
+/* Riel naranja de la fábrica, como separador */
+.riel{height:4px;background:repeating-linear-gradient(90deg,var(--naranja) 0 14px,transparent 14px 26px);opacity:.85}
+
+/* Botón principal = botón "Compilar y ejecutar" del juego */
+.boton{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:12px;font:700 18px/1 var(--sans);color:#14110A;background:var(--ambar);border:2px solid var(--ambar);border-radius:7px;padding:18px 28px;text-decoration:none;cursor:pointer;transition:background .12s,transform .12s,box-shadow .12s;box-shadow:0 0 0 0 rgba(242,197,114,0)}
+.boton:hover{background:var(--ambar-claro);border-color:var(--ambar-claro);color:#14110A;box-shadow:0 6px 28px -8px rgba(242,197,114,.55)}
+.boton:active{background:var(--ambar-osc);border-color:var(--ambar-osc);transform:translateY(1px)}
+.boton:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.boton svg{width:13px;height:14px;flex:none}
+.boton[disabled]{opacity:.7;cursor:progress}
+.boton.chico{font-size:15px;padding:11px 16px;gap:9px}
+.boton.chico svg{width:10px;height:11px}
+
+/* ---------- Barra superior ---------- */
+.barra{position:sticky;top:0;z-index:20;background:rgba(14,17,23,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
+.barra .contenedor{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--texto)}
+.logo img{width:30px;height:30px}
+.logo b{font:400 15px/1 var(--pixel);color:var(--ambar);letter-spacing:.04em}
+.logo span{font:700 13px/1 var(--sans);color:var(--texto);letter-spacing:.2em;margin-left:1px}
+.barra .precio-mini{font:700 14px/1 var(--mono);color:var(--sec);margin-right:12px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:64px 0 76px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 50% at 78% 38%,rgba(242,197,114,.10),transparent 70%),
+  radial-gradient(ellipse 40% 40% at 10% 0%,rgba(88,166,255,.07),transparent 70%);pointer-events:none}
+.hero .contenedor{position:relative;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:56px;align-items:center}
+.hero h1{font:700 clamp(32px,4vw,52px)/1.07 var(--sans);letter-spacing:-.025em;margin:22px 0 0;text-wrap:balance}
+.hero h1 mark{background:none;color:var(--ambar);white-space:nowrap}
+.hero .sub{font:700 clamp(19px,1.7vw,23px)/1.35 var(--sans);color:var(--texto);opacity:.92;margin:14px 0 0;letter-spacing:-.01em}
+.hero .detalle{color:var(--sec);margin:18px 0 0;max-width:34em}
+.hero .detalle code{font:400 .92em var(--mono);color:var(--texto)}
+.accion{display:flex;align-items:center;flex-wrap:wrap;gap:16px 22px;margin-top:30px}
+.precio-hero{display:flex;flex-direction:column;gap:5px}
+.precio-hero strong{font:700 30px/1 var(--mono);color:var(--texto);letter-spacing:-.02em}
+.precio-hero strong small{font-size:15px;color:var(--sec);font-weight:400;margin-left:4px}
+.precio-hero span{font-size:13.5px;color:var(--sec)}
+.micro{font-size:14px;color:var(--sec);margin:16px 0 0}
+.micro b{color:var(--verde);font-weight:700}
+
+/* Laptop con la captura del juego */
+.escena{position:relative;padding-bottom:56px}
+@media (min-width:1100px){.escena{margin-right:-48px}}
+.laptop{position:relative;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+.laptop .pantalla{background:#1A1F27;border:2px solid #2A303A;border-radius:16px 16px 4px 4px;padding:12px 12px 14px;position:relative}
+.laptop .pantalla::before{content:"";position:absolute;top:5px;left:50%;width:5px;height:5px;margin-left:-2px;border-radius:50%;background:#39404B}
+.laptop .pantalla img{border-radius:3px;width:100%;aspect-ratio:16/9;object-fit:cover;background:#111}
+.laptop .base{height:16px;margin:0 -7%;background:linear-gradient(#2E3541,#1B2029);border-radius:0 0 14px 14px;position:relative}
+.laptop .base::before{content:"";position:absolute;top:0;left:50%;width:16%;height:6px;margin-left:-8%;background:#151920;border-radius:0 0 8px 8px}
+.globo{position:absolute;left:-34px;bottom:0;width:min(360px,74%);display:flex;gap:12px;align-items:flex-start;background:var(--globo);color:#1B222C;border-radius:12px;padding:14px 16px 14px 14px;box-shadow:0 18px 40px -10px rgba(0,0,0,.6);font-size:14.5px;line-height:1.45}
+.globo img{width:52px;height:52px;border:3px solid #58606C;background:#1B2029;flex:none}
+.globo p{margin:0}
+.globo .quien{display:block;font:400 8px/1 var(--pixel);color:#9A6A1F;letter-spacing:.06em;margin-bottom:8px}
+.dron{position:absolute;top:22px;left:-120px;width:96px;height:48px;background:url(assets/img/dron.png) 0 0/192px 48px no-repeat;image-rendering:pixelated;animation:rotor .16s steps(2) infinite,vuelo 19s linear infinite;opacity:.9;pointer-events:none;z-index:1}
+@keyframes rotor{to{background-position:-192px 0}}
+@keyframes vuelo{0%{transform:translate(0,0)}25%{transform:translate(32vw,10px)}50%{transform:translate(64vw,-4px)}75%{transform:translate(96vw,8px)}100%{transform:translate(128vw,0)}}
+
+/* ---------- Secciones ---------- */
+section{padding:88px 0}
+.encabezado{max-width:760px;margin-bottom:44px}
+.encabezado h2{font:700 clamp(28px,3.2vw,40px)/1.12 var(--sans);letter-spacing:-.02em;margin:18px 0 0;text-wrap:balance}
+.encabezado p{color:var(--sec);margin:14px 0 0;font-size:18px}
+
+/* Beneficios */
+.beneficios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.tarjeta{background:var(--panel);border:1px solid var(--borde);border-radius:12px;display:flex;flex-direction:column;overflow:hidden}
+.tarjeta .cuerpo{padding:24px 24px 22px;flex:1}
+.tarjeta h3{font:700 21px/1.25 var(--sans);letter-spacing:-.01em;margin:18px 0 10px}
+.tarjeta p{margin:0;color:var(--sec);font-size:16px}
+.tarjeta p q{color:var(--texto)}
+.tarjeta figure{margin:0;border-top:1px solid var(--borde);background:var(--hundido)}
+.tarjeta figure img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center}
+
+/* Demo */
+#demo{background:linear-gradient(180deg,transparent,rgba(22,27,34,.65) 18%,rgba(22,27,34,.65) 82%,transparent)}
+.video{max-width:980px;margin:0 auto;border:2px solid var(--borde);border-radius:12px;overflow:hidden;background:#000;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.video video{width:100%;aspect-ratio:16/9;background:#000}
+.pie{max-width:980px;margin:14px auto 0;color:var(--sec);font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.pie::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--azul)}
+#demo .encabezado{margin-left:auto;margin-right:auto;text-align:center}
+
+/* Evidencia */
+.evidencia{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center}
+blockquote{margin:0}
+.cita-grande{font:700 clamp(30px,3.6vw,46px)/1.15 var(--sans);letter-spacing:-.02em;margin:22px 0 0;text-wrap:balance}
+.cita-grande .comilla{color:var(--ambar)}
+.cita-de{color:var(--sec);margin:18px 0 0}
+.cifras{display:grid;gap:14px}
+.cifra{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.cifra strong{font:400 22px/1 var(--pixel);color:var(--verde);white-space:nowrap}
+.cifra span{color:var(--texto);font-size:16px;line-height:1.4}
+.cifra.cita strong{color:var(--ambar);font-size:30px;line-height:.6;padding-top:12px}
+.cifra.cita span{font-style:italic}
+.fuente{color:var(--tenue);font-size:13.5px;margin:4px 2px 0}
+.fuente a{color:var(--sec)}
+
+/* Apartar */
+#apartar{padding-bottom:110px}
+.apartar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;align-items:stretch}
+.precio,.formulario{background:var(--panel);border:1px solid var(--borde);border-radius:14px;padding:32px}
+.precio{display:flex;flex-direction:column;align-items:flex-start}
+.precio .incluye,.precio .extra{align-self:stretch}
+.monto{display:flex;align-items:baseline;gap:10px;margin:22px 0 4px}
+.monto strong{font:700 64px/1 var(--mono);letter-spacing:-.04em;color:var(--ambar)}
+.monto span{font:700 18px/1 var(--mono);color:var(--sec)}
+.monto-nota{color:var(--sec);margin:0 0 22px}
+.incluye{list-style:none;margin:0;padding:22px 0 0;border-top:1px solid var(--borde);display:grid;gap:12px}
+.incluye li{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:16px;line-height:1.45}
+.incluye li::before{content:"";width:14px;height:8px;margin-top:6px;border-left:3px solid var(--verde);border-bottom:3px solid var(--verde);transform:rotate(-45deg)}
+.extra{margin:22px 0 0;padding:16px 18px;border-radius:10px;background:var(--hundido);border:1px dashed var(--borde);color:var(--sec);font-size:14.5px;line-height:1.5}
+.extra b{color:var(--azul);font-weight:700}
+.formulario{border-color:var(--ambar);box-shadow:0 0 0 1px rgba(242,197,114,.15),0 24px 60px -24px rgba(242,197,114,.25)}
+.formulario h3{font:700 26px/1.2 var(--sans);margin:18px 0 6px;letter-spacing:-.01em}
+.formulario .intro{color:var(--sec);margin:0 0 24px}
+.campo{display:grid;gap:8px;margin-bottom:18px}
+.campo label{font-weight:700;font-size:15px}
+.campo input,.campo select{width:100%;font:400 16px/1.3 var(--sans);color:var(--texto);background:var(--hundido);border:2px solid var(--borde);border-radius:8px;padding:14px 14px;outline:none;transition:border-color .12s}
+.campo select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--sec) 50%),linear-gradient(135deg,var(--sec) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.campo input:focus,.campo select:focus{border-color:var(--ambar)}
+.campo input::placeholder{color:var(--tenue)}
+.acepto{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:14.5px;color:var(--sec);margin:4px 0 22px}
+.acepto input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--ambar)}
+.formulario .boton{width:100%;font-size:19px;padding:19px}
+.formulario .micro{text-align:center;margin-top:14px}
+.aviso{display:none;margin:16px 0 0;padding:12px 14px;border-radius:8px;border:1px solid var(--naranja);background:rgba(240,136,62,.08);color:var(--texto);font-size:14.5px}
+.aviso.visible{display:block}
+.listo{display:none;text-align:center;padding:26px 6px 10px}
+.listo h3{font:400 18px/1.4 var(--pixel);color:var(--ambar);margin:22px 0 16px}
+.listo p{color:var(--texto);margin:0 auto;max-width:28em}
+.listo .resumen{margin:22px auto 0;max-width:30em;text-align:left;border:1px solid var(--ambar);border-radius:8px;background:var(--hundido);padding:14px 16px;font-size:14.5px;color:var(--sec)}
+.listo .resumen b{color:var(--ambar);font-weight:400;font-family:var(--pixel);font-size:9px;letter-spacing:.05em}
+.listo .descarga{margin-top:24px}
+.listo .descarga-nota{font-size:13.5px;color:var(--sec);margin:12px auto 0;max-width:30em}
+.formulario.enviado form{display:none}
+.formulario.enviado .listo{display:block}
+
+/* Pie de página */
+footer{border-top:1px solid var(--borde);padding:40px 0 120px;color:var(--sec);font-size:14.5px}
+footer .contenedor{display:grid;gap:18px}
+footer .fila{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+footer details{background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:14px 18px}
+footer summary{cursor:pointer;color:var(--texto);font-weight:700}
+footer details p{margin:12px 0 0}
+.legal{color:var(--tenue);font-size:13px}
+
+/* Barra fija en el celular */
+.cta-movil{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(22,27,34,.96);border-top:1px solid var(--borde);display:none;transform:translateY(110%);transition:transform .22s ease}
+.cta-movil.visible{transform:none}
+.cta-movil .boton{width:100%;font-size:17px;padding:16px}
+
+/* ---------- Celular y tableta ---------- */
+@media (max-width:980px){
+  .hero .contenedor{grid-template-columns:1fr;gap:44px}
+  .escena{max-width:720px}
+  .beneficios{grid-template-columns:1fr;max-width:640px}
+  .evidencia,.apartar{grid-template-columns:1fr}
+  .apartar{max-width:640px}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .barra .precio-mini{display:none}
+  .solo-ancho{display:none}
+  .barra .boton.chico{padding:10px 13px;font-size:14px}
+  .hero{padding:40px 0 56px}
+  .hero h1{font-size:clamp(30px,8.4vw,40px)}
+  .hero h1 mark{white-space:normal}
+  .accion{gap:14px}
+  .accion .boton{width:100%}
+  .globo{left:10px;right:10px;width:auto;bottom:-18px;font-size:13.5px}
+  .globo img{width:42px;height:42px}
+  .escena{padding-bottom:84px}
+  section{padding:64px 0}
+  .precio,.formulario{padding:24px 20px}
+  .monto strong{font-size:54px}
+  .cta-movil{display:block}
+  .dron{top:8px}
+}
+@media (max-width:380px){
+  .logo span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .dron{display:none}
+  .led.parpadea{animation:none}
+  .boton,.cta-movil{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="contenedor">
+    <a class="logo" href="#" aria-label="GPIO Génesis, inicio">
+      <img src="assets/img/icono.svg" alt="" width="30" height="30">
+      <b>GPIO</b><span>GÉNESIS</span>
+    </a>
+    <div>
+      <span class="precio-mini">$249 MXN</span>
+      <a class="boton chico" href="#apartar" data-cta="barra">
+        <svg viewBox="0 0 10 11" aria-hidden="true"><path d="M0 0l10 5.5L0 11z" fill="currentColor"/></svg>Apartar<span class="solo-ancho">&nbsp;mi copia</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 1. HEADLINE + 2. VISUAL PRINCIPAL -->
+  <section class="hero" aria-labelledby="titulo">
+    <div class="dron" aria-hidden="true"></div>
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta"><span class="led parpadea" aria-hidden="true"></span>Pre-registro abierto</span>
+        <h1 id="titulo">Aprende C/C++ para microcontroladores arrancando una <mark>fábrica de drones</mark></h1>
+        <p class="sub">Si tu código falla, ves por qué; si funciona, va a tu portafolio.</p>
+        <p class="detalle">Escribes C/C++ de verdad para una Raspberry Pi Pico&nbsp;2 virtual. Hecho para estudiantes de ingeniería que quieren aprender sin que se sienta como tarea.</p>
+        <div class="accion" id="accion-hero">
+          <a class="boton" href="#apartar" data-cta="hero">
+            <svg viewBox="0 0 10 11" aria-hidden="true"><path d="M0 0l10 5.5L0 11z" fill="currentColor"/></svg>Apartar mi copia
+          </a>
+          <div class="precio-hero">
+            <strong>$249<small>MXN</small></strong>
+            <span>pago único · PC con Windows</span>
+          </div>
+        </div>
+        <p class="micro"><b>Sin pago ni tarjeta:</b> solo tu correo. Te avisamos cuando abra la venta.</p>
+      </div>
+
+      <div class="escena">
+        <div class="laptop">
+          <div class="pantalla">
+            <img src="assets/img/juego-alerta-1600.jpg"
+                 srcset="assets/img/juego-alerta-960.jpg 960w, assets/img/juego-alerta-1600.jpg 1600w"
+                 sizes="(max-width:980px) 92vw, 620px" width="1600" height="900"
+                 alt="GPIO Génesis en una laptop: a la izquierda la fábrica de drones en pixel art con una alerta en la cabina de pintura; a la derecha el código en C para la Raspberry Pi Pico 2 y el copiloto.">
+          </div>
+          <div class="base"></div>
+        </div>
+        <div class="globo" role="note">
+          <img class="pixelado" src="assets/img/retrato_copiloto.png" alt="" width="52" height="52">
+          <p><span class="quien">EL COPILOTO, EN EL JUEGO</span>«No te voy a dar el código: si lo escribo yo, la planta funciona pero tú no sabrías por qué.»</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="riel" aria-hidden="true"></div>
+
+  <!-- 3. TRES BENEFICIOS -->
+  <section id="beneficios" aria-labelledby="titulo-beneficios">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta ambar">Lo que ganas</span>
+        <h2 id="titulo-beneficios">Aprendes programando algo que se mueve</h2>
+      </div>
+      <div class="beneficios">
+        <article class="tarjeta">
+          <div class="cuerpo">
+            <span class="etiqueta">GP1 · Portafolio <span class="led" aria-hidden="true"></span></span>
+            <h3>Terminas con proyectos que compilan</h3>
+            <p>Cada turno que resuelves lo exportas como proyecto del Pico SDK (<code>main.c</code> o <code>main.cpp</code> + <code>CMakeLists</code>), listo para subirlo a GitHub y compilarlo para una Raspberry Pi Pico&nbsp;2 real.</p>
+          </div>
+          <figure><img loading="lazy" src="assets/img/beneficio-portafolio.jpg" width="800" height="525" alt="Ventana de GPIO Génesis al terminar: «Tú escribiste 14 líneas de código» y el botón «Exportar a mi portafolio»."></figure>
+        </article>
+        <article class="tarjeta">
+          <div class="cuerpo">
+            <span class="etiqueta">GP2 · Diagnóstico <span class="led" aria-hidden="true"></span></span>
+            <h3>Ves por qué falla tu código</h3>
+            <p>Tu programa mueve una fábrica: si falta una línea, la banda no arranca; si no esperas al sensor, el mismo chasis se pinta una y otra vez. El error se ve, no solo se lee.</p>
+          </div>
+          <figure><img loading="lazy" src="assets/img/beneficio-diagnostico.jpg" width="800" height="483" alt="La cabina de pintura del juego con una alerta: el panel CAPAS marca en rojo que el mismo chasis recibió capas de más."></figure>
+        </article>
+        <article class="tarjeta">
+          <div class="cuerpo">
+            <span class="etiqueta">GP3 · Copiloto <span class="led" aria-hidden="true"></span></span>
+            <h3>Un copiloto que te guía sin hacerte la tarea</h3>
+            <p>Primero te pregunta qué ve la planta; después te da pistas de menos a más, y la línea exacta llega solo al final, si la pides. En la demo del copiloto ni eso: si le pides la solución, se niega, y al cerrar el turno te dice <q>Líneas de código que escribió el copiloto: 0</q>.</p>
+          </div>
+          <figure><img loading="lazy" src="assets/img/beneficio-copiloto.jpg" width="760" height="475" alt="El copiloto del juego responde a «Dame la solución»: no te da el código, te da una pista."></figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DEMO CORTA -->
+  <section id="demo" aria-labelledby="titulo-demo">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta ambar">Demo</span>
+        <h2 id="titulo-demo">Míralo en 30 segundos</h2>
+      </div>
+      <div class="video">
+        <video id="video-demo" controls muted playsinline preload="metadata" poster="assets/video/demo-30s-poster.jpg">
+          <source src="assets/video/demo-30s.mp4" type="video/mp4">
+          Tu navegador no reproduce video. <a href="assets/video/demo-30s.mp4">Descárgalo aquí</a>.
+        </video>
+      </div>
+      <p class="pie" id="pie-video">Recorrido con capturas reales del juego: el error en la cabina de pintura, la pista del copiloto, el arreglo y la exportación al portafolio.</p>
+    </div>
+  </section>
+
+  <!-- 5. EVIDENCIA -->
+  <section id="evidencia" aria-labelledby="titulo-evidencia">
+    <div class="contenedor evidencia">
+      <div>
+        <span class="etiqueta ambar">Lo que nos dijeron</span>
+        <h2 id="titulo-evidencia" class="oculto">Evidencia de las entrevistas</h2>
+        <blockquote>
+          <p class="cita-grande"><span class="comilla">“</span>Como un pasatiempo… no como una clase formal.<span class="comilla">”</span></p>
+        </blockquote>
+        <p class="cita-de">Así quieren aprender a programar los jugadores que entrevistamos. Por eso GPIO Génesis es un juego, no un curso.</p>
+      </div>
+      <div class="cifras">
+        <div class="cifra"><strong>4 de 4</strong><span>juegan simulación o sandbox, sobre todo Minecraft</span></div>
+        <div class="cifra"><strong>3 de 4</strong><span>pagarían entre $100 y $400 MXN por un juego así</span></div>
+        <div class="cifra cita"><strong>“</strong><span>C++ se utiliza en todos los trabajos de hoy en día.</span></div>
+        <p class="fuente">Fuente: 4 entrevistas del equipo a jugadores, 2026 · <a href="../semanas/canvas-mercado-semana4/">ver el análisis</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="riel" aria-hidden="true"></div>
+
+  <!-- 6. PRECIO VISIBLE + 7. UN SOLO CTA -->
+  <section id="apartar" aria-labelledby="titulo-apartar">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta ambar">Precio</span>
+        <h2 id="titulo-apartar">Apártala hoy, sin pagar nada</h2>
+      </div>
+      <div class="apartar">
+        <div class="precio">
+          <span class="etiqueta">GPIO Génesis · Bloque 1</span>
+          <div class="monto"><strong>$249</strong><span>MXN</span></div>
+          <p class="monto-nota">Pago único. Para PC con Windows.</p>
+          <ul class="incluye">
+            <li>9 niveles del bloque 1: GPIO, máscaras de bits, antirrebote, interrupciones y prioridades</li>
+            <li>Demo avanzada con PWM, ADC e I2C</li>
+            <li>Copiloto con pistas y una referencia del Pico SDK en español</li>
+            <li>Exportación de cada turno a tu portafolio</li>
+            <li>En C o C++ con el Pico SDK; el nivel 1 también con la API de Arduino</li>
+          </ul>
+          <p class="extra"><b>Opcional:</b> Copiloto Pro con IA en la nube, $49 MXN/mes. Los bloques 2 y 3 (temporizadores, PWM, UART…) están en desarrollo.</p>
+        </div>
+
+        <div class="formulario" id="caja-formulario">
+          <form id="pre-registro" novalidate>
+            <span class="etiqueta"><span class="led parpadea" aria-hidden="true"></span>Pre-registro</span>
+            <h3>Aparta tu copia</h3>
+            <p class="intro">Déjanos tu correo y te avisamos el día que abra la venta, con el precio de $249.</p>
+            <div class="campo">
+              <label for="nombre">Tu nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80" placeholder="Ana">
+            </div>
+            <div class="campo">
+              <label for="correo">Tu correo</label>
+              <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="ana@correo.com">
+            </div>
+            <div class="campo">
+              <label for="carrera">¿Qué estudias?</label>
+              <select id="carrera" name="carrera" required>
+                <option value="" selected disabled>Elige una opción</option>
+                <option>Ing. Mecatrónica</option>
+                <option>Ing. en Sistemas o Computación</option>
+                <option>Ing. Electrónica</option>
+                <option>Ing. Industrial</option>
+                <option>Otra ingeniería</option>
+                <option>Otra carrera</option>
+                <option>Ya no estudio</option>
+              </select>
+            </div>
+            <label class="acepto"><input id="acepto" type="checkbox" required><span>Acepto que usen mis datos solo para avisarme del lanzamiento (<a href="#privacidad">aviso de privacidad</a>).</span></label>
+            <button class="boton" type="submit" id="boton-enviar">
+              <svg viewBox="0 0 10 11" aria-hidden="true"><path d="M0 0l10 5.5L0 11z" fill="currentColor"/></svg><span>Apartar mi copia</span>
+            </button>
+            <p class="micro"><b>Sin pago ni tarjeta.</b> No compartimos tu correo.</p>
+            <p class="aviso" id="aviso" role="alert"></p>
+          </form>
+
+          <div class="listo" id="listo" tabindex="-1" aria-live="polite">
+            <span class="etiqueta"><span class="led" aria-hidden="true"></span>Turno completado</span>
+            <h3>COPIA APARTADA</h3>
+            <p id="listo-texto">Te escribimos cuando abra la venta.</p>
+            <!-- Punto medio del RF-07: la descarga aparece solo después del pre-registro (la página sigue con un solo CTA) -->
+            <a class="boton descarga" id="descarga-demo" href="#" rel="noopener">
+              <svg viewBox="0 0 10 11" aria-hidden="true"><path d="M0 0l10 5.5L0 11z" fill="currentColor"/></svg>Descargar la demo gratis
+            </a>
+            <p class="descarga-nota" id="descarga-nota">Windows · 110 MB · nivel 1, demo y proyecto del copiloto y demo avanzada. Si Windows avisa que el archivo no es común: «Más información» → «Ejecutar de todos modos».</p>
+            <div class="resumen"><b>COPILOTO ·</b> Mientras tanto, cuéntale a alguien que también esté aprendiendo a programar microcontroladores.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <div class="fila">
+      <a class="logo" href="#"><img src="assets/img/icono.svg" alt="" width="30" height="30"><b>GPIO</b><span>GÉNESIS</span></a>
+      <span>Hecho por José Carlos y Yael, estudiantes de ingeniería · <a href="../proyecto-final/">Cómo lo construimos</a></span>
+    </div>
+    <details id="privacidad">
+      <summary>Aviso de privacidad (simplificado)</summary>
+      <p>Responsables: José Carlos y Yael, equipo de GPIO Génesis (proyecto escolar de Proyectos de Ingeniería 4). Con el pre-registro recabamos tu nombre, tu correo y lo que estudias. Los usamos solo para avisarte del lanzamiento del juego y para medir cuánto interés hay; no los vendemos ni los compartimos con nadie. <span id="privacidad-contacto">Para pedir que los borremos, escríbenos a <a id="correo-contacto" href="#"></a>.</span> Esta página cuenta visitas de forma anónima, sin cookies.</p>
+    </details>
+    <p class="legal">Raspberry Pi y Pico son marcas de Raspberry Pi Ltd. Arduino es marca de Arduino SA. GPIO Génesis es un proyecto independiente, sin relación con esas empresas.</p>
+  </div>
+</footer>
+
+<div class="cta-movil" id="cta-movil" aria-hidden="true">
+  <a class="boton" href="#apartar" data-cta="movil" tabindex="-1">
+    <svg viewBox="0 0 10 11" aria-hidden="true"><path d="M0 0l10 5.5L0 11z" fill="currentColor"/></svg>Apartar mi copia · $249
+  </a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN — lo único que hay que editar (ver notas/landing-gpio-genesis.md)
+   ============================================================ */
+const CONFIG = {
+  // 1) Pre-registro. Pega aquí el "vínculo prellenado" de tu Google Form,
+  //    hecho con las palabras NOMBRE, CORREO, CARRERA y ORIGEN en cada pregunta.
+  //    Ejemplo: "https://docs.google.com/forms/d/e/1FAIpQL.../viewform?usp=pp_url&entry.111=NOMBRE&entry.222=CORREO&entry.333=CARRERA&entry.444=ORIGEN"
+  formularioPrellenado: "https://docs.google.com/forms/d/e/1FAIpQLSd5c6ThiLDLyy1taxFvkZUUfGKlvCqxn8J8qwO97kopjAEk9g/viewform?usp=pp_url&entry.1340757598=NOMBRE&entry.957110696=CORREO&entry.1862125110=CARRERA&entry.1984776339=ORIGEN",
+
+  // 2) Métricas (visitas y clics en el botón). El código de tu sitio en goatcounter.com,
+  //    por ejemplo "gpiogenesis" si tu panel es https://gpiogenesis.goatcounter.com
+  goatcounter: "gpiogenesis",
+
+  // 3) Correo de contacto para el aviso de privacidad (para pedir que borren tus datos).
+  correoContacto: "josepi893002@gmail.com",
+
+  // 4) Descarga de la demo: aparece solo después del pre-registro. Este enlace siempre baja el archivo
+  //    GPIO_Genesis_demo.exe del Release más reciente del repositorio. Vacío = no se muestra el botón.
+  descargaDemo: "https://github.com/JC3468/Proyecto_ing_4/releases/latest/download/GPIO_Genesis_demo.exe"
+};
+
+(function () {
+  "use strict";
+  const $ = (s) => document.querySelector(s);
+  const movimientoReducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const barraMovil = $("#cta-movil");
+  let heroVisible = true, apartarVisible = false, yaRegistrado = false;
+  function actualizarBarra() {
+    const mostrar = !heroVisible && !apartarVisible && !yaRegistrado;
+    barraMovil.classList.toggle("visible", mostrar);
+    barraMovil.setAttribute("aria-hidden", mostrar ? "false" : "true");
+    barraMovil.querySelector("a").tabIndex = mostrar ? 0 : -1;
+  }
+
+  /* ---------- Origen de la visita (QR de la demo, WhatsApp, Instagram…) ---------- */
+  // Usa ?ref=qr o ?utm_source=whatsapp en el enlace que compartas.
+  let origen = "directo";
+  try {
+    const qs = new URLSearchParams(location.search);
+    origen = qs.get("ref") || qs.get("utm_source") || (document.referrer ? new URL(document.referrer).hostname : "directo");
+  } catch (e) {}
+  origen = String(origen).slice(0, 60);
+
+  /* ---------- Métricas: visitas, clics en el CTA, pre-registros ---------- */
+  if (CONFIG.goatcounter) {
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + CONFIG.goatcounter + ".goatcounter.com/count");
+    document.head.appendChild(s);
+  }
+  function medir(evento, titulo) {
+    try {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        window.goatcounter.count({ path: evento, title: titulo || evento, event: true });
+      }
+    } catch (e) {}
+  }
+
+  /* ---------- Botones del CTA: todos llevan al mismo formulario ---------- */
+  document.querySelectorAll("[data-cta]").forEach((a) => {
+    a.addEventListener("click", (ev) => {
+      medir("clic-cta-" + a.dataset.cta, "Clic en Apartar (" + a.dataset.cta + ")");
+      // En pantallas angostas el formulario va debajo del precio: se baja directo al formulario.
+      const angosta = window.matchMedia("(max-width: 980px)").matches;
+      const destino = angosta ? $("#caja-formulario") : $("#apartar");
+      if (!destino) return;
+      ev.preventDefault();
+      destino.scrollIntoView({ behavior: movimientoReducido ? "auto" : "smooth", block: "start" });
+      history.replaceState(null, "", "#apartar");
+      // En la computadora se enfoca el nombre; en el celular no, para no abrir el teclado de golpe.
+      if (!angosta) setTimeout(() => { const n = $("#nombre"); if (n && !$("#caja-formulario").classList.contains("enviado")) n.focus({ preventScroll: true }); }, movimientoReducido ? 0 : 650);
+    });
+  });
+
+  /* ---------- Aviso de privacidad: correo de contacto ---------- */
+  if (CONFIG.correoContacto) {
+    const a = $("#correo-contacto");
+    a.textContent = CONFIG.correoContacto;
+    a.href = "mailto:" + CONFIG.correoContacto;
+  } else {
+    $("#privacidad-contacto").remove();
+  }
+
+  /* ---------- Descarga de la demo (solo se ve después del pre-registro) ---------- */
+  const descarga = $("#descarga-demo");
+  if (CONFIG.descargaDemo) {
+    descarga.href = CONFIG.descargaDemo;
+    descarga.addEventListener("click", () => medir("descarga-demo", "Descargó la demo"));
+  } else {
+    descarga.remove();
+    $("#descarga-nota").remove();
+  }
+
+  /* ---------- Pre-registro → Google Forms (cae en una hoja de cálculo) ---------- */
+  function leerFormulario(enlace) {
+    try {
+      const u = new URL(enlace);
+      if (!/docs\.google\.com$/.test(u.hostname)) return null;
+      const accion = u.origin + u.pathname.replace(/\/viewform\/?$/, "/formResponse");
+      const campos = {};
+      u.searchParams.forEach((valor, clave) => {
+        if (clave.indexOf("entry.") === 0) campos[valor.trim().toUpperCase()] = clave;
+      });
+      if (!campos.NOMBRE || !campos.CORREO) return null;
+      return { accion: accion, campos: campos };
+    } catch (e) { return null; }
+  }
+  const destinoForm = leerFormulario(CONFIG.formularioPrellenado);
+  const local = location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  if (!destinoForm) {
+    console.warn("[GPIO Génesis] El pre-registro no está conectado: falta CONFIG.formularioPrellenado.");
+    if (local) mostrarAviso("Falta conectar el formulario: pega el vínculo prellenado de Google Forms en CONFIG.formularioPrellenado (ver notas/landing-gpio-genesis.md).");
+  }
+
+  const form = $("#pre-registro");
+  const boton = $("#boton-enviar");
+  let empezo = false;
+  form.addEventListener("focusin", () => { if (!empezo) { empezo = true; medir("formulario-inicio", "Empezó el pre-registro"); } });
+
+  function mostrarAviso(texto) {
+    const a = $("#aviso");
+    a.textContent = texto;
+    a.classList.add("visible");
+  }
+
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    $("#aviso").classList.remove("visible");
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const datos = {
+      NOMBRE: $("#nombre").value.trim(),
+      CORREO: $("#correo").value.trim(),
+      CARRERA: $("#carrera").value,
+      ORIGEN: origen
+    };
+    if (!destinoForm) {
+      mostrarAviso("Estamos terminando de abrir el pre-registro. Vuelve a intentarlo en unos minutos, por favor.");
+      return;
+    }
+    boton.disabled = true;
+    boton.querySelector("span").textContent = "Apartando…";
+    const cuerpo = new URLSearchParams();
+    Object.keys(destinoForm.campos).forEach((clave) => {
+      if (datos[clave] !== undefined) cuerpo.append(destinoForm.campos[clave], datos[clave]);
+    });
+    try {
+      // Google Forms no deja leer la respuesta desde otra página (no-cors): si la red respondió, se guardó.
+      await fetch(destinoForm.accion, { method: "POST", mode: "no-cors", body: cuerpo });
+      medir("pre-registro", "Pre-registro enviado");
+      $("#listo-texto").textContent = "Listo, " + datos.NOMBRE.split(" ")[0] + ". Te escribimos a " + datos.CORREO + " el día que abra la venta.";
+      $("#caja-formulario").classList.add("enviado");
+      yaRegistrado = true;
+      actualizarBarra();
+      $("#listo").focus();
+    } catch (e) {
+      boton.disabled = false;
+      boton.querySelector("span").textContent = "Apartar mi copia";
+      mostrarAviso("No pudimos enviar tus datos. Revisa tu conexión e inténtalo otra vez.");
+    }
+  });
+
+  /* ---------- Video: se reproduce solo (sin sonido) cuando está en pantalla ---------- */
+  const video = $("#video-demo");
+  let reprodujo = false;
+  video.addEventListener("play", () => { if (!reprodujo) { reprodujo = true; medir("demo-reproducir", "Reprodujo la demo"); } });
+  if ("IntersectionObserver" in window && !movimientoReducido) {
+    new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) { video.play().catch(() => {}); } else if (!video.paused) { video.pause(); }
+      });
+    }, { threshold: 0.55 }).observe(video);
+  }
+
+  /* ---------- Aviso de privacidad: el enlace del formulario lo abre ---------- */
+  document.querySelectorAll('a[href="#privacidad"]').forEach((a) => a.addEventListener("click", () => { $("#privacidad").open = true; }));
+
+  /* ---------- Barra fija del celular: aparece cuando el botón principal ya no se ve ---------- */
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; actualizarBarra(); }).observe($("#accion-hero"));
+    new IntersectionObserver(([e]) => { apartarVisible = e.isIntersecting; actualizarBarra(); }, { threshold: 0.15 }).observe($("#apartar"));
+  }
+})();
+</script>
+</body>
+</html>

@@ -10,7 +10,10 @@ nav:
       - Semana 5 - PDS y arquitectura: semanas/semana-05.md
       - Semana 6 - Concepto de diseño: semanas/semana-06.md
       - Semana 7 - Viabilidad técnica y económica: semanas/semana-07.md
+      - Semana 8 - Prototipado y diseño para manufactura: semanas/semana-08.md
+      - Semana 9 - Integración, go-to-market y pitch: semanas/semana-09.md
   - Proyecto final: proyecto-final.md
+  - Landing page (GPIO Génesis): https://jc3468.github.io/Proyecto_ing_4/gpio-genesis/
   - Ideas descartadas:
         - Semana 2: ideas_pasadas/semana2.md
         - Semana 2-1: ideas_pasadas/semana2-1.md

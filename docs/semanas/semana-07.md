@@ -10,7 +10,7 @@
 
     Entregables de esta página: benchmarking y modelo de ingresos (sección 2), inventario y clasificación de costos (sección 3), modelo financiero con fórmulas visibles (sección 4), ejercicios 1–9 (sección 5), taller D/F/S (sección 6) y checklist de salida (sección 8).
 
-**La respuesta corta:** con el **MVP de 5 niveles** el proyecto se paga en el mes 9 si vendemos unas 400 copias el primer año (VPN de **+$9,829 MXN**). Con los **22 niveles** de los tres bloques el VPN sale negativo salvo que vendamos todo el SOM. El dinero que de verdad sale del bolsillo es poco (≈ $9,000 MXN) y se recupera con unas 50 copias; lo caro son nuestras horas.
+**La respuesta corta:** con el **MVP de 5 niveles** el proyecto se paga en el mes 9 si vendemos unas 400 copias el primer año (VPN de **+$9,829 MXN**). Con los **22 niveles** de los tres bloques el VPN sale negativo salvo que vendamos todo el SOM. El dinero que de verdad sale del bolsillo es poco (≈ $9,000 MXN) y la recuperación en efectivo (~50 copias) corresponde a **49 copias** (MVP) y **50 copias** (3 bloques), mientras que la recuperación total contando horas requiere **322 copias** (con Pro) o **343 copias** (solo juego); lo caro son nuestras horas.
 
 ## Learning outcomes
 
@@ -204,7 +204,7 @@ Hicimos el modelo para los **dos alcances** (MVP y 3 bloques) y con **tres escen
 | Nube repartida (Supabase Pro, 12 meses) | $525 | $53 | $525 | $53 |
 | IA del copiloto | $0.86 | $0.86 | $6.28 | $6.28 |
 | Comisión de Steam (30%) | $74.70 | $74.70 | $74.70 | $74.70 |
-| **Costo unitario total** | **$6,030** | **$671** | **$12,606** | **$1,334** |
+| **Costo unitario total** | **$6,030.04** | **$671.01** | **$12,606.34** | **$1,333.52** |
 | de eso, variable (IA + comisión) | $75.56 | $75.56 | $80.98 | $80.98 |
 
 **Lectura:** a 10 copias cada una cuesta miles de pesos porque el desarrollo se reparte entre muy pocas. En un producto digital el costo variable es muy bajo (~$76–81 por copia, casi todo la comisión de Steam). El precio no se decide con el costo a 10 copias: lo que importa es el volumen.
@@ -239,7 +239,7 @@ En Pro el precio no lo decide el costo, porque la IA cuesta muy poco. Lo decide 
 |---|---|---|
 | Costos fijos del año 1, contando horas | $59,539 | $125,224 |
 | Margen de contribución por copia (juego + Pro) | $185.11 | $179.69 |
-| **Equilibrio contando horas** | **322 copias** | **697 copias** |
+| **Equilibrio contando horas (con Pro / solo juego)** | **322 / 343 copias** | **697 copias** |
 | Como % del SOM (1,100/año) | 29% | 63% |
 | **Equilibrio solo con el dinero que sale del bolsillo** | **49 copias** | **50 copias** |
 | ¿Alcanzable con el escenario base (400)? | **Sí** | **No**: faltan 297 copias |
@@ -272,18 +272,20 @@ Supusimos que las ventas tienen un pico en el lanzamiento, bajan y repuntan en e
 
 | VPN contando horas | MVP | 3 bloques |
 |---|---|---|
-| Pesimista (150 copias) | −$33,289 | −$99,738 |
+| Pesimista (150 copias) | −$28,418 | −$94,866 |
 | **Base (400 copias)** | **+$9,829** | **−$57,892** |
 | Optimista (1,100 copias) | +$130,561 | +$59,275 |
 | Mes en que el acumulado se vuelve positivo (base) | 9 | no en 12 meses |
 
 | VPN solo con el dinero que sale del bolsillo | MVP | 3 bloques |
 |---|---|---|
-| Pesimista / base / optimista | +$17,302 / +$60,420 / +$181,152 | +$16,514 / +$58,359 / +$175,526 |
+| Pesimista / base / optimista | +$22,173 / +$60,420 / +$181,152 | +$21,385 / +$58,359 / +$175,526 |
+
+*Nota: en el escenario pesimista (150 copias) el modelo usa el plan gratuito de Supabase, que alcanza a esa escala, así que no cuenta los $5,250 de Supabase Pro. Se controla con la celda `Supuestos!B35` (1 = Pro, 0 = gratuito). Los demás escenarios, el equilibrio y el costo unitario sí cuentan Supabase Pro.*
 
 **¿Crea valor en 12 meses?**
 
-- **MVP:** sí en el escenario base, por poco: +$9,829 sobre una inversión de $54,289, con una TIR mensual de 4.6%. Si vendemos 150 copias, no.
+- **MVP:** sí en el escenario base, por poco: +$9,829 sobre una inversión de $54,289, con una TIR mensual de 4.6%. Si vendemos 150 copias, el VPN pesimista es de −$28,418 MXN (ya con el plan gratuito de Supabase, que alcanza a esa escala).
 - **3 bloques:** solo si vendemos el SOM completo el primer año, que es muy optimista.
 - **En efectivo**, los dos alcances son positivos hasta en el escenario pesimista: el riesgo de perder dinero real es bajo. Lo que arriesgamos es **tiempo**.
 
@@ -354,7 +356,7 @@ La regla del curso dice que si el modelo no cierra, primero se recortan los F y 
 **Alertas:**
 
 1. **El tiempo es el cuello de botella, no el dinero.** El MVP pide ~423 h. Con 12 h/semana por persona son ~18 semanas, y quedan pocas semanas de curso. El modelo financiero supone que el juego se termina; el calendario dice que no a este ritmo.
-2. **El equilibrio contando horas está cerca del escenario base.** Necesitamos 322 copias y suponemos 400. Si vendemos menos de ~320, el MVP no recupera nuestras horas en el primer año.
+2. **El equilibrio contando horas está cerca del escenario base.** Necesitamos 322 copias (con Pro) o 343 copias (solo juego) y suponemos 400. Si vendemos menos de ~320, el MVP no recupera nuestras horas en el primer año.
 3. **Pro no está validado.** Supusimos que 10% se suscribe y 35% cancela cada mes; la semana 4 dice que el segmento piensa en "comprar un juego".
 4. **Los tokens no están medidos** (3,000 / 400 son estimados), y faltan cotizar la firma de código y el dominio y consultar impuestos.
 
@@ -372,10 +374,10 @@ La regla del curso dice que si el modelo no cierra, primero se recortan los F y 
 
 | Pregunta | Respuesta |
 |---|---|
-| Costo unitario a 10 unidades | **MVP $6,030 · 3 bloques $12,606 MXN** por copia (casi todo es desarrollo repartido; el costo variable es ~$76–81) |
+| Costo unitario a 10 unidades | **MVP $6,030.04 · 3 bloques $12,606.34 MXN** por copia (casi todo es desarrollo repartido; a 100 copias el costo es de $671.01 MXN y $1,333.52 MXN respectivamente, con costo variable de ~$76–81) |
 | Modelo de ingresos y su reto de diseño | **Juego $249 (pago único) + Copiloto Pro $49/mes.** Reto: que Pro dé algo nuevo cada mes, en un juego que tiene final |
 | Costo mensual de IA por usuario activo | **$1.31 MXN** (plan base) · **$2.62 MXN** (Pro), con Claude Haiku 5.5 |
-| ¿VPN a 12 meses positivo con números reales? | **MVP: sí, +$9,829** (base, 400 copias). **3 bloques: no, −$57,892.** En efectivo, los dos son positivos |
+| ¿VPN a 12 meses positivo con números reales? | **MVP: sí, +$9,829** (base, 400 copias; pesimista −$28,418 MXN con Supabase gratuito). **3 bloques: no, −$57,892.** En efectivo, los dos son positivos |
 
 **Archivos de la semana:**
 
